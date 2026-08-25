@@ -1,0 +1,88 @@
+import { Lexer, MarkedOptions, Token } from "./types.lil";
+import { lex, lexInline } from "./lexer.lil";
+import { optionFlag, parseMarkdown, renderInline, renderTokens } from "./parse.lil";
+import { tokensToMdast } from "./to-mdast.lil";
+
+export extern class ParseOptions {
+  JsValue gfm;
+  JsValue breaks;
+  JsValue math;
+  JsValue allowDangerousHtml;
+  JsValue singleTilde;
+  JsValue pedantic;
+  JsValue silent;
+}
+
+JsValue asOptions(JsValue encodingOrOptions, JsValue options) {
+  if (!JS.isUndefined(options) && !JS.isNullish(options) && JS.typeOf(options) == "object") {
+    return options;
+  }
+  if (!JS.isUndefined(encodingOrOptions) && !JS.isNullish(encodingOrOptions) && JS.typeOf(encodingOrOptions) == "object") {
+    return encodingOrOptions;
+  }
+  return JS.object();
+}
+
+string readText(JsValue value) {
+  if (value is string) {
+    return value;
+  }
+  if (JS.isUndefined(value) || JS.isNullish(value)) {
+    return "";
+  }
+  return JS.string(value);
+}
+
+JsValue markedOpts(JsValue opt) {
+  ParseOptions parsed = JS.assume(opt);
+  MarkedOptions next = JS.assume(JS.object());
+  next.gfm = optionFlag(parsed.gfm, false);
+  next.breaks = optionFlag(parsed.breaks, false);
+  next.pedantic = optionFlag(parsed.pedantic, false);
+  next.silent = optionFlag(parsed.silent, false);
+  next.async = false;
+  next.allowDangerousHtml = optionFlag(parsed.allowDangerousHtml, false);
+  return next;
+}
+
+bool allowHtml(JsValue opt) {
+  ParseOptions parsed = JS.assume(opt);
+  return optionFlag(parsed.allowDangerousHtml, false);
+}
+
+export string compile(string src, JsValue opt) {
+  return parseMarkdown(src, true, markedOpts(opt));
+}
+
+JsValue micromarkCall(JsValue self, JsValue args) {
+  int n = JS.number(args["length"]).toInt();
+  string value = "";
+  if (n > 0) {
+    value = readText(args[0]);
+  }
+  JsValue opt = JS.object();
+  if (n > 1) {
+    JsValue second = JS.undefined();
+    if (n > 2) {
+      second = args[2];
+    }
+    opt = asOptions(args[1], second);
+  }
+  return compile(value, opt);
+}
+
+export JsValue micromark = JS.methodRest(micromarkCall);
+export JsValue default = micromark;
+
+export JsValue fromMarkdown(string src, JsValue opt) {
+  ParseOptions parsed = JS.assume(opt);
+  Lexer lx = new Lexer(optionFlag(parsed.gfm, false), optionFlag(parsed.breaks, false), optionFlag(parsed.pedantic, false), optionFlag(parsed.silent, false));
+  Token[] tokens = lex(lx, src);
+  return tokensToMdast(tokens, allowHtml(opt));
+}
+
+export string parseInline(string src, JsValue opt) {
+  ParseOptions parsed = JS.assume(opt);
+  Lexer lx = new Lexer(optionFlag(parsed.gfm, false), optionFlag(parsed.breaks, false), optionFlag(parsed.pedantic, false), optionFlag(parsed.silent, false));
+  return renderInline(lexInline(lx, src), false);
+}

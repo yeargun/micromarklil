@@ -1,0 +1,68 @@
+{
+  "name": "@itslil/micromark",
+  "version": "4.0.2",
+  "description": "micromark markdown compiler reimplemented in LilScript",
+  "keywords": [
+    "micromark",
+    "markdown",
+    "commonmark",
+    "compiler",
+    "lilscript",
+    "itslil"
+  ],
+  "homepage": "https://yeargun.github.io/micromarklil/",
+  "bugs": "https://github.com/yeargun/micromarklil/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeargun/micromarklil.git"
+  },
+  "license": "MIT",
+  "author": "yeargun",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/micromark.cjs",
+  "module": "./dist/micromark.esm.js",
+  "types": "./dist/micromark.d.ts",
+  "unpkg": "./dist/micromark.umd.js",
+  "jsdelivr": "./dist/micromark.umd.js",
+  "exports": {
+    ".": {
+      "types": "./dist/micromark.d.ts",
+      "import": "./dist/micromark.esm.js",
+      "require": "./dist/micromark.cjs",
+      "default": "./dist/micromark.esm.js"
+    },
+    "./closed": "./dist/micromark.closed.js",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "dist/micromark.esm.js",
+    "dist/micromark.cjs",
+    "dist/micromark.umd.js",
+    "dist/micromark.closed.js",
+    "dist/micromark.d.ts",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs --compile",
+    "build:site": "node scripts/build-site.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check:site": "npm run build:site && node --test test/site.test.mjs",
+    "check:pack": "node scripts/check-pack.mjs",
+    "prepublishOnly": "npm test && npm run check:pack && npm run check:site"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1",
+    "marked": "18.0.10"
+  }
+}
