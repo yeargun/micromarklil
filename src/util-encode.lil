@@ -1,0 +1,23 @@
+import { objGet } from "./host.lil";
+
+JsValue characterReferences = JS.object();
+JS.set(characterReferences, "\"", "quot");
+JS.set(characterReferences, "&", "amp");
+JS.set(characterReferences, "<", "lt");
+JS.set(characterReferences, ">", "gt");
+
+export string encode(string value) {
+  string out = "";
+  int i = 0;
+  int n = value.length;
+  while (i < n) {
+    string ch = value.charAt(i);
+    if (ch == "\"" || ch == "&" || ch == "<" || ch == ">") {
+      out = out + "&" + JS.string(objGet(characterReferences, ch)) + ";";
+    } else {
+      out = out + ch;
+    }
+    i = i + 1;
+  }
+  return out;
+}

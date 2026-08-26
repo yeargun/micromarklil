@@ -1,6 +1,6 @@
 {
   "name": "@itslil/micromark",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "micromark markdown compiler reimplemented in LilScript",
   "keywords": [
     "micromark",
@@ -56,12 +56,15 @@
   "scripts": {
     "build": "node scripts/build.mjs --compile",
     "build:site": "node scripts/build-site.mjs",
-    "test": "node --test test/*.test.mjs",
+    "test": "node --test test/official/index.js",
     "check:site": "npm run build:site && node --test test/site.test.mjs",
     "check:pack": "node scripts/check-pack.mjs",
     "prepublishOnly": "npm test && npm run check:pack && npm run check:site"
   },
   "devDependencies": {
+    "character-entities": "^2.0.2",
+    "commonmark.json": "^0.31.0",
+    "concat-stream": "^2.0.0",
     "esbuild": "0.28.1",
     "marked": "18.0.10"
   }

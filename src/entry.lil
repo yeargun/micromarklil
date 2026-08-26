@@ -1,88 +1,43 @@
-import { Lexer, MarkedOptions, Token } from "./types.lil";
-import { lex, lexInline } from "./lexer.lil";
-import { optionFlag, parseMarkdown, renderInline, renderTokens } from "./parse.lil";
-import { tokensToMdast } from "./to-mdast.lil";
+import { isStr, undef } from "./host.lil";
+import { compile as compileHtml } from "./compile.lil";
+import { parse as parseMarkdown } from "./parse.lil";
+import { postprocess as postprocessEvents } from "./postprocess.lil";
+import { preprocess as preprocessMarkdown } from "./preprocess.lil";
+import { stream as streamMarkdown } from "./stream.lil";
+import { SpliceBuffer as SpliceBufferClass } from "./splice-buffer.lil";
+import { decodeString as decodeStringValue } from "./util-decode-string.lil";
+import { splice as spliceList } from "./util-chunked.lil";
+import { htmlBlockNames as htmlBlockNameList, htmlRawNames as htmlRawNameList } from "./util-html-tag-name.lil";
+import { codes as codeTable } from "./symbol/codes.lil";
+import { constants as constantTable } from "./symbol/constants.lil";
+import { types as typeTable } from "./symbol/types.lil";
+import { values as valueTable } from "./symbol/values.lil";
 
-export extern class ParseOptions {
-  JsValue gfm;
-  JsValue breaks;
-  JsValue math;
-  JsValue allowDangerousHtml;
-  JsValue singleTilde;
-  JsValue pedantic;
-  JsValue silent;
-}
+export JsValue compile = compileHtml;
+export JsValue parse = parseMarkdown;
+export JsValue postprocess = postprocessEvents;
+export JsValue preprocess = preprocessMarkdown;
+export JsValue stream = streamMarkdown;
+export JsValue SpliceBuffer = SpliceBufferClass;
+export JsValue decodeString = decodeStringValue;
+export JsValue splice = spliceList;
+export JsValue htmlBlockNames = htmlBlockNameList;
+export JsValue htmlRawNames = htmlRawNameList;
+export JsValue codes = codeTable;
+export JsValue constants = constantTable;
+export JsValue types = typeTable;
+export JsValue values = valueTable;
 
-JsValue asOptions(JsValue encodingOrOptions, JsValue options) {
-  if (!JS.isUndefined(options) && !JS.isNullish(options) && JS.typeOf(options) == "object") {
-    return options;
+export JsValue micromark(JsValue value, JsValue encodingOrOptions, JsValue options) {
+  JsValue encoding = encodingOrOptions;
+  JsValue settings = options;
+  if (!isStr(encodingOrOptions)) {
+    settings = encodingOrOptions;
+    encoding = undef();
   }
-  if (!JS.isUndefined(encodingOrOptions) && !JS.isNullish(encodingOrOptions) && JS.typeOf(encodingOrOptions) == "object") {
-    return encodingOrOptions;
-  }
-  return JS.object();
-}
-
-string readText(JsValue value) {
-  if (value is string) {
-    return value;
-  }
-  if (JS.isUndefined(value) || JS.isNullish(value)) {
-    return "";
-  }
-  return JS.string(value);
-}
-
-JsValue markedOpts(JsValue opt) {
-  ParseOptions parsed = JS.assume(opt);
-  MarkedOptions next = JS.assume(JS.object());
-  next.gfm = optionFlag(parsed.gfm, false);
-  next.breaks = optionFlag(parsed.breaks, false);
-  next.pedantic = optionFlag(parsed.pedantic, false);
-  next.silent = optionFlag(parsed.silent, false);
-  next.async = false;
-  next.allowDangerousHtml = optionFlag(parsed.allowDangerousHtml, false);
-  return next;
-}
-
-bool allowHtml(JsValue opt) {
-  ParseOptions parsed = JS.assume(opt);
-  return optionFlag(parsed.allowDangerousHtml, false);
-}
-
-export string compile(string src, JsValue opt) {
-  return parseMarkdown(src, true, markedOpts(opt));
-}
-
-JsValue micromarkCall(JsValue self, JsValue args) {
-  int n = JS.number(args["length"]).toInt();
-  string value = "";
-  if (n > 0) {
-    value = readText(args[0]);
-  }
-  JsValue opt = JS.object();
-  if (n > 1) {
-    JsValue second = JS.undefined();
-    if (n > 2) {
-      second = args[2];
-    }
-    opt = asOptions(args[1], second);
-  }
-  return compile(value, opt);
-}
-
-export JsValue micromark = JS.methodRest(micromarkCall);
-export JsValue default = micromark;
-
-export JsValue fromMarkdown(string src, JsValue opt) {
-  ParseOptions parsed = JS.assume(opt);
-  Lexer lx = new Lexer(optionFlag(parsed.gfm, false), optionFlag(parsed.breaks, false), optionFlag(parsed.pedantic, false), optionFlag(parsed.silent, false));
-  Token[] tokens = lex(lx, src);
-  return tokensToMdast(tokens, allowHtml(opt));
-}
-
-export string parseInline(string src, JsValue opt) {
-  ParseOptions parsed = JS.assume(opt);
-  Lexer lx = new Lexer(optionFlag(parsed.gfm, false), optionFlag(parsed.breaks, false), optionFlag(parsed.pedantic, false), optionFlag(parsed.silent, false));
-  return renderInline(lexInline(lx, src), false);
+  JsValue parser = parseMarkdown(settings);
+  JsValue tokenizer = JS.call(JS.get(parser, "document"), parser);
+  JsValue chunks = JS.call(preprocessMarkdown(), JS.undefined(), value, encoding, true);
+  JsValue events = JS.call(JS.get(tokenizer, "write"), tokenizer, chunks);
+  return JS.call(compileHtml(settings), JS.undefined(), postprocessEvents(events));
 }

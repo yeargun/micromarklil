@@ -1,0 +1,81 @@
+import { asciiAlphanumeric } from "./util-character.lil";
+import { encode } from "./util-encode.lil";
+import { cPercentSign, codeEq } from "./symbol/codes.lil";
+import { encodeUriComp, fromCharCode1, fromCharCode2, isNullish, jsString } from "./host.lil";
+import { vReplacementCharacter } from "./symbol/values.lil";
+
+Regex safeAscii = new Regex("[!#$&-;=?-Z_a-z~]", "");
+
+export string normalizeUri(string value) {
+  string out = "";
+  int index = -1;
+  int start = 0;
+  int skip = 0;
+  int n = value.length;
+  while (true) {
+    index = index + 1;
+    if (index >= n) {
+      break;
+    }
+    int code = value.charCodeAt(index);
+    string replace = "";
+    if (code == cPercentSign && asciiAlphanumeric(value.charCodeAt(index + 1)) && asciiAlphanumeric(value.charCodeAt(index + 2))) {
+      skip = 2;
+    } else if (code < 128) {
+      if (!safeAscii.test(fromCharCode1(code))) {
+        replace = fromCharCode1(code);
+      }
+    } else if (code > 55295 && code < 57344) {
+      int next = value.charCodeAt(index + 1);
+      if (code < 56320 && next > 56319 && next < 57344) {
+        replace = fromCharCode2(code, next);
+        skip = 1;
+      } else {
+        replace = vReplacementCharacter;
+      }
+    } else {
+      replace = fromCharCode1(code);
+    }
+    if (replace.length > 0) {
+      out = out + value.slice(start, index) + encodeUriComp(replace);
+      start = index + skip + 1;
+      replace = "";
+    }
+    if (skip > 0) {
+      index = index + skip;
+      skip = 0;
+    }
+  }
+  return out + value.slice(start);
+}
+
+export string sanitizeUri(JsValue url, JsValue protocol) {
+  string raw = "";
+  if (!isNullish(url)) {
+    raw = jsString(url);
+  }
+  string value = encode(normalizeUri(raw));
+  if (!protocol.truthy()) {
+    return value;
+  }
+  int colon = value.indexOf(":");
+  int questionMark = value.indexOf("?");
+  int numberSign = value.indexOf("#");
+  int slash = value.indexOf("/");
+  bool ok = false;
+  if (colon == -1) {
+    ok = true;
+  } else if (slash != -1 && colon > slash) {
+    ok = true;
+  } else if (questionMark != -1 && colon > questionMark) {
+    ok = true;
+  } else if (numberSign != -1 && colon > numberSign) {
+    ok = true;
+  } else if (JS.call(JS.get(protocol, "test"), protocol, value.slice(0, colon)).truthy()) {
+    ok = true;
+  }
+  if (ok) {
+    return value;
+  }
+  return "";
+}

@@ -30,7 +30,7 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="live-dot"></span> micromark@4.0.2 · LilScript port · @itslil/micromark</p>
           <h1>Markdown,<br /><em>compiled</em></h1>
-          <p class="lede">This is not micromark. It is a LilScript markdown→HTML compiler whose 660 CommonMark+GFM cases match <code>marked@18.0.10</code> HTML. Official rows are the published <code>micromark@4</code> runtime graph, then Terser and esbuild.</p>
+          <p class="lede">Official <code>micromark@4.0.2</code> algorithms rewritten in LilScript. Official test suite 1927/1927. Not affiliated with upstream. Official rows are the published <code>micromark@4</code> runtime graph, then Terser and esbuild.</p>
           <div class="install-row">
             <code>npm install @itslil/micromark</code>
             <button class="copy" data-copy="npm install @itslil/micromark" type="button">copy</button>
@@ -50,7 +50,7 @@
             <div><strong id="hero-shipped">—</strong><span>Brotli-11 you ship, vs Terser</span></div>
             <div><strong id="hero-gzip">—</strong><span>gzip-9 vs Terser</span></div>
             <div><strong id="hero-raw">—</strong><span>raw vs Terser</span></div>
-            <div><strong id="hero-spec">—</strong><span>marked HTML matches</span></div>
+            <div><strong id="hero-spec">—</strong><span>official suite</span></div>
           </div>
           <p class="score-note">
             Official rows are one esbuild bundle of <code>micromark@4.0.2</code> plus the packages it needs at runtime, then Terser or esbuild.
@@ -59,7 +59,7 @@
         </div>
       </section>
       <section class="ticker" aria-label="Supported features">
-        <div>commonmark <span>✦</span> gfm <span>✦</span> tables <span>✦</span> task lists <span>✦</span> fences <span>✦</span> autolinks <span>✦</span> allowDangerousHtml</div>
+        <div>commonmark <span>✦</span> fences <span>✦</span> autolinks <span>✦</span> allowDangerousHtml <span>✦</span> stream <span>✦</span> tree-shake</div>
       </section>
       <section class="performance shell" id="performance">
         <div class="section-heading">
@@ -69,7 +69,7 @@
           </div>
           <p>
             Not Playwright — Node v22.21.1 on this machine, quiet median after warmup.
-            Race 10× in the playground for a browser number. The 660-case corpus is checksummed before any size row is a claim.
+            Race 10× in the playground for a browser number. The official test suite (1927/1927) is green before any size row is a claim.
           </p>
         </div>
         <div class="perf-cards" id="perf-cards"></div>
@@ -196,7 +196,7 @@
     </main>
     <footer class="shell">
       <span>@itslil/micromark · MIT</span>
-      <span>micromark@4.0.2, rewritten in LilScript — not the full official package</span>
+      <span>official micromark@4.0.2 algorithms rewritten in LilScript — official test suite 1927/1927 — not affiliated with upstream</span>
       <a href="https://github.com/yeargun/micromarklil">source ↗</a>
     </footer>
   </body>

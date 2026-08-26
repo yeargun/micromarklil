@@ -10,9 +10,9 @@
   "warmupDiscard": 3,
   "comparison": "Official rows are an esbuild bundle of micromark@4.0.2 plus its runtime graph, then Terser or esbuild. LilScript is the compiled npm file. Closed is extern_fields=false.",
   "spec": {
-    "total": 660,
-    "pass": 660,
-    "label": "marked HTML matches"
+    "total": 1927,
+    "pass": 1927,
+    "label": "official suite"
   },
   "play": {
     "kind": "md-html",
@@ -66,18 +66,18 @@
     {
       "id": "itslil",
       "name": "@itslil/micromark · library",
-      "raw": 39227,
-      "gzip9": 12021,
-      "brotli11": 10756,
+      "raw": 126220,
+      "gzip9": 39156,
+      "brotli11": 32819,
       "note": "LilScript js-module, extern_fields true. The npm ESM.",
       "primary": true
     },
     {
       "id": "itslil-closed",
       "name": "@itslil/micromark · closed",
-      "raw": 39147,
-      "gzip9": 11963,
-      "brotli11": 10711,
+      "raw": 126140,
+      "gzip9": 39081,
+      "brotli11": 32703,
       "note": "Same source, extern_fields false"
     }
   ],
