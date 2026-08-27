@@ -39,7 +39,6 @@ export function preprocess(): (
   end?: boolean,
 ) => unknown[]
 export function postprocess(events: unknown): unknown
-export function stream(options?: Options | null): unknown
 export class SpliceBuffer {
   constructor(initial?: unknown[])
   get length(): number
@@ -48,16 +47,10 @@ export class SpliceBuffer {
   splice(start: number, remove: number, items?: unknown[]): unknown[]
   slice(start?: number, end?: number): unknown[]
 }
-export function decodeString(value: string): string
 export function splice(
   list: unknown[],
   start: number,
   remove: number,
   items: unknown[],
 ): void
-export const htmlBlockNames: string[]
 export const htmlRawNames: string[]
-export const codes: Record<string, number | null>
-export const constants: Record<string, number | string>
-export const types: Record<string, string>
-export const values: Record<string, string>
