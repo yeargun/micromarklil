@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import concatStream from 'concat-stream'
-import {stream} from '../../../../dist/micromark.esm.js'
+import {stream} from '@itslil/micromark/stream'
 import {micromark} from '../../../../dist/micromark.esm.js'
 import {slowStream} from '../../util/slow-stream.js'
 

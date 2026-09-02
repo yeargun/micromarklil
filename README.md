@@ -8,6 +8,13 @@ Official [`micromark@4.0.2`](https://github.com/micromark/micromark) algorithms 
 npm install @itslil/micromark
 ```
 
+The package mirrors micromark's public entry points:
+
+```js
+import {micromark} from '@itslil/micromark'
+import {stream} from '@itslil/micromark/stream'
+```
+
 Two compiles ship from the same `.lil` source:
 
 | Lane | Config | Meaning |

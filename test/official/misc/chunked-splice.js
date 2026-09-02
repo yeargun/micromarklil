@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {splice} from '../../../dist/micromark.esm.js'
+import {splice} from '../../../dist/micromark.test.js'
 
 test('splice', async function (t) {
   const lots = [...Array.from({length: 140_000}).keys()]

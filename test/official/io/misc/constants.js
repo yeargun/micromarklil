@@ -1,8 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {characterEntities} from 'character-entities'
-import {htmlRawNames} from '../../../../dist/micromark.esm.js'
-import {constants} from '../../../../dist/micromark.esm.js'
+import {htmlRawNames, constants} from '../../../../dist/micromark.test.js'
 
 test('constants', async function (t) {
   await t.test('`characterReferenceDecimalSizeMax`', async function () {

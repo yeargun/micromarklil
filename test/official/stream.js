@@ -3,7 +3,7 @@ import {createReadStream, createWriteStream, promises as fs} from 'node:fs'
 import {PassThrough, Readable} from 'node:stream'
 import test from 'node:test'
 import concatStream from 'concat-stream'
-import {stream} from '../../dist/micromark.esm.js'
+import {stream} from '@itslil/micromark/stream'
 import {slowStream} from './util/slow-stream.js'
 
 test('stream', async function (t) {

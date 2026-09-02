@@ -17,6 +17,8 @@ export JsValue compile = compileHtml;
 export JsValue parse = parseMarkdown;
 export JsValue postprocess = postprocessEvents;
 export JsValue preprocess = preprocessMarkdown;
+
+// Keep dynamically referenced runtime values live; build.mjs narrows the public bundle to micromark's API.
 export JsValue stream = streamMarkdown;
 export JsValue SpliceBuffer = SpliceBufferClass;
 export JsValue decodeString = decodeStringValue;

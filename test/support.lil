@@ -1,0 +1,11 @@
+import { SpliceBuffer as SpliceBufferClass } from "../src/splice-buffer.lil";
+import { constants as constantTable } from "../src/symbol/constants.lil";
+import { splice as spliceList } from "../src/util-chunked.lil";
+import { decodeString as decodeStringValue } from "../src/util-decode-string.lil";
+import { htmlRawNames as htmlRawNameList } from "../src/util-html-tag-name.lil";
+
+export JsValue SpliceBuffer = SpliceBufferClass;
+export JsValue constants = constantTable;
+export JsValue decodeString = decodeStringValue;
+export JsValue htmlRawNames = htmlRawNameList;
+export JsValue splice = spliceList;

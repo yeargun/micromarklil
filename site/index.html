@@ -54,7 +54,7 @@
           </div>
           <p class="score-note">
             Official rows are one esbuild bundle of <code>micromark@4.0.2</code> plus the packages it needs at runtime, then Terser or esbuild.
-            LilScript is not post-minified. The npm file is the Brotli-scored compile. Closed LilScript is the same source with <code>extern_fields = false</code>.
+            The npm file is the Brotli-scored compile with a thin export filter. Closed LilScript is the same source with <code>extern_fields = false</code>.
           </p>
         </div>
       </section>
@@ -129,7 +129,7 @@
             </div>
             <p>
               Official micromark@4.0.2 bundled with its runtime graph, then Terser (mangle on/off) and esbuild minify.
-              LilScript is not post-minified. Closed LilScript is Brotli with <code>extern_fields = false</code>.
+              The LilScript npm file uses an export-only esbuild pass. Closed LilScript is Brotli with <code>extern_fields = false</code>.
             </p>
           </div>
           <div class="codec-block">

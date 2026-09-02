@@ -8,7 +8,7 @@
   "codec": "lilscript-codec gzip-9 / brotli-11",
   "runtime": "Node v22.21.1",
   "warmupDiscard": 3,
-  "comparison": "Official rows are an esbuild bundle of micromark@4.0.2 plus its runtime graph, then Terser or esbuild. LilScript is the compiled npm file. Closed is extern_fields=false.",
+  "comparison": "Official rows are an esbuild bundle of micromark@4.0.2 plus its runtime graph, then Terser or esbuild. LilScript is the compiled npm file with its public exports filtered by esbuild. Closed is extern_fields=false.",
   "spec": {
     "total": 1927,
     "pass": 1927,
@@ -66,18 +66,18 @@
     {
       "id": "itslil",
       "name": "@itslil/micromark · library",
-      "raw": 89252,
-      "gzip9": 30556,
-      "brotli11": 26157,
-      "note": "LilScript js-module, extern_fields true. The npm ESM.",
+      "raw": 87117,
+      "gzip9": 30931,
+      "brotli11": 26097,
+      "note": "LilScript js-module, extern_fields true, with an esbuild export filter. The npm ESM.",
       "primary": true
     },
     {
       "id": "itslil-closed",
       "name": "@itslil/micromark · closed",
-      "raw": 90737,
-      "gzip9": 31096,
-      "brotli11": 26579,
+      "raw": 93773,
+      "gzip9": 33040,
+      "brotli11": 27720,
       "note": "Same source, extern_fields false"
     }
   ],

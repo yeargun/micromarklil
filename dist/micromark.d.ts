@@ -1,56 +1,32 @@
-export interface Options {
-  allowDangerousHtml?: boolean
-  allowDangerousProtocol?: boolean
-  defaultLineEnding?: '\r' | '\n' | '\r\n'
-  extensions?: Array<Record<string, unknown>>
-  htmlExtensions?: Array<Record<string, unknown>>
-}
+import type {
+  Chunk,
+  Compile,
+  CompileOptions,
+  Encoding,
+  Event,
+  Options,
+  ParseContext,
+  ParseOptions,
+  Value
+} from 'micromark-util-types'
+
+export type {Options} from 'micromark-util-types'
 
 export function micromark(
-  value: string | Uint8Array,
-  encoding?: string | Options | null,
-  options?: Options | null,
+  value: Value,
+  encoding: Encoding | null | undefined,
+  options?: Options | null | undefined
+): string
+export function micromark(
+  value: Value,
+  options?: Options | null | undefined
 ): string
 
-export function parse(options?: Options | null): {
-  constructs: unknown
-  defined: string[]
-  lazy: Record<string, boolean>
-  content(from?: unknown): TokenizeContext
-  document(from?: unknown): TokenizeContext
-  flow(from?: unknown): TokenizeContext
-  string(from?: unknown): TokenizeContext
-  text(from?: unknown): TokenizeContext
-}
-
-export interface TokenizeContext {
-  write(slice: unknown[]): unknown[]
-  defineSkip(point: unknown): void
-  now(): unknown
-  sliceSerialize(token: unknown, expandTabs?: boolean): string
-  sliceStream(token: unknown): unknown[]
-  events: unknown[]
-}
-
-export function compile(options?: Options | null): (events: unknown) => string
+export function parse(options?: ParseOptions | null | undefined): ParseContext
+export function compile(options?: CompileOptions | null | undefined): Compile
 export function preprocess(): (
-  value: string | Uint8Array,
-  encoding?: string | null,
-  end?: boolean,
-) => unknown[]
-export function postprocess(events: unknown): unknown
-export class SpliceBuffer {
-  constructor(initial?: unknown[])
-  get length(): number
-  push(item: unknown): void
-  pop(): unknown
-  splice(start: number, remove: number, items?: unknown[]): unknown[]
-  slice(start?: number, end?: number): unknown[]
-}
-export function splice(
-  list: unknown[],
-  start: number,
-  remove: number,
-  items: unknown[],
-): void
-export const htmlRawNames: string[]
+  value: Value,
+  encoding?: Encoding | null | undefined,
+  end?: boolean | null | undefined
+) => Array<Chunk>
+export function postprocess(events: Array<Event>): Array<Event>

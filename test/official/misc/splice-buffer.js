@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {SpliceBuffer} from '../../../dist/micromark.esm.js'
+import {SpliceBuffer} from '../../../dist/micromark.test.js'
 
 test('SpliceBuffer', async function (t) {
   await t.test('should splice on an empty buffer', async function () {

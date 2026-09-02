@@ -2,7 +2,7 @@ import { arrLen, call0, call1, call2, hasOwn, isFn, isUndef, jsInt, jsString, ob
 import { pushAll } from "./util-chunked.lil";
 import { combineHtmlExtensions } from "./util-combine-extensions.lil";
 import { decodeNamedCharacterReference } from "./decode-named.lil";
-import { decodeNumericCharacterReference } from "./util-decode-numeric.lil";
+import { decodeNumericCharacterReference } from "./util-decode-numeric-character-reference.lil";
 import { encode as encodeHtml } from "./util-encode.lil";
 import { normalizeIdentifier } from "./util-normalize-identifier.lil";
 import { sanitizeUri } from "./util-sanitize-uri.lil";
@@ -19,7 +19,7 @@ void prepareList(JsValue slice) {
   int index = 0;
   int containerBalance = 0;
   bool loose = false;
-  JsValue atMarker = undef();
+  bool atMarker = false;
   while (true) {
     index = index + 1;
     if (index >= length) {
@@ -27,7 +27,7 @@ void prepareList(JsValue slice) {
     }
     JsValue event = slice[index];
     if (objGet(event[1], "_container").truthy()) {
-      atMarker = undef();
+      atMarker = false;
       if (event[0] == "enter") {
         containerBalance = containerBalance + 1;
       } else {
@@ -40,39 +40,34 @@ void prepareList(JsValue slice) {
     } else if (objGet(event[1], "type") == tLinePrefix) {
     } else if (objGet(event[1], "type") == tLineEndingBlank) {
       if (event[0] == "enter" && containerBalance == 0) {
-        if (atMarker.truthy()) {
-          atMarker = undef();
+        if (atMarker) {
+          atMarker = false;
         } else {
           loose = true;
         }
       }
     } else {
-      atMarker = undef();
+      atMarker = false;
     }
   }
   JS.set(slice[0][1], "_loose", loose);
 }
 
-JsValue lastOf(JsValue list) {
-  return list[arrLen(list) - 1];
+T lastOf<T>(T[] list) {
+  return list[list.length - 1];
 }
 
 export JsValue compile(JsValue options) {
   JsValue settings = optionOrEmpty(options);
-  JsValue st = JS.object();
-  JS.set(st, "tags", true);
-  JS.set(st, "definitions", JS.object());
-  JsValue buffers = JS.array();
-  push(buffers, JS.array());
-  JS.set(st, "buffers", buffers);
-  JS.set(st, "mediaStack", JS.array());
-  JsValue tightStack = JS.array();
-  JS.set(st, "tightStack", tightStack);
+  bool tags = true;
+  JsValue definitions = JS.object();
+  JsValue[][] buffers = [[]];
+  JsValue[] mediaStack = [];
+  bool[] tightStack = [];
   JsValue data = JS.object();
-  JS.set(data, "definitions", objGet(st, "definitions"));
+  JS.set(data, "definitions", definitions);
   JS.set(data, "tightStack", tightStack);
-  JS.set(st, "data", data);
-  JS.set(st, "lineEndingStyle", objGet(settings, "defaultLineEnding"));
+  JsValue lineEndingStyle = objGet(settings, "defaultLineEnding");
 
   JsValue setData = JS.method2((JsValue _s, JsValue key, JsValue value) => {
     JS.set(data, jsString(key), value);
@@ -84,32 +79,32 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue buffer = JS.method0((JsValue _s) => {
-    push(buffers, JS.array());
+    buffers.push([]);
     return undef();
   });
 
   JsValue resume = JS.method0((JsValue _s) => {
-    JsValue buf = pop(buffers);
+    JsValue[] buf = buffers.pop();
     return JS.call(JS.get(buf, "join"), buf, "");
   });
 
   JsValue tag = JS.method1((JsValue _s, JsValue value) => {
-    if (!objGet(st, "tags").truthy()) {
+    if (!tags) {
       return undef();
     }
     JS.set(data, "lastWasTag", true);
-    push(lastOf(buffers), value);
+    lastOf(buffers).push(value);
     return undef();
   });
 
   JsValue raw = JS.method1((JsValue _s, JsValue value) => {
     JS.set(data, "lastWasTag", undef());
-    push(lastOf(buffers), value);
+    lastOf(buffers).push(value);
     return undef();
   });
 
   JsValue lineEndingRaw = JS.method0((JsValue _s) => {
-    JsValue style = objGet(st, "lineEndingStyle");
+    JsValue style = lineEndingStyle;
     if (!style.truthy()) {
       style = "\n";
     }
@@ -117,7 +112,7 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue lineEndingIfNeeded = JS.method0((JsValue _s) => {
-    JsValue buf = lastOf(buffers);
+    JsValue[] buf = lastOf(buffers);
     JsValue slice = lastOf(buf);
     JsValue previous = undef();
     if (slice.truthy()) {
@@ -167,7 +162,7 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onenterlistordered = JS.method1((JsValue _s, JsValue token) => {
-    push(tightStack, !objGet(token, "_loose").truthy());
+    tightStack.push(!objGet(token, "_loose").truthy());
     call0(lineEndingIfNeeded, undef());
     call1(tag, undef(), "<ol");
     JS.set(data, "expectFirstItem", true);
@@ -175,7 +170,7 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onenterlistunordered = JS.method1((JsValue _s, JsValue token) => {
-    push(tightStack, !objGet(token, "_loose").truthy());
+    tightStack.push(!objGet(token, "_loose").truthy());
     call0(lineEndingIfNeeded, undef());
     call1(tag, undef(), "<ul");
     JS.set(data, "expectFirstItem", true);
@@ -207,7 +202,7 @@ export JsValue compile(JsValue options) {
 
   JsValue onexitlistordered = JS.method1((JsValue _s, JsValue _token) => {
     call0(onexitlistitem, undef());
-    pop(tightStack);
+    tightStack.pop();
     call0(lineEndingRaw, undef());
     call1(tag, undef(), "</ol>");
     return undef();
@@ -215,21 +210,21 @@ export JsValue compile(JsValue options) {
 
   JsValue onexitlistunordered = JS.method1((JsValue _s, JsValue _token) => {
     call0(onexitlistitem, undef());
-    pop(tightStack);
+    tightStack.pop();
     call0(lineEndingRaw, undef());
     call1(tag, undef(), "</ul>");
     return undef();
   });
 
   JsValue onenterblockquote = JS.method1((JsValue _s, JsValue _token) => {
-    push(tightStack, false);
+    tightStack.push(false);
     call0(lineEndingIfNeeded, undef());
     call1(tag, undef(), "<blockquote>");
     return undef();
   });
 
   JsValue onexitblockquote = JS.method1((JsValue _s, JsValue _token) => {
-    pop(tightStack);
+    tightStack.pop();
     call0(lineEndingIfNeeded, undef());
     call1(tag, undef(), "</blockquote>");
     JS.set(data, "slurpAllLineEndings", undef());
@@ -237,7 +232,7 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onenterparagraph = JS.method1((JsValue _s, JsValue _token) => {
-    if (!lastOf(tightStack).truthy()) {
+    if (!lastOf(tightStack)) {
       call0(lineEndingIfNeeded, undef());
       call1(tag, undef(), "<p>");
     }
@@ -246,7 +241,7 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onexitparagraph = JS.method1((JsValue _s, JsValue _token) => {
-    if (lastOf(tightStack).truthy()) {
+    if (lastOf(tightStack)) {
       JS.set(data, "slurpAllLineEndings", true);
     } else {
       call1(tag, undef(), "</p>");
@@ -306,34 +301,34 @@ export JsValue compile(JsValue options) {
   JsValue onenterimage = JS.method1((JsValue _s, JsValue _token) => {
     JsValue media = JS.object();
     JS.set(media, "image", true);
-    push(objGet(st, "mediaStack"), media);
-    JS.set(st, "tags", undef());
+    mediaStack.push(media);
+    tags = false;
     return undef();
   });
 
   JsValue onenterlink = JS.method1((JsValue _s, JsValue _token) => {
-    push(objGet(st, "mediaStack"), JS.object());
+    mediaStack.push(JS.object());
     return undef();
   });
 
   JsValue onexitlabeltext = JS.method1((JsValue self, JsValue token) => {
-    JS.set(lastOf(objGet(st, "mediaStack")), "labelId", call2(serialize, undef(), self, token));
+    JS.set(lastOf(mediaStack), "labelId", call2(serialize, undef(), self, token));
     return undef();
   });
 
   JsValue onexitlabel = JS.method1((JsValue _s, JsValue _token) => {
-    JS.set(lastOf(objGet(st, "mediaStack")), "label", call0(resume, undef()));
+    JS.set(lastOf(mediaStack), "label", call0(resume, undef()));
     return undef();
   });
 
   JsValue onexitreferencestring = JS.method1((JsValue self, JsValue token) => {
-    JS.set(lastOf(objGet(st, "mediaStack")), "referenceId", call2(serialize, undef(), self, token));
+    JS.set(lastOf(mediaStack), "referenceId", call2(serialize, undef(), self, token));
     return undef();
   });
 
   JsValue onenterresource = JS.method1((JsValue _s, JsValue _token) => {
     call0(buffer, undef());
-    JS.set(lastOf(objGet(st, "mediaStack")), "destination", "");
+    JS.set(lastOf(mediaStack), "destination", "");
     return undef();
   });
 
@@ -344,13 +339,13 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onexitresourcedestinationstring = JS.method1((JsValue _s, JsValue _token) => {
-    JS.set(lastOf(objGet(st, "mediaStack")), "destination", call0(resume, undef()));
+    JS.set(lastOf(mediaStack), "destination", call0(resume, undef()));
     JS.set(data, "ignoreEncode", undef());
     return undef();
   });
 
   JsValue onexitresourcetitlestring = JS.method1((JsValue _s, JsValue _token) => {
-    JS.set(lastOf(objGet(st, "mediaStack")), "title", call0(resume, undef()));
+    JS.set(lastOf(mediaStack), "title", call0(resume, undef()));
     return undef();
   });
 
@@ -362,24 +357,24 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onexitmedia = JS.method1((JsValue _s, JsValue _token) => {
-    int index = arrLen(objGet(st, "mediaStack")) - 1;
-    JsValue media = objGet(st, "mediaStack")[index];
+    int index = arrLen(mediaStack) - 1;
+    JsValue media = mediaStack[index];
     JsValue id = objGet(media, "referenceId");
     if (!id.truthy()) {
       id = objGet(media, "labelId");
     }
     JsValue mediaCtx = media;
     if (isUndef(objGet(media, "destination"))) {
-      mediaCtx = JS.get(objGet(st, "definitions"), normalizeIdentifier(jsString(id)));
+      mediaCtx = JS.get(definitions, normalizeIdentifier(jsString(id)));
     }
-    JS.set(st, "tags", true);
+    tags = true;
     while (true) {
       index = index - 1;
       if (index < 0) {
         break;
       }
-      if (objGet(objGet(st, "mediaStack")[index], "image").truthy()) {
-        JS.set(st, "tags", undef());
+      if (objGet(mediaStack[index], "image").truthy()) {
+        tags = false;
         break;
       }
     }
@@ -402,19 +397,19 @@ export JsValue compile(JsValue options) {
       call1(raw, undef(), objGet(media, "label"));
       call1(tag, undef(), "</a>");
     }
-    pop(objGet(st, "mediaStack"));
+    mediaStack.pop();
     return undef();
   });
 
   JsValue onenterdefinition = JS.method1((JsValue _s, JsValue _token) => {
     call0(buffer, undef());
-    push(objGet(st, "mediaStack"), JS.object());
+    mediaStack.push(JS.object());
     return undef();
   });
 
   JsValue onexitdefinitionlabelstring = JS.method1((JsValue self, JsValue token) => {
     call0(resume, undef());
-    JS.set(lastOf(objGet(st, "mediaStack")), "labelId", call2(serialize, undef(), self, token));
+    JS.set(lastOf(mediaStack), "labelId", call2(serialize, undef(), self, token));
     return undef();
   });
 
@@ -425,24 +420,24 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onexitdefinitiondestinationstring = JS.method1((JsValue _s, JsValue _token) => {
-    JS.set(lastOf(objGet(st, "mediaStack")), "destination", call0(resume, undef()));
+    JS.set(lastOf(mediaStack), "destination", call0(resume, undef()));
     JS.set(data, "ignoreEncode", undef());
     return undef();
   });
 
   JsValue onexitdefinitiontitlestring = JS.method1((JsValue _s, JsValue _token) => {
-    JS.set(lastOf(objGet(st, "mediaStack")), "title", call0(resume, undef()));
+    JS.set(lastOf(mediaStack), "title", call0(resume, undef()));
     return undef();
   });
 
   JsValue onexitdefinition = JS.method1((JsValue _s, JsValue _token) => {
-    JsValue media = lastOf(objGet(st, "mediaStack"));
+    JsValue media = lastOf(mediaStack);
     string id = normalizeIdentifier(jsString(objGet(media, "labelId")));
     call0(resume, undef());
-    if (!hasOwn(objGet(st, "definitions"), id)) {
-      JS.set(objGet(st, "definitions"), id, lastOf(objGet(st, "mediaStack")));
+    if (!hasOwn(definitions, id)) {
+      JS.set(definitions, id, lastOf(mediaStack));
     }
-    pop(objGet(st, "mediaStack"));
+    mediaStack.pop();
     return undef();
   });
 
@@ -707,14 +702,13 @@ export JsValue compile(JsValue options) {
   JS.set(defaultHandlers, "enter", enter);
   JS.set(defaultHandlers, "exit", exit);
 
-  JsValue list = JS.array();
-  push(list, defaultHandlers);
+  JsValue[] list = [defaultHandlers];
   JsValue extras = objGet(settings, "htmlExtensions");
   if (extras.truthy()) {
     int ei = 0;
     int en = arrLen(extras);
     while (ei < en) {
-      push(list, extras[ei]);
+      list.push(extras[ei]);
       ei = ei + 1;
     }
   }
@@ -723,9 +717,9 @@ export JsValue compile(JsValue options) {
   return JS.method1((JsValue _self, JsValue events) => {
     int index = -1;
     int start = 0;
-    JsValue listStack = JS.array();
-    JsValue head = JS.array();
-    JsValue body = JS.array();
+    int[] listStack = [];
+    JsValue[] head = [];
+    JsValue[] body = [];
     int n = arrLen(events);
     while (true) {
       index = index + 1;
@@ -733,28 +727,28 @@ export JsValue compile(JsValue options) {
         break;
       }
       string typ = jsString(objGet(events[index][1], "type"));
-      if (!objGet(st, "lineEndingStyle").truthy() && (typ == tLineEnding || typ == tLineEndingBlank)) {
-        JS.set(st, "lineEndingStyle", call1(objGet(events[index][2], "sliceSerialize"), events[index][2], events[index][1]));
+      if (!lineEndingStyle.truthy() && (typ == tLineEnding || typ == tLineEndingBlank)) {
+        lineEndingStyle = call1(objGet(events[index][2], "sliceSerialize"), events[index][2], events[index][1]);
       }
       if (typ == tListOrdered || typ == tListUnordered) {
         if (events[index][0] == "enter") {
-          push(listStack, index);
+          listStack.push(index);
         } else {
-          prepareList(slice2(events, pop(listStack), index));
+          prepareList(slice2(events, listStack.pop(), index));
         }
       }
       if (typ == tDefinition) {
         if (events[index][0] == "enter") {
-          body = pushAll(body, slice2(events, start, index));
+          body = JS.assume(pushAll(body, slice2(events, start, index)));
           start = index;
         } else {
-          head = pushAll(head, slice2(events, start, index + 1));
+          head = JS.assume(pushAll(head, slice2(events, start, index + 1)));
           start = index + 1;
         }
       }
     }
-    head = pushAll(head, body);
-    head = pushAll(head, slice2(events, start, n));
+    head = JS.assume(pushAll(head, body));
+    head = JS.assume(pushAll(head, slice2(events, start, n)));
     JsValue enterNull = objGet(objGet(handlers, "enter"), "null");
     if (isFn(enterNull)) {
       call0(enterNull, context);

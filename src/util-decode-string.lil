@@ -1,5 +1,5 @@
 import { decodeNamedCharacterReference } from "./decode-named.lil";
-import { decodeNumericCharacterReference } from "./util-decode-numeric.lil";
+import { decodeNumericCharacterReference } from "./util-decode-numeric-character-reference.lil";
 import { cLowercaseX, cNumberSign, cUppercaseX, codeEq } from "./symbol/codes.lil";
 import { kNumericBaseDecimal, kNumericBaseHexadecimal } from "./symbol/constants.lil";
 import { jsString } from "./host.lil";

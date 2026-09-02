@@ -34,6 +34,12 @@
       "require": "./dist/micromark.cjs",
       "default": "./dist/micromark.esm.js"
     },
+    "./stream": {
+      "types": "./dist/micromark.stream.d.ts",
+      "import": "./dist/micromark.stream.js",
+      "require": "./dist/micromark.stream.cjs",
+      "default": "./dist/micromark.stream.js"
+    },
     "./closed": "./dist/micromark.closed.js",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
@@ -44,6 +50,9 @@
     "dist/micromark.cjs",
     "dist/micromark.umd.js",
     "dist/micromark.closed.js",
+    "dist/micromark.stream.js",
+    "dist/micromark.stream.cjs",
+    "dist/micromark.stream.d.ts",
     "dist/micromark.d.ts",
     "LICENSE",
     "NOTICE.md",
@@ -56,16 +65,22 @@
   "scripts": {
     "build": "node scripts/build.mjs --compile",
     "build:site": "node scripts/build-site.mjs",
-    "test": "node --test test/official/index.js",
+    "test": "node --test test/official/index.js test/public-api.test.mjs test/stream-api.test.mjs",
+    "check:types": "tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext --target ES2022 test/types.test.ts",
     "check:site": "npm run build:site && node --test test/site.test.mjs",
     "check:pack": "node scripts/check-pack.mjs",
-    "prepublishOnly": "npm test && npm run check:pack && npm run check:site"
+    "prepublishOnly": "npm test && npm run check:types && npm run check:pack && npm run check:site"
+  },
+  "dependencies": {
+    "@types/node": "^22.0.0",
+    "micromark-util-types": "^2.0.0"
   },
   "devDependencies": {
     "character-entities": "^2.0.2",
     "commonmark.json": "^0.31.0",
     "concat-stream": "^2.0.0",
     "esbuild": "0.28.1",
-    "marked": "18.0.10"
+    "micromark-extension-gfm": "^3.0.0",
+    "typescript": "5.9.3"
   }
 }

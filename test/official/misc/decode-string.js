@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {decodeString} from '../../../dist/micromark.esm.js'
+import {decodeString} from '../../../dist/micromark.test.js'
 
 test('decodeString', async function (t) {
   await t.test('should not decode a non-reference', async function () {
