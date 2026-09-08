@@ -1,5 +1,9 @@
 # reusable ESM — host-visible names stay
 [javascript]
+# 8.6 (measured, ten pool ports): the emission's canonical peephole chain,
+# re-opened on the terminal artifact, is a per-port win -- this port -100/-63/-32/-18
+# Brotli -- while jquerylil +245 and katexlil +151 refuse it.
+terminal_cleanup_chain = true
 priority = "size-first"
 optimization_level = 13
 cost_model = "brotli"
