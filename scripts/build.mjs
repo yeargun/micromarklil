@@ -104,7 +104,12 @@ await esbuild({
   // turned all 2304 into escapes, which is 7021 raw bytes and 173 Brotli.
   charset: "utf8",
   minifyWhitespace: true,
-  minifyIdentifiers: false,
+  // 8.7 (measured): bundling the public five exports out of micromark.raw.js
+  // merges our module scope with the entry's, and esbuild then renames every
+  // shadowed inner binding with a digit suffix -- 3,078 mentions of `a2`, `b2`,
+  // `r2` in the shipped ESM against 6 in the file the compiler wrote. Letting
+  // esbuild mangle instead removes all of them: -2,760 raw, -99 Brotli.
+  minifyIdentifiers: true,
   // The compiler already picked the shorter spellings, and esbuild un-picks them
   // when it re-prints without minifySyntax: `!0` comes back out as `true`. That
   // cost this artifact all 87 of its compact booleans -- 0 left in the bundle
