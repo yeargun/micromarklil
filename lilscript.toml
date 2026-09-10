@@ -5,7 +5,12 @@
 # Brotli -- while jquerylil +245 and katexlil +151 refuse it.
 terminal_cleanup_chain = true
 priority = "size-first"
-optimization_level = 13
+# 8.90: level 13 -> 15, measured -70 Brotli on this port's own
+# artifact. Swept across the fleet the level is nearly inert (-160 over 22,
+# and katexlil and react-markdownlil do not move at all), so it lands per
+# port where it pays rather than as a default.
+optimization_level = 15
+
 cost_model = "brotli"
 assume_pristine_builtins = true
 strip_console = true
