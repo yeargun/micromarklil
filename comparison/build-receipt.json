@@ -564,12 +564,38 @@
   "publicationSourceFingerprint": "43acd330060971672edb1e7f3905474e9ebc4bf1efe702f02eb91349ab42b8d1",
   "comparisonArtifacts": [
     {
-      "path": "site/esm-comparison/lilscript.js",
-      "sha256": "52f4337e2cb1e1b64c308ccc1ec2512b0de7ec5b5f71aa893bec0a13686dc455"
+      "path": "site/esm-comparison/original.js",
+      "sha256": "1c7541fdc1ebeab8d25a3c0ae3d39904c1db8ca1d7c4d94293c88ba257d96d23"
     },
     {
-      "path": "site/esm-comparison/original.js",
-      "sha256": "5e6965084e58d4c2e3fe8dbb8b0844bff089a182731610091f9b27141f95f80b"
+      "path": "site/esm-comparison/lilscript.js",
+      "sha256": "2f91522f62b2ca4e467c26575f6d2a117dc4b8922a7ab1b7af0bc2579f10a5d4"
+    },
+    {
+      "path": "site/source-build.json",
+      "sha256": "6787d82fec1d274da82a55f255890dbc801fd01875cd9a7804e4d6f028b675b5"
+    },
+    {
+      "path": "site/comparison.json",
+      "sha256": "213ec4544bf97160e78b585aa1425934c79065b44e03855f5d3f07cb2d7a26c9"
     }
-  ]
+  ],
+  "sourceBuildReceipt": "comparison/source-build/result.json",
+  "currentMeasurement": {
+    "compiler": {
+      "commit": "4dc4e3337d9ffd758d65e3852682d6e13d9331c1",
+      "sha256": "0616048498eb9eb2e4bd75b39e8e6a083733ada647e16108edfee30ad183beeb"
+    },
+    "source": {
+      "commit": "fc11f5c739d76ba7d3d7f59b60293c0b8988a89a"
+    },
+    "upstream": {
+      "repository": "https://github.com/micromark/micromark.git",
+      "commit": "3fae15528f69dfaf2a8865a7f7d92bfb4abd7bc9",
+      "package": "micromark",
+      "version": "4.0.2",
+      "directory": "packages/micromark"
+    },
+    "compatibility": "Runtime checks: 1,963/1,963 pass."
+  }
 }

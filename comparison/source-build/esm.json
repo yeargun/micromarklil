@@ -1,0 +1,116 @@
+{
+  "source": {
+    "repository": "https://github.com/micromark/micromark.git",
+    "commit": "3fae15528f69dfaf2a8865a7f7d92bfb4abd7bc9",
+    "package": "micromark",
+    "version": "4.0.2",
+    "directory": "packages/micromark"
+  },
+  "entry": "packages/micromark/index.js",
+  "scope": "micromark@4.0.2 public ESM runtime graph; dependency installation excluded; this is a comparison bundle build, not the upstream vendor release pipeline",
+  "external": [],
+  "samples": [
+    {
+      "bundleSeconds": 0.018130729,
+      "wallSeconds": 0.358167325
+    },
+    {
+      "bundleSeconds": 0.012809160000000019,
+      "wallSeconds": 0.25898977600000006
+    },
+    {
+      "bundleSeconds": 0.011996035000000006,
+      "wallSeconds": 0.25658900800000006
+    }
+  ],
+  "medianSeconds": 0.25898977600000006,
+  "toolchain": {
+    "esbuild": "0.28.1",
+    "terser": "5.51.2"
+  },
+  "artifacts": [
+    {
+      "path": "original.esm.js",
+      "raw": 52581,
+      "gzip9": 14469,
+      "brotli11": 12945,
+      "sha256": "1c7541fdc1ebeab8d25a3c0ae3d39904c1db8ca1d7c4d94293c88ba257d96d23"
+    },
+    {
+      "path": "original.unminified.js",
+      "raw": 133415,
+      "gzip9": 23919,
+      "brotli11": 20360,
+      "sha256": "1241f2301c2139e311fde85d1bb8738af523141352dc3a8b21632d64c9df5d5e"
+    },
+    {
+      "path": "original.terser-nomangle.js",
+      "raw": 86952,
+      "gzip9": 17841,
+      "brotli11": 15910,
+      "sha256": "fd7f412247ebadc55a726e63fc49397435cef5046aa081abd5438db795da17fd"
+    },
+    {
+      "path": "original.esbuild.js",
+      "raw": 53815,
+      "gzip9": 15495,
+      "brotli11": 13851,
+      "sha256": "4c8ec11ab0f2c7f48bc22d73a98f9a72c6de954b993e7591547d4f65d82a7dd2"
+    }
+  ],
+  "inputs": [
+    "node_modules/decode-named-character-reference/index.dom.js",
+    "packages/micromark-util-chunked/index.js",
+    "packages/micromark-util-combine-extensions/index.js",
+    "packages/micromark-util-decode-numeric-character-reference/index.js",
+    "packages/micromark-util-encode/index.js",
+    "packages/micromark-util-normalize-identifier/index.js",
+    "packages/micromark-util-character/index.js",
+    "packages/micromark-util-sanitize-uri/index.js",
+    "packages/micromark/lib/compile.js",
+    "packages/micromark-factory-space/index.js",
+    "packages/micromark/lib/initialize/content.js",
+    "packages/micromark/lib/initialize/document.js",
+    "packages/micromark-util-classify-character/index.js",
+    "packages/micromark-util-resolve-all/index.js",
+    "packages/micromark-core-commonmark/lib/attention.js",
+    "packages/micromark-core-commonmark/lib/autolink.js",
+    "packages/micromark-core-commonmark/lib/blank-line.js",
+    "packages/micromark-core-commonmark/lib/block-quote.js",
+    "packages/micromark-core-commonmark/lib/character-escape.js",
+    "packages/micromark-core-commonmark/lib/character-reference.js",
+    "packages/micromark-core-commonmark/lib/code-fenced.js",
+    "packages/micromark-core-commonmark/lib/code-indented.js",
+    "packages/micromark-core-commonmark/lib/code-text.js",
+    "packages/micromark-util-subtokenize/lib/splice-buffer.js",
+    "packages/micromark-util-subtokenize/index.js",
+    "packages/micromark-core-commonmark/lib/content.js",
+    "packages/micromark-factory-destination/index.js",
+    "packages/micromark-factory-label/index.js",
+    "packages/micromark-factory-title/index.js",
+    "packages/micromark-factory-whitespace/index.js",
+    "packages/micromark-core-commonmark/lib/definition.js",
+    "packages/micromark-core-commonmark/lib/hard-break-escape.js",
+    "packages/micromark-core-commonmark/lib/heading-atx.js",
+    "packages/micromark-util-html-tag-name/index.js",
+    "packages/micromark-core-commonmark/lib/html-flow.js",
+    "packages/micromark-core-commonmark/lib/html-text.js",
+    "packages/micromark-core-commonmark/lib/label-end.js",
+    "packages/micromark-core-commonmark/lib/label-start-image.js",
+    "packages/micromark-core-commonmark/lib/label-start-link.js",
+    "packages/micromark-core-commonmark/lib/line-ending.js",
+    "packages/micromark-core-commonmark/lib/thematic-break.js",
+    "packages/micromark-core-commonmark/lib/list.js",
+    "packages/micromark-core-commonmark/lib/setext-underline.js",
+    "packages/micromark-core-commonmark/index.js",
+    "packages/micromark/lib/initialize/flow.js",
+    "packages/micromark/lib/initialize/text.js",
+    "packages/micromark/lib/constructs.js",
+    "packages/micromark/lib/create-tokenizer.js",
+    "packages/micromark/lib/parse.js",
+    "packages/micromark/lib/postprocess.js",
+    "packages/micromark/lib/preprocess.js",
+    "packages/micromark/index.js",
+    "public-esm-entry.mjs"
+  ]
+}
