@@ -1,5 +1,12 @@
 # reusable ESM — host-visible names stay
 [javascript]
+# 8.102: re-emit a twice-read member instead of naming it. Measured -299 Brotli
+# on this port. 8.79 measured it as +170 here and refused it; that reading
+# predates live-21 and live-22, which changed what this port emits. Re-measured
+# after them it is a win, which is why a refused knob is worth re-running when
+# the compiler moves under it.
+rematerialize_member_reads = true
+assume_pure_property_reads = true
 # 8.6 (measured, ten pool ports): the emission's canonical peephole chain,
 # re-opened on the terminal artifact, is a per-port win -- this port -100/-63/-32/-18
 # Brotli -- while jquerylil +245 and katexlil +151 refuse it.
