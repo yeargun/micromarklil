@@ -1,5 +1,10 @@
 # reusable ESM — host-visible names stay
 [javascript]
+# 8.103: converged naming, measured -73 Brotli on this port against the current
+# compiler. Swept fleet-wide the knob is net positive, so it lands per port.
+# The earlier sweep of it predates live-17..23; a refused measurement has a
+# shelf life when the compiler moves under it.
+name_ordering = "idiom-converged"
 # 8.102: re-emit a twice-read member instead of naming it. Measured -299 Brotli
 # on this port. 8.79 measured it as +170 here and refused it; that reading
 # predates live-21 and live-22, which changed what this port emits. Re-measured
