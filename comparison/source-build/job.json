@@ -1,0 +1,46 @@
+{
+  "source": {
+    "repository": "https://github.com/micromark/micromark.git",
+    "commit": "3fae15528f69dfaf2a8865a7f7d92bfb4abd7bc9",
+    "package": "micromark",
+    "version": "4.0.2",
+    "directory": "packages/micromark"
+  },
+  "portSource": {
+    "commit": "fc11f5c739d76ba7d3d7f59b60293c0b8988a89a"
+  },
+  "compilerCommit": "4dc4e3337d9ffd758d65e3852682d6e13d9331c1",
+  "install": [
+    "npm",
+    "install",
+    "--ignore-scripts",
+    "--no-audit",
+    "--no-fund"
+  ],
+  "setup": [
+    [
+      "npm",
+      "install",
+      "--save-dev",
+      "--save-exact",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund",
+      "@types/node@22.0.0",
+      "typescript@5.5.4"
+    ]
+  ],
+  "build": [
+    "npm",
+    "run",
+    "build"
+  ],
+  "clean": [],
+  "entry": "packages/micromark/index.js",
+  "defaultExport": false,
+  "external": [],
+  "esmScope": "micromark@4.0.2 public ESM runtime graph; dependency installation excluded; this is a comparison bundle build, not the upstream vendor release pipeline",
+  "lilscriptBuild": "node scripts/build.mjs --compile --force",
+  "test": "node --test test/official/index.js test/public-api.test.mjs test/stream-api.test.mjs",
+  "prerequisiteAdjustments": "Pin @types/node 22.0.0 and TypeScript 5.5.4 within the original declared ranges; the unlocked latest @types/node added an incompatible optional BufferEncoding in an upstream test helper."
+}

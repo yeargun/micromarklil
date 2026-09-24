@@ -1,0 +1,1012 @@
+{
+  "schemaVersion": 1,
+  "name": "micromarklil",
+  "startedAt": "2026-09-10T20:41:14Z",
+  "machine": {
+    "provider": "Azure",
+    "instanceClass": "Standard_D16als_v7",
+    "cpu": "AMD EPYC 9V45 96-Core Processor",
+    "logicalCpus": 16,
+    "memoryBytes": 33648431104,
+    "os": "Ubuntu 24.04.4 LTS",
+    "kernel": "6.17.0-1022-azure",
+    "node": "v24.11.1",
+    "rayonThreads": 8,
+    "loadAtStart": [
+      0.09423828125,
+      1.4521484375,
+      3.05029296875
+    ],
+    "loadAtEnd": [
+      4.3037109375,
+      3.41650390625,
+      3.73681640625
+    ]
+  },
+  "compiler": {
+    "commit": "4dc4e3337d9ffd758d65e3852682d6e13d9331c1",
+    "sha256": "0616048498eb9eb2e4bd75b39e8e6a083733ada647e16108edfee30ad183beeb"
+  },
+  "source": {
+    "repository": "https://github.com/micromark/micromark.git",
+    "commit": "3fae15528f69dfaf2a8865a7f7d92bfb4abd7bc9",
+    "package": "micromark",
+    "version": "4.0.2",
+    "directory": "packages/micromark"
+  },
+  "portSource": {
+    "commit": "fc11f5c739d76ba7d3d7f59b60293c0b8988a89a"
+  },
+  "steps": {
+    "original-install": {
+      "command": [
+        "npm",
+        "install",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 14.587521321000168,
+      "cpuSeconds": 9.834879,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-install.log",
+      "logSha256": "779b95c9f5a42de65a696b8fab1adfc489b357751f4f90ca6bb3d0ecd67f3f1c",
+      "tail": "npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.\nnpm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported\nnpm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead\nnpm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead\nnpm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.\n\nadded 932 packages in 15s\n"
+    },
+    "original-setup-0": {
+      "command": [
+        "npm",
+        "install",
+        "--save-dev",
+        "--save-exact",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "@types/node@22.0.0",
+        "typescript@5.5.4"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 0.9654158399998778,
+      "cpuSeconds": 1.3592359999999992,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-setup-0.log",
+      "logSha256": "dc5bd120e167f9062178d87e405ced635bec3687eb7d8086159f7a13a020d782",
+      "tail": "\nadded 1 package, and changed 3 packages in 913ms\n"
+    },
+    "lilscript-install": {
+      "command": [
+        "npm",
+        "ci",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "cwd": "port",
+      "wallSeconds": 0.5145817920001718,
+      "cpuSeconds": 0.6596480000000007,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "lilscript-install.log",
+      "logSha256": "77fe2819dc234bb7c155d7a278b900b6e75074b22645e19aaa281b4f0aec112c",
+      "tail": "\nadded 43 packages in 428ms\n"
+    },
+    "original-build-1": {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 5.774196108000069,
+      "cpuSeconds": 9.407291999999996,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-build-1.log",
+      "logSha256": "793c805a2487ab4d0c01e9d77dcdb61a25aa49965068c67288cf26350082f226",
+      "tail": "e-commonmark/lib/blank-line.d.ts (from `micromark-core-commonmark/dev/lib/blank-line.d.ts`)\nmicromark-core-commonmark/lib/autolink.js (from `micromark-core-commonmark/dev/lib/autolink.js`)\nmicromark-core-commonmark/lib/autolink.d.ts.map (from `micromark-core-commonmark/dev/lib/autolink.d.ts.map`)\nmicromark-core-commonmark/lib/autolink.d.ts (from `micromark-core-commonmark/dev/lib/autolink.d.ts`)\nmicromark-core-commonmark/lib/attention.js (from `micromark-core-commonmark/dev/lib/attention.js`)\nmicromark-core-commonmark/lib/attention.d.ts.map (from `micromark-core-commonmark/dev/lib/attention.d.ts.map`)\nmicromark-core-commonmark/lib/attention.d.ts (from `micromark-core-commonmark/dev/lib/attention.d.ts`)\n\n> micromark@4.0.2 build\n> micromark-build\n\nmicromark/stream.js (from `micromark/dev/stream.js`)\nmicromark/stream.d.ts.map (from `micromark/dev/stream.d.ts.map`)\nmicromark/stream.d.ts (from `micromark/dev/stream.d.ts`)\nmicromark/index.js (from `micromark/dev/index.js`)\nmicromark/index.d.ts.map (from `micromark/dev/index.d.ts.map`)\nmicromark/index.d.ts (from `micromark/dev/index.d.ts`)\nmicromark/lib/preprocess.js (from `micromark/dev/lib/preprocess.js`)\nmicromark/lib/preprocess.d.ts.map (from `micromark/dev/lib/preprocess.d.ts.map`)\nmicromark/lib/preprocess.d.ts (from `micromark/dev/lib/preprocess.d.ts`)\nmicromark/lib/postprocess.js (from `micromark/dev/lib/postprocess.js`)\nmicromark/lib/postprocess.d.ts.map (from `micromark/dev/lib/postprocess.d.ts.map`)\nmicromark/lib/postprocess.d.ts (from `micromark/dev/lib/postprocess.d.ts`)\nmicromark/lib/parse.js (from `micromark/dev/lib/parse.js`)\nmicromark/lib/parse.d.ts.map (from `micromark/dev/lib/parse.d.ts.map`)\nmicromark/lib/parse.d.ts (from `micromark/dev/lib/parse.d.ts`)\nmicromark/lib/create-tokenizer.js (from `micromark/dev/lib/create-tokenizer.js`)\nmicromark/lib/create-tokenizer.d.ts.map (from `micromark/dev/lib/create-tokenizer.d.ts.map`)\nmicromark/lib/create-tokenizer.d.ts (from `micromark/dev/lib/create-tokenizer.d.ts`)\nmicromark/lib/constructs.js (from `micromark/dev/lib/constructs.js`)\nmicromark/lib/constructs.d.ts.map (from `micromark/dev/lib/constructs.d.ts.map`)\nmicromark/lib/constructs.d.ts (from `micromark/dev/lib/constructs.d.ts`)\nmicromark/lib/compile.js (from `micromark/dev/lib/compile.js`)\nmicromark/lib/compile.d.ts.map (from `micromark/dev/lib/compile.d.ts.map`)\nmicromark/lib/compile.d.ts (from `micromark/dev/lib/compile.d.ts`)\nmicromark/lib/initialize/text.js (from `micromark/dev/lib/initialize/text.js`)\nmicromark/lib/initialize/text.d.ts.map (from `micromark/dev/lib/initialize/text.d.ts.map`)\nmicromark/lib/initialize/text.d.ts (from `micromark/dev/lib/initialize/text.d.ts`)\nmicromark/lib/initialize/flow.js (from `micromark/dev/lib/initialize/flow.js`)\nmicromark/lib/initialize/flow.d.ts.map (from `micromark/dev/lib/initialize/flow.d.ts.map`)\nmicromark/lib/initialize/flow.d.ts (from `micromark/dev/lib/initialize/flow.d.ts`)\nmicromark/lib/initialize/document.js (from `micromark/dev/lib/initialize/document.js`)\nmicromark/lib/initialize/document.d.ts.map (from `micromark/dev/lib/initialize/document.d.ts.map`)\nmicromark/lib/initialize/document.d.ts (from `micromark/dev/lib/initialize/document.d.ts`)\nmicromark/lib/initialize/content.js (from `micromark/dev/lib/initialize/content.js`)\nmicromark/lib/initialize/content.d.ts.map (from `micromark/dev/lib/initialize/content.d.ts.map`)\nmicromark/lib/initialize/content.d.ts (from `micromark/dev/lib/initialize/content.d.ts`)\n14.4 kB\n14379\n"
+    },
+    "lilscript-build-1": {
+      "command": [
+        "bash",
+        "-c",
+        "node scripts/build.mjs --compile --force"
+      ],
+      "cwd": "port",
+      "wallSeconds": 410.5768401059995,
+      "cpuSeconds": 795.817885,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "lilscript-build-1.log",
+      "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c",
+      "tail": "wrote dist/micromark.esm.js, dist/micromark.cjs, dist/micromark.umd.js, dist/micromark.closed.js, dist/micromark.stream.js, dist/micromark.stream.cjs, dist/micromark.test.js\n",
+      "invocations": [
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js"
+          ],
+          "startedAt": 1789072896.681178,
+          "wallSeconds": 141.48382925987244,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "66a5fe346706299dd1078a02c3993542a0f99f201946a8b2e19cfc60587e2ab5"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.closed.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js"
+          ],
+          "startedAt": 1789073038.249368,
+          "wallSeconds": 134.87034678459167,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "2f9ad7c3b17d54a4dd3d4dfdc81999dead926fd5f9281a50e74711884c9ff873"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/stream.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js"
+          ],
+          "startedAt": 1789073173.1589036,
+          "wallSeconds": 111.68307995796204,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "e761b295247a8f5d37e1c614a130b4ac4abab450c3b6e48543c21a33f5b74fa9"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/test/support.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js"
+          ],
+          "startedAt": 1789073284.8656313,
+          "wallSeconds": 22.24451184272766,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "97f0d9acce09a1d5882ee2af80557f8074f9034dc2de35ca9e13f2684bd5d2ff"
+        }
+      ]
+    },
+    "lilscript-build-2": {
+      "command": [
+        "bash",
+        "-c",
+        "node scripts/build.mjs --compile --force"
+      ],
+      "cwd": "port",
+      "wallSeconds": 344.28970886999923,
+      "cpuSeconds": 678.2886889999999,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "lilscript-build-2.log",
+      "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c",
+      "tail": "wrote dist/micromark.esm.js, dist/micromark.cjs, dist/micromark.umd.js, dist/micromark.closed.js, dist/micromark.stream.js, dist/micromark.stream.cjs, dist/micromark.test.js\n",
+      "invocations": [
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js"
+          ],
+          "startedAt": 1789073307.2605574,
+          "wallSeconds": 141.11744093894958,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "66a5fe346706299dd1078a02c3993542a0f99f201946a8b2e19cfc60587e2ab5"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.closed.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js"
+          ],
+          "startedAt": 1789073448.4025052,
+          "wallSeconds": 80.36404418945312,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "2f9ad7c3b17d54a4dd3d4dfdc81999dead926fd5f9281a50e74711884c9ff873"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/stream.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js"
+          ],
+          "startedAt": 1789073528.7902317,
+          "wallSeconds": 101.40035557746887,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "e761b295247a8f5d37e1c614a130b4ac4abab450c3b6e48543c21a33f5b74fa9"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/test/support.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js"
+          ],
+          "startedAt": 1789073630.214628,
+          "wallSeconds": 21.22453737258911,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "97f0d9acce09a1d5882ee2af80557f8074f9034dc2de35ca9e13f2684bd5d2ff"
+        }
+      ]
+    },
+    "original-build-2": {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 5.774832273999891,
+      "cpuSeconds": 9.507717999999993,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-build-2.log",
+      "logSha256": "77373c71992d10b6eae1f7ea77c96bdab0f58c417aa716ed0a31dc90e21d21ea",
+      "tail": "e-commonmark/lib/blank-line.d.ts (from `micromark-core-commonmark/dev/lib/blank-line.d.ts`)\nmicromark-core-commonmark/lib/autolink.js (from `micromark-core-commonmark/dev/lib/autolink.js`)\nmicromark-core-commonmark/lib/autolink.d.ts.map (from `micromark-core-commonmark/dev/lib/autolink.d.ts.map`)\nmicromark-core-commonmark/lib/autolink.d.ts (from `micromark-core-commonmark/dev/lib/autolink.d.ts`)\nmicromark-core-commonmark/lib/attention.js (from `micromark-core-commonmark/dev/lib/attention.js`)\nmicromark-core-commonmark/lib/attention.d.ts.map (from `micromark-core-commonmark/dev/lib/attention.d.ts.map`)\nmicromark-core-commonmark/lib/attention.d.ts (from `micromark-core-commonmark/dev/lib/attention.d.ts`)\n\n> micromark@4.0.2 build\n> micromark-build\n\nmicromark/stream.js (from `micromark/dev/stream.js`)\nmicromark/stream.d.ts.map (from `micromark/dev/stream.d.ts.map`)\nmicromark/stream.d.ts (from `micromark/dev/stream.d.ts`)\nmicromark/index.js (from `micromark/dev/index.js`)\nmicromark/index.d.ts.map (from `micromark/dev/index.d.ts.map`)\nmicromark/index.d.ts (from `micromark/dev/index.d.ts`)\nmicromark/lib/preprocess.js (from `micromark/dev/lib/preprocess.js`)\nmicromark/lib/preprocess.d.ts.map (from `micromark/dev/lib/preprocess.d.ts.map`)\nmicromark/lib/preprocess.d.ts (from `micromark/dev/lib/preprocess.d.ts`)\nmicromark/lib/postprocess.js (from `micromark/dev/lib/postprocess.js`)\nmicromark/lib/postprocess.d.ts.map (from `micromark/dev/lib/postprocess.d.ts.map`)\nmicromark/lib/postprocess.d.ts (from `micromark/dev/lib/postprocess.d.ts`)\nmicromark/lib/parse.js (from `micromark/dev/lib/parse.js`)\nmicromark/lib/parse.d.ts.map (from `micromark/dev/lib/parse.d.ts.map`)\nmicromark/lib/parse.d.ts (from `micromark/dev/lib/parse.d.ts`)\nmicromark/lib/create-tokenizer.js (from `micromark/dev/lib/create-tokenizer.js`)\nmicromark/lib/create-tokenizer.d.ts.map (from `micromark/dev/lib/create-tokenizer.d.ts.map`)\nmicromark/lib/create-tokenizer.d.ts (from `micromark/dev/lib/create-tokenizer.d.ts`)\nmicromark/lib/constructs.js (from `micromark/dev/lib/constructs.js`)\nmicromark/lib/constructs.d.ts.map (from `micromark/dev/lib/constructs.d.ts.map`)\nmicromark/lib/constructs.d.ts (from `micromark/dev/lib/constructs.d.ts`)\nmicromark/lib/compile.js (from `micromark/dev/lib/compile.js`)\nmicromark/lib/compile.d.ts.map (from `micromark/dev/lib/compile.d.ts.map`)\nmicromark/lib/compile.d.ts (from `micromark/dev/lib/compile.d.ts`)\nmicromark/lib/initialize/text.js (from `micromark/dev/lib/initialize/text.js`)\nmicromark/lib/initialize/text.d.ts.map (from `micromark/dev/lib/initialize/text.d.ts.map`)\nmicromark/lib/initialize/text.d.ts (from `micromark/dev/lib/initialize/text.d.ts`)\nmicromark/lib/initialize/flow.js (from `micromark/dev/lib/initialize/flow.js`)\nmicromark/lib/initialize/flow.d.ts.map (from `micromark/dev/lib/initialize/flow.d.ts.map`)\nmicromark/lib/initialize/flow.d.ts (from `micromark/dev/lib/initialize/flow.d.ts`)\nmicromark/lib/initialize/document.js (from `micromark/dev/lib/initialize/document.js`)\nmicromark/lib/initialize/document.d.ts.map (from `micromark/dev/lib/initialize/document.d.ts.map`)\nmicromark/lib/initialize/document.d.ts (from `micromark/dev/lib/initialize/document.d.ts`)\nmicromark/lib/initialize/content.js (from `micromark/dev/lib/initialize/content.js`)\nmicromark/lib/initialize/content.d.ts.map (from `micromark/dev/lib/initialize/content.d.ts.map`)\nmicromark/lib/initialize/content.d.ts (from `micromark/dev/lib/initialize/content.d.ts`)\n14.4 kB\n14379\n"
+    },
+    "original-build-3": {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 5.775113653000517,
+      "cpuSeconds": 9.380668000000178,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-build-3.log",
+      "logSha256": "77373c71992d10b6eae1f7ea77c96bdab0f58c417aa716ed0a31dc90e21d21ea",
+      "tail": "e-commonmark/lib/blank-line.d.ts (from `micromark-core-commonmark/dev/lib/blank-line.d.ts`)\nmicromark-core-commonmark/lib/autolink.js (from `micromark-core-commonmark/dev/lib/autolink.js`)\nmicromark-core-commonmark/lib/autolink.d.ts.map (from `micromark-core-commonmark/dev/lib/autolink.d.ts.map`)\nmicromark-core-commonmark/lib/autolink.d.ts (from `micromark-core-commonmark/dev/lib/autolink.d.ts`)\nmicromark-core-commonmark/lib/attention.js (from `micromark-core-commonmark/dev/lib/attention.js`)\nmicromark-core-commonmark/lib/attention.d.ts.map (from `micromark-core-commonmark/dev/lib/attention.d.ts.map`)\nmicromark-core-commonmark/lib/attention.d.ts (from `micromark-core-commonmark/dev/lib/attention.d.ts`)\n\n> micromark@4.0.2 build\n> micromark-build\n\nmicromark/stream.js (from `micromark/dev/stream.js`)\nmicromark/stream.d.ts.map (from `micromark/dev/stream.d.ts.map`)\nmicromark/stream.d.ts (from `micromark/dev/stream.d.ts`)\nmicromark/index.js (from `micromark/dev/index.js`)\nmicromark/index.d.ts.map (from `micromark/dev/index.d.ts.map`)\nmicromark/index.d.ts (from `micromark/dev/index.d.ts`)\nmicromark/lib/preprocess.js (from `micromark/dev/lib/preprocess.js`)\nmicromark/lib/preprocess.d.ts.map (from `micromark/dev/lib/preprocess.d.ts.map`)\nmicromark/lib/preprocess.d.ts (from `micromark/dev/lib/preprocess.d.ts`)\nmicromark/lib/postprocess.js (from `micromark/dev/lib/postprocess.js`)\nmicromark/lib/postprocess.d.ts.map (from `micromark/dev/lib/postprocess.d.ts.map`)\nmicromark/lib/postprocess.d.ts (from `micromark/dev/lib/postprocess.d.ts`)\nmicromark/lib/parse.js (from `micromark/dev/lib/parse.js`)\nmicromark/lib/parse.d.ts.map (from `micromark/dev/lib/parse.d.ts.map`)\nmicromark/lib/parse.d.ts (from `micromark/dev/lib/parse.d.ts`)\nmicromark/lib/create-tokenizer.js (from `micromark/dev/lib/create-tokenizer.js`)\nmicromark/lib/create-tokenizer.d.ts.map (from `micromark/dev/lib/create-tokenizer.d.ts.map`)\nmicromark/lib/create-tokenizer.d.ts (from `micromark/dev/lib/create-tokenizer.d.ts`)\nmicromark/lib/constructs.js (from `micromark/dev/lib/constructs.js`)\nmicromark/lib/constructs.d.ts.map (from `micromark/dev/lib/constructs.d.ts.map`)\nmicromark/lib/constructs.d.ts (from `micromark/dev/lib/constructs.d.ts`)\nmicromark/lib/compile.js (from `micromark/dev/lib/compile.js`)\nmicromark/lib/compile.d.ts.map (from `micromark/dev/lib/compile.d.ts.map`)\nmicromark/lib/compile.d.ts (from `micromark/dev/lib/compile.d.ts`)\nmicromark/lib/initialize/text.js (from `micromark/dev/lib/initialize/text.js`)\nmicromark/lib/initialize/text.d.ts.map (from `micromark/dev/lib/initialize/text.d.ts.map`)\nmicromark/lib/initialize/text.d.ts (from `micromark/dev/lib/initialize/text.d.ts`)\nmicromark/lib/initialize/flow.js (from `micromark/dev/lib/initialize/flow.js`)\nmicromark/lib/initialize/flow.d.ts.map (from `micromark/dev/lib/initialize/flow.d.ts.map`)\nmicromark/lib/initialize/flow.d.ts (from `micromark/dev/lib/initialize/flow.d.ts`)\nmicromark/lib/initialize/document.js (from `micromark/dev/lib/initialize/document.js`)\nmicromark/lib/initialize/document.d.ts.map (from `micromark/dev/lib/initialize/document.d.ts.map`)\nmicromark/lib/initialize/document.d.ts (from `micromark/dev/lib/initialize/document.d.ts`)\nmicromark/lib/initialize/content.js (from `micromark/dev/lib/initialize/content.js`)\nmicromark/lib/initialize/content.d.ts.map (from `micromark/dev/lib/initialize/content.d.ts.map`)\nmicromark/lib/initialize/content.d.ts (from `micromark/dev/lib/initialize/content.d.ts`)\n14.4 kB\n14379\n"
+    },
+    "lilscript-build-3": {
+      "command": [
+        "bash",
+        "-c",
+        "node scripts/build.mjs --compile --force"
+      ],
+      "cwd": "port",
+      "wallSeconds": 350.48966826000014,
+      "cpuSeconds": 697.7898799999999,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "lilscript-build-3.log",
+      "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c",
+      "tail": "wrote dist/micromark.esm.js, dist/micromark.cjs, dist/micromark.umd.js, dist/micromark.closed.js, dist/micromark.stream.js, dist/micromark.stream.cjs, dist/micromark.test.js\n",
+      "invocations": [
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js"
+          ],
+          "startedAt": 1789073663.1050537,
+          "wallSeconds": 140.9380919933319,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "66a5fe346706299dd1078a02c3993542a0f99f201946a8b2e19cfc60587e2ab5"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.closed.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js"
+          ],
+          "startedAt": 1789073804.06718,
+          "wallSeconds": 81.03989005088806,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "2f9ad7c3b17d54a4dd3d4dfdc81999dead926fd5f9281a50e74711884c9ff873"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/stream.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js"
+          ],
+          "startedAt": 1789073885.131201,
+          "wallSeconds": 105.72934150695801,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "e761b295247a8f5d37e1c614a130b4ac4abab450c3b6e48543c21a33f5b74fa9"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/test/support.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js"
+          ],
+          "startedAt": 1789073990.8857815,
+          "wallSeconds": 22.597379207611084,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "97f0d9acce09a1d5882ee2af80557f8074f9034dc2de35ca9e13f2684bd5d2ff"
+        }
+      ]
+    },
+    "original-esm": {
+      "command": [
+        "node",
+        "/home/lilfarm/source-perf-20260910/tools/source-esm.mjs",
+        "/home/lilfarm/source-perf-20260910",
+        "micromarklil"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 1.4167041939999763,
+      "cpuSeconds": 2.3329710000001462,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-esm.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": ""
+    },
+    "lilscript-tests": {
+      "command": [
+        "bash",
+        "-c",
+        "node --test test/official/index.js test/public-api.test.mjs test/stream-api.test.mjs"
+      ],
+      "cwd": "port",
+      "wallSeconds": 1.5670738649996565,
+      "cpuSeconds": 1.7110050000000605,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "lilscript-tests.log",
+      "logSha256": "15a1ff632d033b50dfd43a68e8bb518338dcb1a14d7cb0682ad10cf6ef795262",
+      "tail": "w (119.224217ms)\n  \u2714 should support carriage return + line feeds in flow (143.868197ms)\n  \u2714 should integrate w/ `fs.create{Read,Write}Stream` (2.618863ms)\n  \u2714 should be safe by default (16.921061ms)\n  \u2714 should be unsafe w/ `allowDangerousHtml` (0.179409ms)\n  \u2714 should stream in non-UTF8 (11.756986ms)\n  \u25b6 #end\n    \u2714 should return true for `end` (0.175984ms)\n    \u2714 should throw on end after end (0.174492ms)\n    \u2714 should end w/o ever receiving data (0.298428ms)\n    \u2714 should end (0.371348ms)\n    \u2714 should receive final data from `end` (0.277456ms)\n    \u2714 should honour encoding (0.318098ms)\n    \u2714 should trigger callback and data in the correct order (0.380171ms)\n    \u2714 should trigger callback when it\u2019s the only argument (0.119389ms)\n  \u2714 #end (2.466234ms)\n  \u25b6 #pipe\n    \u2714 should not throw when piping to a non-writable stream (0.215954ms)\n    \u2714 should not `end` stdio streams (0.252749ms)\n    \u2714 should pass errors (0.118508ms)\n    \u2714 should throw if errors are not listened to (0.083325ms)\n    \u2714 should pipe the processed result (0.238548ms)\n  \u2714 #pipe (1.054133ms)\n\u2714 stream (771.001126ms)\n\u25b6 public package exports\n  \u2714 exposes the upstream root surface in ESM (1.573373ms)\n  \u2714 exposes the stream subpath in ESM (0.189114ms)\n  \u2714 exposes both entry points to CommonJS (9.130072ms)\n  \u2714 accepts real syntax and HTML extension objects (4.640378ms)\n  \u2714 keeps the browser and closed artifacts executable (9.369151ms)\n\u2714 public package exports (26.144093ms)\n\u25b6 tokenizer boundary semantics\n  \u2714 reads each initial point field once (0.31968ms)\n  \u2714 accepts an inherited tokenize hook (1.866953ms)\n  \u2714 calls a truthy resolver and preserves its error (0.784838ms)\n\u2714 tokenizer boundary semantics (3.586656ms)\n\u25b6 stream EventEmitter compatibility\n  \u2714 uses the upstream runtime dependency in ESM and CJS (4.285666ms)\n  \u2714 supports string and symbol names and variadic arguments (0.522645ms)\n  \u2714 uses snapshots while emitting and removes latest duplicates (0.440231ms)\n  \u2714 implements once wrappers and listener introspection (0.390396ms)\n  \u2714 emits newListener and removeListener with Node ordering (0.313661ms)\n  \u2714 removes all listeners in LIFO order (0.278328ms)\n  \u2714 validates listeners and max listeners like Node (0.788744ms)\n  \u2714 preserves unhandled Error identity (0.314693ms)\n  \u2714 monitors errors without handling them (0.333861ms)\n  \u2714 uses Node non-Error error-event behavior (0.455895ms)\n\u2714 stream EventEmitter compatibility (9.966798ms)\n\u25b6 stream pipe compatibility\n  \u2714 returns and identifies the destination (1.907765ms)\n  \u2714 ignores destination backpressure like upstream (1.513833ms)\n  \u2714 does not write to a non-writable destination (0.60596ms)\n  \u2714 honors end false, stdio, and truthy end exactly (1.043407ms)\n  \u2714 cleans both sides on source end or close (1.068644ms)\n  \u2714 cleans both sides on destination close (0.211708ms)\n  \u2714 preserves source error identity when unheard (0.292439ms)\n  \u2714 preserves destination error identity when unheard (0.234723ms)\n  \u2714 leaves heard source and destination pipe errors handled (0.496696ms)\n  \u2714 supports independent multiple destinations (0.784158ms)\n\u2714 stream pipe compatibility (9.10283ms)\n\u25b6 stream write and end edge behavior\n  \u2714 calls callbacks synchronously with undefined this (0.360211ms)\n  \u2714 calls a truthy callback value like upstream (0.318868ms)\n  \u2714 permits reentrant writes until end emission completes (0.505379ms)\n\u2714 stream write and end edge behavior (1.46528ms)\n\u2139 tests 1963\n\u2139 suites 0\n\u2139 pass 1963\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 1515.750102\n"
+    }
+  },
+  "nativeBuilds": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 5.774196108000069,
+      "cpuSeconds": 9.407291999999996,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-build-1.log",
+      "logSha256": "793c805a2487ab4d0c01e9d77dcdb61a25aa49965068c67288cf26350082f226",
+      "tail": "e-commonmark/lib/blank-line.d.ts (from `micromark-core-commonmark/dev/lib/blank-line.d.ts`)\nmicromark-core-commonmark/lib/autolink.js (from `micromark-core-commonmark/dev/lib/autolink.js`)\nmicromark-core-commonmark/lib/autolink.d.ts.map (from `micromark-core-commonmark/dev/lib/autolink.d.ts.map`)\nmicromark-core-commonmark/lib/autolink.d.ts (from `micromark-core-commonmark/dev/lib/autolink.d.ts`)\nmicromark-core-commonmark/lib/attention.js (from `micromark-core-commonmark/dev/lib/attention.js`)\nmicromark-core-commonmark/lib/attention.d.ts.map (from `micromark-core-commonmark/dev/lib/attention.d.ts.map`)\nmicromark-core-commonmark/lib/attention.d.ts (from `micromark-core-commonmark/dev/lib/attention.d.ts`)\n\n> micromark@4.0.2 build\n> micromark-build\n\nmicromark/stream.js (from `micromark/dev/stream.js`)\nmicromark/stream.d.ts.map (from `micromark/dev/stream.d.ts.map`)\nmicromark/stream.d.ts (from `micromark/dev/stream.d.ts`)\nmicromark/index.js (from `micromark/dev/index.js`)\nmicromark/index.d.ts.map (from `micromark/dev/index.d.ts.map`)\nmicromark/index.d.ts (from `micromark/dev/index.d.ts`)\nmicromark/lib/preprocess.js (from `micromark/dev/lib/preprocess.js`)\nmicromark/lib/preprocess.d.ts.map (from `micromark/dev/lib/preprocess.d.ts.map`)\nmicromark/lib/preprocess.d.ts (from `micromark/dev/lib/preprocess.d.ts`)\nmicromark/lib/postprocess.js (from `micromark/dev/lib/postprocess.js`)\nmicromark/lib/postprocess.d.ts.map (from `micromark/dev/lib/postprocess.d.ts.map`)\nmicromark/lib/postprocess.d.ts (from `micromark/dev/lib/postprocess.d.ts`)\nmicromark/lib/parse.js (from `micromark/dev/lib/parse.js`)\nmicromark/lib/parse.d.ts.map (from `micromark/dev/lib/parse.d.ts.map`)\nmicromark/lib/parse.d.ts (from `micromark/dev/lib/parse.d.ts`)\nmicromark/lib/create-tokenizer.js (from `micromark/dev/lib/create-tokenizer.js`)\nmicromark/lib/create-tokenizer.d.ts.map (from `micromark/dev/lib/create-tokenizer.d.ts.map`)\nmicromark/lib/create-tokenizer.d.ts (from `micromark/dev/lib/create-tokenizer.d.ts`)\nmicromark/lib/constructs.js (from `micromark/dev/lib/constructs.js`)\nmicromark/lib/constructs.d.ts.map (from `micromark/dev/lib/constructs.d.ts.map`)\nmicromark/lib/constructs.d.ts (from `micromark/dev/lib/constructs.d.ts`)\nmicromark/lib/compile.js (from `micromark/dev/lib/compile.js`)\nmicromark/lib/compile.d.ts.map (from `micromark/dev/lib/compile.d.ts.map`)\nmicromark/lib/compile.d.ts (from `micromark/dev/lib/compile.d.ts`)\nmicromark/lib/initialize/text.js (from `micromark/dev/lib/initialize/text.js`)\nmicromark/lib/initialize/text.d.ts.map (from `micromark/dev/lib/initialize/text.d.ts.map`)\nmicromark/lib/initialize/text.d.ts (from `micromark/dev/lib/initialize/text.d.ts`)\nmicromark/lib/initialize/flow.js (from `micromark/dev/lib/initialize/flow.js`)\nmicromark/lib/initialize/flow.d.ts.map (from `micromark/dev/lib/initialize/flow.d.ts.map`)\nmicromark/lib/initialize/flow.d.ts (from `micromark/dev/lib/initialize/flow.d.ts`)\nmicromark/lib/initialize/document.js (from `micromark/dev/lib/initialize/document.js`)\nmicromark/lib/initialize/document.d.ts.map (from `micromark/dev/lib/initialize/document.d.ts.map`)\nmicromark/lib/initialize/document.d.ts (from `micromark/dev/lib/initialize/document.d.ts`)\nmicromark/lib/initialize/content.js (from `micromark/dev/lib/initialize/content.js`)\nmicromark/lib/initialize/content.d.ts.map (from `micromark/dev/lib/initialize/content.d.ts.map`)\nmicromark/lib/initialize/content.d.ts (from `micromark/dev/lib/initialize/content.d.ts`)\n14.4 kB\n14379\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 5.774832273999891,
+      "cpuSeconds": 9.507717999999993,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-build-2.log",
+      "logSha256": "77373c71992d10b6eae1f7ea77c96bdab0f58c417aa716ed0a31dc90e21d21ea",
+      "tail": "e-commonmark/lib/blank-line.d.ts (from `micromark-core-commonmark/dev/lib/blank-line.d.ts`)\nmicromark-core-commonmark/lib/autolink.js (from `micromark-core-commonmark/dev/lib/autolink.js`)\nmicromark-core-commonmark/lib/autolink.d.ts.map (from `micromark-core-commonmark/dev/lib/autolink.d.ts.map`)\nmicromark-core-commonmark/lib/autolink.d.ts (from `micromark-core-commonmark/dev/lib/autolink.d.ts`)\nmicromark-core-commonmark/lib/attention.js (from `micromark-core-commonmark/dev/lib/attention.js`)\nmicromark-core-commonmark/lib/attention.d.ts.map (from `micromark-core-commonmark/dev/lib/attention.d.ts.map`)\nmicromark-core-commonmark/lib/attention.d.ts (from `micromark-core-commonmark/dev/lib/attention.d.ts`)\n\n> micromark@4.0.2 build\n> micromark-build\n\nmicromark/stream.js (from `micromark/dev/stream.js`)\nmicromark/stream.d.ts.map (from `micromark/dev/stream.d.ts.map`)\nmicromark/stream.d.ts (from `micromark/dev/stream.d.ts`)\nmicromark/index.js (from `micromark/dev/index.js`)\nmicromark/index.d.ts.map (from `micromark/dev/index.d.ts.map`)\nmicromark/index.d.ts (from `micromark/dev/index.d.ts`)\nmicromark/lib/preprocess.js (from `micromark/dev/lib/preprocess.js`)\nmicromark/lib/preprocess.d.ts.map (from `micromark/dev/lib/preprocess.d.ts.map`)\nmicromark/lib/preprocess.d.ts (from `micromark/dev/lib/preprocess.d.ts`)\nmicromark/lib/postprocess.js (from `micromark/dev/lib/postprocess.js`)\nmicromark/lib/postprocess.d.ts.map (from `micromark/dev/lib/postprocess.d.ts.map`)\nmicromark/lib/postprocess.d.ts (from `micromark/dev/lib/postprocess.d.ts`)\nmicromark/lib/parse.js (from `micromark/dev/lib/parse.js`)\nmicromark/lib/parse.d.ts.map (from `micromark/dev/lib/parse.d.ts.map`)\nmicromark/lib/parse.d.ts (from `micromark/dev/lib/parse.d.ts`)\nmicromark/lib/create-tokenizer.js (from `micromark/dev/lib/create-tokenizer.js`)\nmicromark/lib/create-tokenizer.d.ts.map (from `micromark/dev/lib/create-tokenizer.d.ts.map`)\nmicromark/lib/create-tokenizer.d.ts (from `micromark/dev/lib/create-tokenizer.d.ts`)\nmicromark/lib/constructs.js (from `micromark/dev/lib/constructs.js`)\nmicromark/lib/constructs.d.ts.map (from `micromark/dev/lib/constructs.d.ts.map`)\nmicromark/lib/constructs.d.ts (from `micromark/dev/lib/constructs.d.ts`)\nmicromark/lib/compile.js (from `micromark/dev/lib/compile.js`)\nmicromark/lib/compile.d.ts.map (from `micromark/dev/lib/compile.d.ts.map`)\nmicromark/lib/compile.d.ts (from `micromark/dev/lib/compile.d.ts`)\nmicromark/lib/initialize/text.js (from `micromark/dev/lib/initialize/text.js`)\nmicromark/lib/initialize/text.d.ts.map (from `micromark/dev/lib/initialize/text.d.ts.map`)\nmicromark/lib/initialize/text.d.ts (from `micromark/dev/lib/initialize/text.d.ts`)\nmicromark/lib/initialize/flow.js (from `micromark/dev/lib/initialize/flow.js`)\nmicromark/lib/initialize/flow.d.ts.map (from `micromark/dev/lib/initialize/flow.d.ts.map`)\nmicromark/lib/initialize/flow.d.ts (from `micromark/dev/lib/initialize/flow.d.ts`)\nmicromark/lib/initialize/document.js (from `micromark/dev/lib/initialize/document.js`)\nmicromark/lib/initialize/document.d.ts.map (from `micromark/dev/lib/initialize/document.d.ts.map`)\nmicromark/lib/initialize/document.d.ts (from `micromark/dev/lib/initialize/document.d.ts`)\nmicromark/lib/initialize/content.js (from `micromark/dev/lib/initialize/content.js`)\nmicromark/lib/initialize/content.d.ts.map (from `micromark/dev/lib/initialize/content.d.ts.map`)\nmicromark/lib/initialize/content.d.ts (from `micromark/dev/lib/initialize/content.d.ts`)\n14.4 kB\n14379\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "upstream",
+      "wallSeconds": 5.775113653000517,
+      "cpuSeconds": 9.380668000000178,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "original-build-3.log",
+      "logSha256": "77373c71992d10b6eae1f7ea77c96bdab0f58c417aa716ed0a31dc90e21d21ea",
+      "tail": "e-commonmark/lib/blank-line.d.ts (from `micromark-core-commonmark/dev/lib/blank-line.d.ts`)\nmicromark-core-commonmark/lib/autolink.js (from `micromark-core-commonmark/dev/lib/autolink.js`)\nmicromark-core-commonmark/lib/autolink.d.ts.map (from `micromark-core-commonmark/dev/lib/autolink.d.ts.map`)\nmicromark-core-commonmark/lib/autolink.d.ts (from `micromark-core-commonmark/dev/lib/autolink.d.ts`)\nmicromark-core-commonmark/lib/attention.js (from `micromark-core-commonmark/dev/lib/attention.js`)\nmicromark-core-commonmark/lib/attention.d.ts.map (from `micromark-core-commonmark/dev/lib/attention.d.ts.map`)\nmicromark-core-commonmark/lib/attention.d.ts (from `micromark-core-commonmark/dev/lib/attention.d.ts`)\n\n> micromark@4.0.2 build\n> micromark-build\n\nmicromark/stream.js (from `micromark/dev/stream.js`)\nmicromark/stream.d.ts.map (from `micromark/dev/stream.d.ts.map`)\nmicromark/stream.d.ts (from `micromark/dev/stream.d.ts`)\nmicromark/index.js (from `micromark/dev/index.js`)\nmicromark/index.d.ts.map (from `micromark/dev/index.d.ts.map`)\nmicromark/index.d.ts (from `micromark/dev/index.d.ts`)\nmicromark/lib/preprocess.js (from `micromark/dev/lib/preprocess.js`)\nmicromark/lib/preprocess.d.ts.map (from `micromark/dev/lib/preprocess.d.ts.map`)\nmicromark/lib/preprocess.d.ts (from `micromark/dev/lib/preprocess.d.ts`)\nmicromark/lib/postprocess.js (from `micromark/dev/lib/postprocess.js`)\nmicromark/lib/postprocess.d.ts.map (from `micromark/dev/lib/postprocess.d.ts.map`)\nmicromark/lib/postprocess.d.ts (from `micromark/dev/lib/postprocess.d.ts`)\nmicromark/lib/parse.js (from `micromark/dev/lib/parse.js`)\nmicromark/lib/parse.d.ts.map (from `micromark/dev/lib/parse.d.ts.map`)\nmicromark/lib/parse.d.ts (from `micromark/dev/lib/parse.d.ts`)\nmicromark/lib/create-tokenizer.js (from `micromark/dev/lib/create-tokenizer.js`)\nmicromark/lib/create-tokenizer.d.ts.map (from `micromark/dev/lib/create-tokenizer.d.ts.map`)\nmicromark/lib/create-tokenizer.d.ts (from `micromark/dev/lib/create-tokenizer.d.ts`)\nmicromark/lib/constructs.js (from `micromark/dev/lib/constructs.js`)\nmicromark/lib/constructs.d.ts.map (from `micromark/dev/lib/constructs.d.ts.map`)\nmicromark/lib/constructs.d.ts (from `micromark/dev/lib/constructs.d.ts`)\nmicromark/lib/compile.js (from `micromark/dev/lib/compile.js`)\nmicromark/lib/compile.d.ts.map (from `micromark/dev/lib/compile.d.ts.map`)\nmicromark/lib/compile.d.ts (from `micromark/dev/lib/compile.d.ts`)\nmicromark/lib/initialize/text.js (from `micromark/dev/lib/initialize/text.js`)\nmicromark/lib/initialize/text.d.ts.map (from `micromark/dev/lib/initialize/text.d.ts.map`)\nmicromark/lib/initialize/text.d.ts (from `micromark/dev/lib/initialize/text.d.ts`)\nmicromark/lib/initialize/flow.js (from `micromark/dev/lib/initialize/flow.js`)\nmicromark/lib/initialize/flow.d.ts.map (from `micromark/dev/lib/initialize/flow.d.ts.map`)\nmicromark/lib/initialize/flow.d.ts (from `micromark/dev/lib/initialize/flow.d.ts`)\nmicromark/lib/initialize/document.js (from `micromark/dev/lib/initialize/document.js`)\nmicromark/lib/initialize/document.d.ts.map (from `micromark/dev/lib/initialize/document.d.ts.map`)\nmicromark/lib/initialize/document.d.ts (from `micromark/dev/lib/initialize/document.d.ts`)\nmicromark/lib/initialize/content.js (from `micromark/dev/lib/initialize/content.js`)\nmicromark/lib/initialize/content.d.ts.map (from `micromark/dev/lib/initialize/content.d.ts.map`)\nmicromark/lib/initialize/content.d.ts (from `micromark/dev/lib/initialize/content.d.ts`)\n14.4 kB\n14379\n"
+    }
+  ],
+  "lilscriptBuilds": [
+    {
+      "command": [
+        "bash",
+        "-c",
+        "node scripts/build.mjs --compile --force"
+      ],
+      "cwd": "port",
+      "wallSeconds": 410.5768401059995,
+      "cpuSeconds": 795.817885,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "lilscript-build-1.log",
+      "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c",
+      "tail": "wrote dist/micromark.esm.js, dist/micromark.cjs, dist/micromark.umd.js, dist/micromark.closed.js, dist/micromark.stream.js, dist/micromark.stream.cjs, dist/micromark.test.js\n",
+      "invocations": [
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js"
+          ],
+          "startedAt": 1789072896.681178,
+          "wallSeconds": 141.48382925987244,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "66a5fe346706299dd1078a02c3993542a0f99f201946a8b2e19cfc60587e2ab5"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.closed.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js"
+          ],
+          "startedAt": 1789073038.249368,
+          "wallSeconds": 134.87034678459167,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "2f9ad7c3b17d54a4dd3d4dfdc81999dead926fd5f9281a50e74711884c9ff873"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/stream.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js"
+          ],
+          "startedAt": 1789073173.1589036,
+          "wallSeconds": 111.68307995796204,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "e761b295247a8f5d37e1c614a130b4ac4abab450c3b6e48543c21a33f5b74fa9"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/test/support.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js"
+          ],
+          "startedAt": 1789073284.8656313,
+          "wallSeconds": 22.24451184272766,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "97f0d9acce09a1d5882ee2af80557f8074f9034dc2de35ca9e13f2684bd5d2ff"
+        }
+      ]
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "node scripts/build.mjs --compile --force"
+      ],
+      "cwd": "port",
+      "wallSeconds": 344.28970886999923,
+      "cpuSeconds": 678.2886889999999,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "lilscript-build-2.log",
+      "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c",
+      "tail": "wrote dist/micromark.esm.js, dist/micromark.cjs, dist/micromark.umd.js, dist/micromark.closed.js, dist/micromark.stream.js, dist/micromark.stream.cjs, dist/micromark.test.js\n",
+      "invocations": [
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js"
+          ],
+          "startedAt": 1789073307.2605574,
+          "wallSeconds": 141.11744093894958,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "66a5fe346706299dd1078a02c3993542a0f99f201946a8b2e19cfc60587e2ab5"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.closed.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js"
+          ],
+          "startedAt": 1789073448.4025052,
+          "wallSeconds": 80.36404418945312,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "2f9ad7c3b17d54a4dd3d4dfdc81999dead926fd5f9281a50e74711884c9ff873"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/stream.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js"
+          ],
+          "startedAt": 1789073528.7902317,
+          "wallSeconds": 101.40035557746887,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "e761b295247a8f5d37e1c614a130b4ac4abab450c3b6e48543c21a33f5b74fa9"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/test/support.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js"
+          ],
+          "startedAt": 1789073630.214628,
+          "wallSeconds": 21.22453737258911,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "97f0d9acce09a1d5882ee2af80557f8074f9034dc2de35ca9e13f2684bd5d2ff"
+        }
+      ]
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "node scripts/build.mjs --compile --force"
+      ],
+      "cwd": "port",
+      "wallSeconds": 350.48966826000014,
+      "cpuSeconds": 697.7898799999999,
+      "exitCode": 0,
+      "timedOut": false,
+      "log": "lilscript-build-3.log",
+      "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c",
+      "tail": "wrote dist/micromark.esm.js, dist/micromark.cjs, dist/micromark.umd.js, dist/micromark.closed.js, dist/micromark.stream.js, dist/micromark.stream.cjs, dist/micromark.test.js\n",
+      "invocations": [
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js"
+          ],
+          "startedAt": 1789073663.1050537,
+          "wallSeconds": 140.9380919933319,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "66a5fe346706299dd1078a02c3993542a0f99f201946a8b2e19cfc60587e2ab5"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/index.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.closed.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js"
+          ],
+          "startedAt": 1789073804.06718,
+          "wallSeconds": 81.03989005088806,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "2f9ad7c3b17d54a4dd3d4dfdc81999dead926fd5f9281a50e74711884c9ff873"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/src/stream.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js"
+          ],
+          "startedAt": 1789073885.131201,
+          "wallSeconds": 105.72934150695801,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "e761b295247a8f5d37e1c614a130b4ac4abab450c3b6e48543c21a33f5b74fa9"
+        },
+        {
+          "args": [
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/test/support.lil",
+            "--target",
+            "js-module",
+            "--config",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/lilscript.toml",
+            "-o",
+            "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js"
+          ],
+          "startedAt": 1789073990.8857815,
+          "wallSeconds": 22.597379207611084,
+          "exitCode": 0,
+          "output": "/home/lilfarm/source-perf-20260910/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "97f0d9acce09a1d5882ee2af80557f8074f9034dc2de35ca9e13f2684bd5d2ff"
+        }
+      ]
+    }
+  ],
+  "protocol": {
+    "repetitions": 3,
+    "cleanOutputs": true,
+    "dependencyInstallationTimedSeparately": true,
+    "sourceArchives": "Pinned Git checkouts; original repository package build commands, followed by production ESM assembly.",
+    "workerUse": "Both implementations use the same machine and Node version. This shared build pool also runs unrelated jobs; timings are contextual wall times, with CPU time recorded separately."
+  },
+  "esm": {
+    "source": {
+      "repository": "https://github.com/micromark/micromark.git",
+      "commit": "3fae15528f69dfaf2a8865a7f7d92bfb4abd7bc9",
+      "package": "micromark",
+      "version": "4.0.2",
+      "directory": "packages/micromark"
+    },
+    "entry": "packages/micromark/index.js",
+    "scope": "micromark@4.0.2 public ESM runtime graph; dependency installation excluded; this is a comparison bundle build, not the upstream vendor release pipeline",
+    "external": [],
+    "samples": [
+      {
+        "bundleSeconds": 0.018130729,
+        "wallSeconds": 0.358167325
+      },
+      {
+        "bundleSeconds": 0.012809160000000019,
+        "wallSeconds": 0.25898977600000006
+      },
+      {
+        "bundleSeconds": 0.011996035000000006,
+        "wallSeconds": 0.25658900800000006
+      }
+    ],
+    "medianSeconds": 0.25898977600000006,
+    "toolchain": {
+      "esbuild": "0.28.1",
+      "terser": "5.51.2"
+    },
+    "artifacts": [
+      {
+        "path": "original.esm.js",
+        "raw": 52581,
+        "gzip9": 14469,
+        "brotli11": 12945,
+        "sha256": "1c7541fdc1ebeab8d25a3c0ae3d39904c1db8ca1d7c4d94293c88ba257d96d23"
+      },
+      {
+        "path": "original.unminified.js",
+        "raw": 133415,
+        "gzip9": 23919,
+        "brotli11": 20360,
+        "sha256": "1241f2301c2139e311fde85d1bb8738af523141352dc3a8b21632d64c9df5d5e"
+      },
+      {
+        "path": "original.terser-nomangle.js",
+        "raw": 86952,
+        "gzip9": 17841,
+        "brotli11": 15910,
+        "sha256": "fd7f412247ebadc55a726e63fc49397435cef5046aa081abd5438db795da17fd"
+      },
+      {
+        "path": "original.esbuild.js",
+        "raw": 53815,
+        "gzip9": 15495,
+        "brotli11": 13851,
+        "sha256": "4c8ec11ab0f2c7f48bc22d73a98f9a72c6de954b993e7591547d4f65d82a7dd2"
+      }
+    ],
+    "inputs": [
+      "node_modules/decode-named-character-reference/index.dom.js",
+      "packages/micromark-util-chunked/index.js",
+      "packages/micromark-util-combine-extensions/index.js",
+      "packages/micromark-util-decode-numeric-character-reference/index.js",
+      "packages/micromark-util-encode/index.js",
+      "packages/micromark-util-normalize-identifier/index.js",
+      "packages/micromark-util-character/index.js",
+      "packages/micromark-util-sanitize-uri/index.js",
+      "packages/micromark/lib/compile.js",
+      "packages/micromark-factory-space/index.js",
+      "packages/micromark/lib/initialize/content.js",
+      "packages/micromark/lib/initialize/document.js",
+      "packages/micromark-util-classify-character/index.js",
+      "packages/micromark-util-resolve-all/index.js",
+      "packages/micromark-core-commonmark/lib/attention.js",
+      "packages/micromark-core-commonmark/lib/autolink.js",
+      "packages/micromark-core-commonmark/lib/blank-line.js",
+      "packages/micromark-core-commonmark/lib/block-quote.js",
+      "packages/micromark-core-commonmark/lib/character-escape.js",
+      "packages/micromark-core-commonmark/lib/character-reference.js",
+      "packages/micromark-core-commonmark/lib/code-fenced.js",
+      "packages/micromark-core-commonmark/lib/code-indented.js",
+      "packages/micromark-core-commonmark/lib/code-text.js",
+      "packages/micromark-util-subtokenize/lib/splice-buffer.js",
+      "packages/micromark-util-subtokenize/index.js",
+      "packages/micromark-core-commonmark/lib/content.js",
+      "packages/micromark-factory-destination/index.js",
+      "packages/micromark-factory-label/index.js",
+      "packages/micromark-factory-title/index.js",
+      "packages/micromark-factory-whitespace/index.js",
+      "packages/micromark-core-commonmark/lib/definition.js",
+      "packages/micromark-core-commonmark/lib/hard-break-escape.js",
+      "packages/micromark-core-commonmark/lib/heading-atx.js",
+      "packages/micromark-util-html-tag-name/index.js",
+      "packages/micromark-core-commonmark/lib/html-flow.js",
+      "packages/micromark-core-commonmark/lib/html-text.js",
+      "packages/micromark-core-commonmark/lib/label-end.js",
+      "packages/micromark-core-commonmark/lib/label-start-image.js",
+      "packages/micromark-core-commonmark/lib/label-start-link.js",
+      "packages/micromark-core-commonmark/lib/line-ending.js",
+      "packages/micromark-core-commonmark/lib/thematic-break.js",
+      "packages/micromark-core-commonmark/lib/list.js",
+      "packages/micromark-core-commonmark/lib/setext-underline.js",
+      "packages/micromark-core-commonmark/index.js",
+      "packages/micromark/lib/initialize/flow.js",
+      "packages/micromark/lib/initialize/text.js",
+      "packages/micromark/lib/constructs.js",
+      "packages/micromark/lib/create-tokenizer.js",
+      "packages/micromark/lib/parse.js",
+      "packages/micromark/lib/postprocess.js",
+      "packages/micromark/lib/preprocess.js",
+      "packages/micromark/index.js",
+      "public-esm-entry.mjs"
+    ]
+  },
+  "lilscriptArtifacts": [
+    {
+      "path": "dist/micromark.stream.js",
+      "raw": 86506,
+      "gzip9": 30016,
+      "brotli11": 25528,
+      "sha256": "d2ffb312c8d6396345be7465d1ad64d9b430180f1bf0457851d80b2acca89967"
+    },
+    {
+      "path": "dist/micromark.umd.js",
+      "raw": 85700,
+      "gzip9": 30465,
+      "brotli11": 26086,
+      "sha256": "3b053c46a5cc54e25cfc512f3f6cd50abfc0238e38189bea15964acf2c789acc"
+    },
+    {
+      "path": "dist/micromark.stream.cjs",
+      "raw": 92982,
+      "gzip9": 31275,
+      "brotli11": 26598,
+      "sha256": "7aae8b492d41c5c2094fe15ae67e650d98d72f4982405ef71bb7347853fc5e10"
+    },
+    {
+      "path": "dist/micromark.raw.js",
+      "raw": 94468,
+      "gzip9": 32499,
+      "brotli11": 27472,
+      "sha256": "66a5fe346706299dd1078a02c3993542a0f99f201946a8b2e19cfc60587e2ab5"
+    },
+    {
+      "path": "dist/micromark.esm.js",
+      "raw": 84861,
+      "gzip9": 30155,
+      "brotli11": 25864,
+      "sha256": "2f91522f62b2ca4e467c26575f6d2a117dc4b8922a7ab1b7af0bc2579f10a5d4"
+    },
+    {
+      "path": "dist/micromark.stream.raw.js",
+      "raw": 86384,
+      "gzip9": 29932,
+      "brotli11": 25427,
+      "sha256": "e761b295247a8f5d37e1c614a130b4ac4abab450c3b6e48543c21a33f5b74fa9"
+    },
+    {
+      "path": "dist/micromark.closed.js",
+      "raw": 94565,
+      "gzip9": 32517,
+      "brotli11": 27507,
+      "sha256": "2f9ad7c3b17d54a4dd3d4dfdc81999dead926fd5f9281a50e74711884c9ff873"
+    },
+    {
+      "path": "dist/micromark.cjs",
+      "raw": 85611,
+      "gzip9": 30410,
+      "brotli11": 26025,
+      "sha256": "57b20a290d3cbc1956f62648ce02e9979505eddd6140cf13e0e9f8eacd20d5bd"
+    },
+    {
+      "path": "dist/micromark.test.js",
+      "raw": 32292,
+      "gzip9": 13237,
+      "brotli11": 11230,
+      "sha256": "97f0d9acce09a1d5882ee2af80557f8074f9034dc2de35ca9e13f2684bd5d2ff"
+    }
+  ],
+  "nativeBuildsSummary": {
+    "samples": 3,
+    "successful": 3,
+    "medianSeconds": 5.774832273999891,
+    "minimumSeconds": 5.774196108000069,
+    "maximumSeconds": 5.775113653000517
+  },
+  "lilscriptBuildsSummary": {
+    "samples": 3,
+    "successful": 3,
+    "medianSeconds": 350.48966826000014,
+    "minimumSeconds": 344.28970886999923,
+    "maximumSeconds": 410.5768401059995
+  },
+  "status": "complete",
+  "finishedAt": "2026-09-10T21:00:17Z",
+  "sourceBuild": {
+    "original": {
+      "complete": true,
+      "medianSeconds": 5.774832273999891,
+      "minimumSeconds": 5.774196108000069,
+      "maximumSeconds": 5.775113653000517,
+      "samples": [
+        {
+          "command": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "wallSeconds": 5.774196108000069,
+          "cpuSeconds": 9.407291999999996,
+          "exitCode": 0,
+          "timedOut": false,
+          "log": "original-build-1.log",
+          "logSha256": "793c805a2487ab4d0c01e9d77dcdb61a25aa49965068c67288cf26350082f226"
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "wallSeconds": 5.774832273999891,
+          "cpuSeconds": 9.507717999999993,
+          "exitCode": 0,
+          "timedOut": false,
+          "log": "original-build-2.log",
+          "logSha256": "77373c71992d10b6eae1f7ea77c96bdab0f58c417aa716ed0a31dc90e21d21ea"
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "wallSeconds": 5.775113653000517,
+          "cpuSeconds": 9.380668000000178,
+          "exitCode": 0,
+          "timedOut": false,
+          "log": "original-build-3.log",
+          "logSha256": "77373c71992d10b6eae1f7ea77c96bdab0f58c417aa716ed0a31dc90e21d21ea"
+        }
+      ]
+    },
+    "lilscript": {
+      "complete": true,
+      "medianSeconds": 350.48966826000014,
+      "minimumSeconds": 344.28970886999923,
+      "maximumSeconds": 410.5768401059995,
+      "samples": [
+        {
+          "command": [
+            "bash",
+            "-c",
+            "node scripts/build.mjs --compile --force"
+          ],
+          "wallSeconds": 410.5768401059995,
+          "cpuSeconds": 795.817885,
+          "exitCode": 0,
+          "timedOut": false,
+          "log": "lilscript-build-1.log",
+          "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c"
+        },
+        {
+          "command": [
+            "bash",
+            "-c",
+            "node scripts/build.mjs --compile --force"
+          ],
+          "wallSeconds": 344.28970886999923,
+          "cpuSeconds": 678.2886889999999,
+          "exitCode": 0,
+          "timedOut": false,
+          "log": "lilscript-build-2.log",
+          "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c"
+        },
+        {
+          "command": [
+            "bash",
+            "-c",
+            "node scripts/build.mjs --compile --force"
+          ],
+          "wallSeconds": 350.48966826000014,
+          "cpuSeconds": 697.7898799999999,
+          "exitCode": 0,
+          "timedOut": false,
+          "log": "lilscript-build-3.log",
+          "logSha256": "1090391a46c86942af33dd8fe1cae100d65f90c0715dace256fcb6054485b69c"
+        }
+      ]
+    },
+    "scopeNote": "Both timings cover each repository\u2019s package build command; their output formats and build checks can differ.",
+    "cleanOutputs": true,
+    "installationExcluded": true
+  },
+  "prerequisiteAdjustments": "Pin @types/node 22.0.0 and TypeScript 5.5.4 within the original declared ranges; the unlocked latest @types/node added an incompatible optional BufferEncoding in an upstream test helper.",
+  "recordRepository": "https://github.com/yeargun/micromarklil/tree/main/comparison/source-build"
+}
