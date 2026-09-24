@@ -1,21 +1,10 @@
 # reusable ESM — host-visible names stay
 [javascript]
-# 8.103: converged naming, measured -73 Brotli on this port against the current
-# compiler. Swept fleet-wide the knob is net positive, so it lands per port.
-# The earlier sweep of it predates live-17..23; a refused measurement has a
-# shelf life when the compiler moves under it.
-name_ordering = "idiom-converged"
-# 8.102: re-emit a twice-read member instead of naming it. Measured -299 Brotli
-# on this port. 8.79 measured it as +170 here and refused it; that reading
-# predates live-21 and live-22, which changed what this port emits. Re-measured
-# after them it is a win, which is why a refused knob is worth re-running when
-# the compiler moves under it.
-rematerialize_member_reads = true
 assume_pure_property_reads = true
-# 8.6 (measured, ten pool ports): the emission's canonical peephole chain,
-# re-opened on the terminal artifact, is a per-port win -- this port -100/-63/-32/-18
-# Brotli -- while jquerylil +245 and katexlil +151 refuse it.
-terminal_cleanup_chain = true
+# The tokenizer's state functions (and the lambdas of the builders around
+# it) are called by micromark's engine and by extensions; nothing constructs
+# them or reads their prototype, as nothing does upstream's.
+assume_unconstructed_callbacks = true
 priority = "size-first"
 # 8.90: level 13 -> 15, measured -70 Brotli on this port's own
 # artifact. Swept across the fleet the level is nearly inert (-160 over 22,
@@ -26,13 +15,9 @@ optimization_level = 15
 cost_model = "brotli"
 assume_pristine_builtins = true
 strip_console = true
-local_name_reserve = 24
 candidate_search = "always"
-public_aggregate_abi = "named"
 
 [mangle]
 identifiers = true
 properties = true
-exports = false
-extern_fields = true
 pool_strings = true

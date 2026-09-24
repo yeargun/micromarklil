@@ -69,6 +69,7 @@
     "check:types": "tsc --noEmit --strict --module NodeNext --moduleResolution NodeNext --target ES2022 test/types.test.ts",
     "check:site": "npm run build:site && node --test test/site.test.mjs",
     "check:pack": "node scripts/check-pack.mjs",
+    "record:release": "node scripts/record-release.mjs",
     "prepublishOnly": "npm test && npm run check:types && npm run check:pack && npm run check:site"
   },
   "dependencies": {

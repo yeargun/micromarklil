@@ -1,112 +1,138 @@
-import { call0, call1, call2, call3, fail, isFn, objGet, optionOrEmpty, undef } from "./host.lil";
 import { compile } from "./compile.lil";
 import { parse } from "./parse.lil";
 import { postprocess } from "./postprocess.lil";
 import { preprocess } from "./preprocess.lil";
 
 extern JsValue EventEmitter;
+extern JsValue Error;
+
+extern class Tokenizer {
+  JsValue write;
+}
+
+extern class Parser {
+  Tokenizer document();
+}
+
+// What `pipe` writes to and listens on: a Node.js writable stream or any `EventEmitter` like it.
+extern class Destination {
+  JsValue writable;
+  JsValue _isStdio;
+  JsValue write(JsValue chunk);
+  JsValue end;
+  JsValue on(JsValue name, JsValue listener);
+  JsValue emit(JsValue name, JsValue value);
+  JsValue removeListener(JsValue name, JsValue listener);
+}
+
+extern class Emitter {
+  JsValue end;
+  JsValue pipe;
+  JsValue readable;
+  JsValue writable;
+  JsValue write;
+  JsValue on(JsValue name, JsValue listener);
+  JsValue emit(JsValue name, JsValue value);
+  JsValue removeListener(JsValue name, JsValue listener);
+  JsValue listenerCount(JsValue name);
+}
+
+Parser parser(JsValue options) {
+  return JS.assume(parse(options));
+}
 
 export JsValue stream(JsValue options) {
   JsValue prep = preprocess();
-  JsValue parser = parse(options);
-  JsValue tokenizer = call1(objGet(parser, "document"), parser, undef());
-  JsValue tokenize = objGet(tokenizer, "write");
+  JsValue tokenize = parser(options).document().write;
   JsValue comp = compile(options);
   bool ended = false;
-  JsValue emitter = JS.construct(EventEmitter);
+  JsValue emitterValue = JS.construct(EventEmitter);
+  Emitter emitter = JS.assume(emitterValue);
 
   JsValue write = JS.method3((JsValue _self, JsValue chunk, JsValue encoding, JsValue callback) => {
-    JsValue enc = encoding;
-    JsValue cb = callback;
-    if (isFn(encoding)) {
-      cb = encoding;
-      enc = undef();
+    if (JS.typeOf(encoding) == "function") {
+      callback = encoding;
+      encoding = JS.undefined();
     }
     if (ended) {
-      fail("Did not expect `write` after `end`");
+      throw JS.construct(Error, "Did not expect `write` after `end`");
     }
     JsValue value = chunk;
     if (!value.truthy()) {
       value = "";
     }
-    call1(tokenize, undef(), JS.call(prep, undef(), value, enc));
-    if (cb.truthy()) {
-      call0(cb, undef());
+    JS.call(tokenize, JS.undefined(), JS.call(prep, JS.undefined(), value, encoding));
+    if (callback.truthy()) {
+      JS.call(callback, JS.undefined());
     }
     return true;
   });
 
   JsValue end = JS.method3((JsValue _self, JsValue chunk, JsValue encoding, JsValue callback) => {
-    JsValue ch = chunk;
-    JsValue enc = encoding;
-    JsValue cb = callback;
-    if (isFn(chunk)) {
-      cb = chunk;
-      ch = undef();
-      enc = undef();
+    if (JS.typeOf(chunk) == "function") {
+      encoding = chunk;
+      chunk = JS.undefined();
     }
-    if (isFn(enc)) {
-      cb = enc;
-      enc = undef();
+    if (JS.typeOf(encoding) == "function") {
+      callback = encoding;
+      encoding = JS.undefined();
     }
-    call3(write, emitter, ch, enc, cb);
-    JsValue events = call1(tokenize, undef(), JS.call(prep, undef(), "", enc, true));
-    JS.call(objGet(emitter, "emit"), emitter, "data", call1(comp, undef(), postprocess(events)));
-    JS.call(objGet(emitter, "emit"), emitter, "end");
+    JS.call(write, JS.undefined(), chunk, encoding, callback);
+    emitter.emit("data", JS.call(comp, JS.undefined(), postprocess(JS.call(tokenize, JS.undefined(), JS.call(prep, JS.undefined(), "", encoding, true)))));
+    JS.call(emitterValue["emit"], emitterValue, "end");
     ended = true;
     return true;
   });
 
-  JsValue pipe = JS.method2((JsValue _self, JsValue destination, JsValue pipeOptions) => {
-    JsValue opts = optionOrEmpty(pipeOptions);
+  JsValue pipe = JS.method2((JsValue _self, JsValue target, JsValue pipeOptions) => {
+    Destination destination = JS.assume(target);
+    JsValue onerror = JS.undefined();
     JsValue ondata = JS.method1((JsValue _s, JsValue chunk) => {
-      if (objGet(destination, "writable").truthy()) {
-        call1(objGet(destination, "write"), destination, chunk);
+      if (destination.writable.truthy()) {
+        destination.write(chunk);
       }
-      return undef();
+      return JS.undefined();
     });
     JsValue onend = JS.method0((JsValue _s) => {
-      if (objGet(destination, "end").truthy()) {
-        call0(objGet(destination, "end"), destination);
+      if (destination.end.truthy()) {
+        JS.call(destination.end, destination);
       }
-      return undef();
+      return JS.undefined();
     });
-    JsValue onerror = undef();
     JsValue cleanup = JS.method0((JsValue _s) => {
-      call2(objGet(emitter, "removeListener"), emitter, "data", ondata);
-      call2(objGet(emitter, "removeListener"), emitter, "end", onend);
-      call2(objGet(emitter, "removeListener"), emitter, "error", onerror);
-      call2(objGet(emitter, "removeListener"), emitter, "end", cleanup);
-      call2(objGet(emitter, "removeListener"), emitter, "close", cleanup);
-      call2(objGet(destination, "removeListener"), destination, "error", onerror);
-      call2(objGet(destination, "removeListener"), destination, "close", cleanup);
-      return undef();
+      emitter.removeListener("data", ondata);
+      emitter.removeListener("end", onend);
+      emitter.removeListener("error", onerror);
+      emitter.removeListener("end", cleanup);
+      emitter.removeListener("close", cleanup);
+      destination.removeListener("error", onerror);
+      destination.removeListener("close", cleanup);
+      return JS.undefined();
     });
     onerror = JS.method1((JsValue _s, JsValue error) => {
-      call0(cleanup, undef());
-      if (!call1(objGet(emitter, "listenerCount"), emitter, "error").truthy()) {
+      JS.call(cleanup, JS.undefined());
+      if (!emitter.listenerCount("error").truthy()) {
         throw error;
       }
-      return undef();
+      return JS.undefined();
     });
-    call2(objGet(emitter, "on"), emitter, "data", ondata);
-    call2(objGet(emitter, "on"), emitter, "error", onerror);
-    call2(objGet(emitter, "on"), emitter, "end", cleanup);
-    call2(objGet(emitter, "on"), emitter, "close", cleanup);
-    bool shouldEnd = !objGet(destination, "_isStdio").truthy() && objGet(opts, "end") != false;
-    if (shouldEnd) {
-      call2(objGet(emitter, "on"), emitter, "end", onend);
+    emitter.on("data", ondata);
+    emitter.on("error", onerror);
+    emitter.on("end", cleanup);
+    emitter.on("close", cleanup);
+    if (!destination._isStdio.truthy() && (!pipeOptions.truthy() || pipeOptions["end"] != false)) {
+      emitter.on("end", onend);
     }
-    call2(objGet(destination, "on"), destination, "error", onerror);
-    call2(objGet(destination, "on"), destination, "close", cleanup);
-    JS.call(objGet(destination, "emit"), destination, "pipe", emitter);
-    return destination;
+    destination.on("error", onerror);
+    destination.on("close", cleanup);
+    destination.emit("pipe", emitter);
+    return target;
   });
 
-  JS.set(emitter, "end", end);
-  JS.set(emitter, "pipe", pipe);
-  JS.set(emitter, "readable", true);
-  JS.set(emitter, "writable", true);
-  JS.set(emitter, "write", write);
-  return emitter;
+  emitter.end = end;
+  emitter.pipe = pipe;
+  emitter.readable = true;
+  emitter.writable = true;
+  emitter.write = write;
+  return emitterValue;
 }

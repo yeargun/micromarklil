@@ -1,5 +1,6 @@
 import {
   accessSync,
+  appendFileSync,
   constants,
   copyFileSync,
   existsSync,
@@ -10,17 +11,21 @@ import {
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import { spawnSync } from "node:child_process"
-import { build as esbuild } from "esbuild"
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const lilscriptRoot = process.env.LILSCRIPT_ROOT ?? resolve(root, "..", "lilscript")
 const dist = resolve(root, "dist")
 const file = "micromark"
 const banner = "/*! @itslil/micromark 4.0.3 | LilScript reimplementation of micromark | MIT */\n"
+const publicApi = ["compile", "micromark", "parse", "postprocess", "preprocess"]
 
 function compilerPath() {
+  // A pinned compiler is used or the build fails; it never falls back to another binary.
+  if (process.env.LILSCRIPT_COMPILER) {
+    accessSync(process.env.LILSCRIPT_COMPILER, constants.X_OK)
+    return process.env.LILSCRIPT_COMPILER
+  }
   const candidates = [
-    process.env.LILSCRIPT_COMPILER,
     resolve(lilscriptRoot, "target", "release", "lilscript"),
     resolve(lilscriptRoot, "target", "debug", "lilscript"),
   ].filter(Boolean)
@@ -34,12 +39,16 @@ function compilerPath() {
 }
 
 function run(cmd, args) {
+  const started = process.hrtime.bigint()
   const result = spawnSync(cmd, args, { cwd: root, stdio: "inherit" })
   if (result.status !== 0) process.exit(result.status ?? 1)
+  return Number(process.hrtime.bigint() - started) / 1e6
 }
 
+// LILSCRIPT_COMPILE_LOG names a file that receives one JSON line per compiler
+// invocation with its wall time; scripts/record-release.mjs reads it for the site.
 function compileLil(compiler, sourceName, configName, outputName) {
-  run(compiler, [
+  const wallMs = run(compiler, [
     resolve(root, sourceName),
     "--target",
     "js-module",
@@ -48,11 +57,18 @@ function compileLil(compiler, sourceName, configName, outputName) {
     "-o",
     resolve(dist, outputName),
   ])
+  if (process.env.LILSCRIPT_COMPILE_LOG) {
+    appendFileSync(
+      process.env.LILSCRIPT_COMPILE_LOG,
+      `${JSON.stringify({ source: sourceName, config: configName, output: outputName, wallMs })}\n`,
+    )
+  }
 }
 
 function compileIfRequested() {
   const generated = [
     `${file}.raw.js`,
+    `${file}.closed.js`,
     `${file}.stream.raw.js`,
     `${file}.test.js`,
   ]
@@ -73,115 +89,74 @@ function compileIfRequested() {
   compileLil(compiler, "test/support.lil", "lilscript.toml", `${file}.test.js`)
 }
 
+// The compiler writes an ES module whose last statement is its export clause.
+// Every delivered file is that text: the ESM as written, and the CommonJS and
+// browser builds with the clause replaced by a module wrapper. No minifier runs
+// over the compiler's output.
+function splitExports(text, expected, label) {
+  const match = /;?export\s*\{([^}]*)\}\s*;?\s*$/.exec(text)
+  if (!match) throw new Error(`${label}: the compiler's artifact has no trailing export clause`)
+  const bindings = match[1].split(",").map((entry) => {
+    const [local, exported = local] = entry.trim().split(/\s+as\s+/)
+    return { local, exported }
+  })
+  const names = bindings.map(({ exported }) => exported).sort()
+  if (names.join(",") !== [...expected].sort().join(",")) {
+    throw new Error(`${label}: exports ${names.join(",")}, expected ${[...expected].sort().join(",")}`)
+  }
+  if (/\bimport\s*[{*\s"']|\bimport\.meta\b|\bexport\s/.test(text.slice(0, match.index))) {
+    throw new Error(`${label}: module syntax outside the trailing export clause`)
+  }
+  return { body: `${text.slice(0, match.index)};`, bindings }
+}
+
+function objectOf(bindings) {
+  return `{${bindings
+    .map(({ local, exported }) => (local === exported ? local : `${exported}:${local}`))
+    .join(",")}}`
+}
+
+function readCompiled(name) {
+  const path = resolve(dist, name)
+  if (!existsSync(path)) {
+    throw new Error(`dist/${name} is missing. Run with --compile after building LilScript.`)
+  }
+  return readFileSync(path, "utf8").trimEnd()
+}
+
 compileIfRequested()
 mkdirSync(dist, { recursive: true })
 
-const rawPath = resolve(dist, `${file}.raw.js`)
-if (!existsSync(rawPath)) {
-  throw new Error(`dist/${file}.raw.js is missing. Run with --compile after building LilScript.`)
-}
-
+const raw = readCompiled(`${file}.raw.js`)
+const main = splitExports(raw, publicApi, `${file}.raw.js`)
+writeFileSync(resolve(dist, `${file}.esm.js`), `${banner}${raw}\n`)
 writeFileSync(
-  resolve(dist, `${file}.stream.js`),
-  `${banner}import {EventEmitter} from "node:events";\n${readFileSync(resolve(dist, `${file}.stream.raw.js`), "utf8").trimEnd()}\n`,
+  resolve(dist, `${file}.cjs`),
+  `${banner}"use strict";${main.body}module.exports=${objectOf(main.bindings)};\n`,
+)
+// The browser build is a classic script: one function scope around the
+// compiler's program, and `micromark` on the global object, as upstream's
+// UMD consumers expect.
+const micromarkLocal = main.bindings.find(({ exported }) => exported === "micromark").local
+writeFileSync(
+  resolve(dist, `${file}.umd.js`),
+  `${banner}(function(){"use strict";${main.body}globalThis.micromark=${micromarkLocal}})();\n`,
 )
 
-await esbuild({
-  absWorkingDir: dist,
-  stdin: {
-    contents: `export {compile,micromark,parse,postprocess,preprocess} from "./${file}.raw.js"`,
-    resolveDir: dist,
-    sourcefile: `${file}.public.js`,
-  },
-  outfile: resolve(dist, `${file}.esm.js`),
-  bundle: true,
-  format: "esm",
-  platform: "neutral",
-  legalComments: "none",
-  // Without this esbuild prints every non-ASCII character as a `\uXXXX` escape:
-  // six ASCII bytes where the literal character is two or three UTF-8 ones. The
-  // compiler emits 2304 of them literally in dist/micromark.raw.js and the bundle
-  // turned all 2304 into escapes, which is 7021 raw bytes and 173 Brotli.
-  charset: "utf8",
-  minifyWhitespace: true,
-  // 8.7 (measured): bundling the public five exports out of micromark.raw.js
-  // merges our module scope with the entry's, and esbuild then renames every
-  // shadowed inner binding with a digit suffix -- 3,078 mentions of `a2`, `b2`,
-  // `r2` in the shipped ESM against 6 in the file the compiler wrote. Letting
-  // esbuild mangle instead removes all of them: -2,760 raw, -99 Brotli.
-  minifyIdentifiers: true,
-  // The compiler already picked the shorter spellings, and esbuild un-picks them
-  // when it re-prints without minifySyntax: `!0` comes back out as `true`. That
-  // cost this artifact all 87 of its compact booleans -- 0 left in the bundle
-  // against 87 in dist/micromark.raw.js -- for 4538 raw bytes and 266 Brotli.
-  minifySyntax: true,
-  banner: { js: banner },
-  logLevel: "error",
-})
+const closed = readCompiled(`${file}.closed.js`)
+splitExports(closed, publicApi, `${file}.closed.js`)
 
-await esbuild({
-  absWorkingDir: dist,
-  entryPoints: [resolve(dist, `${file}.esm.js`)],
-  outfile: resolve(dist, `${file}.cjs`),
-  bundle: true,
-  format: "cjs",
-  platform: "neutral",
-  legalComments: "none",
-  // Without this esbuild prints every non-ASCII character as a `\uXXXX` escape:
-  // six ASCII bytes where the literal character is two or three UTF-8 ones. The
-  // compiler emits 2304 of them literally in dist/micromark.raw.js and the bundle
-  // turned all 2304 into escapes, which is 7021 raw bytes and 173 Brotli.
-  charset: "utf8",
-  minifyWhitespace: true,
-  minifyIdentifiers: false,
-  minifySyntax: true,
-  banner: { js: banner },
-  logLevel: "error",
-})
-
-await esbuild({
-  absWorkingDir: dist,
-  entryPoints: [resolve(dist, `${file}.stream.js`)],
-  outfile: resolve(dist, `${file}.stream.cjs`),
-  bundle: true,
-  external: ["node:events"],
-  format: "cjs",
-  platform: "neutral",
-  legalComments: "none",
-  // Without this esbuild prints every non-ASCII character as a `\uXXXX` escape:
-  // six ASCII bytes where the literal character is two or three UTF-8 ones. The
-  // compiler emits 2304 of them literally in dist/micromark.raw.js and the bundle
-  // turned all 2304 into escapes, which is 7021 raw bytes and 173 Brotli.
-  charset: "utf8",
-  minifyWhitespace: true,
-  minifyIdentifiers: false,
-  minifySyntax: true,
-  banner: { js: banner },
-  logLevel: "error",
-})
-
-await esbuild({
-  absWorkingDir: dist,
-  entryPoints: [resolve(dist, `${file}.esm.js`)],
-  outfile: resolve(dist, `${file}.umd.js`),
-  bundle: true,
-  format: "iife",
-  globalName: "micromark",
-  footer: {
-    js: `globalThis.micromark=micromark.default||micromark.micromark||micromark;`,
-  },
-  legalComments: "none",
-  // Without this esbuild prints every non-ASCII character as a `\uXXXX` escape:
-  // six ASCII bytes where the literal character is two or three UTF-8 ones. The
-  // compiler emits 2304 of them literally in dist/micromark.raw.js and the bundle
-  // turned all 2304 into escapes, which is 7021 raw bytes and 173 Brotli.
-  charset: "utf8",
-  minifyWhitespace: true,
-  minifyIdentifiers: false,
-  minifySyntax: true,
-  banner: { js: banner },
-  logLevel: "error",
-})
+// The stream entry reads EventEmitter from node:events, as upstream does.
+const streamRaw = readCompiled(`${file}.stream.raw.js`)
+const stream = splitExports(streamRaw, ["stream"], `${file}.stream.raw.js`)
+writeFileSync(
+  resolve(dist, `${file}.stream.js`),
+  `${banner}import {EventEmitter} from "node:events";\n${streamRaw}\n`,
+)
+writeFileSync(
+  resolve(dist, `${file}.stream.cjs`),
+  `${banner}"use strict";const{EventEmitter}=require("node:events");${stream.body}module.exports=${objectOf(stream.bindings)};\n`,
+)
 
 copyFileSync(resolve(root, "types", `${file}.d.ts`), resolve(dist, `${file}.d.ts`))
 copyFileSync(
@@ -189,5 +164,5 @@ copyFileSync(
   resolve(dist, `${file}.stream.d.ts`),
 )
 console.log(
-  `wrote dist/${file}.esm.js, dist/${file}.cjs, dist/${file}.umd.js, dist/${file}.closed.js, dist/${file}.stream.js, dist/${file}.stream.cjs, dist/${file}.test.js`,
+  `wrote dist/${file}.esm.js, dist/${file}.cjs, dist/${file}.umd.js, dist/${file}.closed.js, dist/${file}.stream.js, dist/${file}.stream.cjs, dist/${file}.test.js from the compiler's output`,
 )

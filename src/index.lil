@@ -1,45 +1,26 @@
-import { isStr, undef } from "./host.lil";
-import { compile as compileHtml } from "./compile.lil";
-import { parse as parseMarkdown } from "./parse.lil";
-import { postprocess as postprocessEvents } from "./postprocess.lil";
-import { preprocess as preprocessMarkdown } from "./preprocess.lil";
-import { stream as streamMarkdown } from "./stream.lil";
-import { SpliceBuffer as SpliceBufferClass } from "./splice-buffer.lil";
-import { decodeString as decodeStringValue } from "./util-decode-string.lil";
-import { splice as spliceList } from "./util-chunked.lil";
-import { htmlBlockNames as htmlBlockNameList, htmlRawNames as htmlRawNameList } from "./util-html-tag-name.lil";
-import { codes as codeTable } from "./symbol/codes.lil";
-import { constants as constantTable } from "./symbol/constants.lil";
-import { types as typeTable } from "./symbol/types.lil";
-import { values as valueTable } from "./symbol/values.lil";
+import { compile } from "./compile.lil";
+import { parse } from "./parse.lil";
+import { postprocess } from "./postprocess.lil";
+import { preprocess } from "./preprocess.lil";
 
-export JsValue compile = compileHtml;
-export JsValue parse = parseMarkdown;
-export JsValue postprocess = postprocessEvents;
-export JsValue preprocess = preprocessMarkdown;
+export { compile, parse, postprocess, preprocess };
 
-// Keep dynamically referenced runtime values live; build.mjs narrows the public bundle to micromark's API.
-export JsValue stream = streamMarkdown;
-export JsValue SpliceBuffer = SpliceBufferClass;
-export JsValue decodeString = decodeStringValue;
-export JsValue splice = spliceList;
-export JsValue htmlBlockNames = htmlBlockNameList;
-export JsValue htmlRawNames = htmlRawNameList;
-export JsValue codes = codeTable;
-export JsValue constants = constantTable;
-export JsValue types = typeTable;
-export JsValue values = valueTable;
+extern class Tokenizer {
+  JsValue write(JsValue chunks);
+}
 
-export JsValue micromark(JsValue value, JsValue encodingOrOptions, JsValue options) {
-  JsValue encoding = encodingOrOptions;
-  JsValue settings = options;
-  if (!isStr(encodingOrOptions)) {
-    settings = encodingOrOptions;
-    encoding = undef();
+extern class Parser {
+  Tokenizer document();
+}
+
+Parser parser(JsValue options) {
+  return JS.assume(parse(options));
+}
+
+export JsValue micromark(JsValue value, JsValue encoding, JsValue options) {
+  if (!(encoding is string)) {
+    options = encoding;
+    encoding = JS.undefined();
   }
-  JsValue parser = parseMarkdown(settings);
-  JsValue tokenizer = JS.call(JS.get(parser, "document"), parser);
-  JsValue chunks = JS.call(preprocessMarkdown(), JS.undefined(), value, encoding, true);
-  JsValue events = JS.call(JS.get(tokenizer, "write"), tokenizer, chunks);
-  return JS.call(compileHtml(settings), JS.undefined(), postprocessEvents(events));
+  return JS.call(compile(options), JS.undefined(), postprocess(parser(options).document().write(JS.call(preprocess(), JS.undefined(), value, encoding, true))));
 }

@@ -7,9 +7,9 @@
     "directory": "packages/micromark"
   },
   "portSource": {
-    "commit": "fc11f5c739d76ba7d3d7f59b60293c0b8988a89a"
+    "commit": "a739438 plus the release working tree (committed together with these records)"
   },
-  "compilerCommit": "4dc4e3337d9ffd758d65e3852682d6e13d9331c1",
+  "compilerCommit": "aa2052f081ca8184666ca280ee9b91d476e46cfc",
   "install": [
     "npm",
     "install",
