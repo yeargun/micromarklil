@@ -7,9 +7,10 @@
     "directory": "packages/micromark"
   },
   "portSource": {
-    "commit": "a739438 plus the release working tree (committed together with these records)"
+    "commit": "606f04307f83aecdfd9856031ed91fd94fb70ee9",
+    "snapshot": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil"
   },
-  "compilerCommit": "aa2052f081ca8184666ca280ee9b91d476e46cfc",
+  "compilerCommit": "249686599dc3bf1b6bf70dc9a030081b755bbb24",
   "install": [
     "npm",
     "install",

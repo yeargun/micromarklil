@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "micromarklil",
-  "startedAt": "2026-09-24T04:07:01Z",
+  "startedAt": "2026-09-27T14:52:42Z",
   "machine": {
     "provider": "Azure",
     "instanceClass": "Standard_B8als_v2",
@@ -13,19 +13,19 @@
     "node": "v24.11.1",
     "rayonThreads": 8,
     "loadAtStart": [
-      2.560546875,
-      4.32080078125,
-      4.5166015625
+      14.81103515625,
+      7.7353515625,
+      6.32421875
     ],
     "loadAtEnd": [
-      3.37890625,
-      4.24658203125,
-      4.478515625
+      21.73388671875,
+      13.54833984375,
+      8.716796875
     ]
   },
   "compiler": {
-    "commit": "aa2052f081ca8184666ca280ee9b91d476e46cfc",
-    "sha256": "13cb49a93fb3e376a5978484835322c84adea692b69ae4720775291377cf18f9"
+    "commit": "249686599dc3bf1b6bf70dc9a030081b755bbb24",
+    "sha256": "47048e41164027e92d3bf1d1840d8d83e04c60532c031ceb3346222e194b3041"
   },
   "source": {
     "repository": "https://github.com/micromark/micromark.git",
@@ -35,7 +35,8 @@
     "directory": "packages/micromark"
   },
   "portSource": {
-    "commit": "a739438 plus the release working tree (committed together with these records)"
+    "commit": "606f04307f83aecdfd9856031ed91fd94fb70ee9",
+    "snapshot": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil"
   },
   "prerequisiteAdjustments": "Pin @types/node 22.0.0 and TypeScript 5.5.4 within the original declared ranges; the unlocked latest @types/node added an incompatible optional BufferEncoding in an upstream test helper.",
   "steps": {
@@ -48,13 +49,13 @@
         "--no-fund"
       ],
       "cwd": "upstream",
-      "wallSeconds": 1.9186274870007765,
-      "cpuSeconds": 2.5304810000000004,
+      "wallSeconds": 8.680568953976035,
+      "cpuSeconds": 3.906486,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-install.log",
-      "logSha256": "ce7bf91f54adc7390cff6bf1c2572fd00ce9cfbd0611637e273059c4710a80c9",
-      "tail": "\nup to date in 2s\n"
+      "logSha256": "99ba92dc3484afc0677576e2eb780b75fff448062f5e48c145ae879e0be7e2a8",
+      "tail": "\nup to date in 8s\n"
     },
     "original-setup-0": {
       "command": [
@@ -69,13 +70,13 @@
         "typescript@5.5.4"
       ],
       "cwd": "upstream",
-      "wallSeconds": 1.8676798550004605,
-      "cpuSeconds": 2.4111420000000003,
+      "wallSeconds": 4.344203767017461,
+      "cpuSeconds": 3.4604310000000003,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-setup-0.log",
-      "logSha256": "b12b4a46b7edac5e31a56978fa0573f71f0dc707053247fc8e0cba278676aef2",
-      "tail": "\nchanged 2 packages in 2s\n"
+      "logSha256": "663621e7575fc9dea8c31dfde58d20ddd63cea7798d09daff557e3fd4df1e9fa",
+      "tail": "\nchanged 2 packages in 4s\n"
     },
     "original-build-1": {
       "command": [
@@ -84,8 +85,8 @@
         "build"
       ],
       "cwd": "upstream",
-      "wallSeconds": 12.042252311002812,
-      "cpuSeconds": 19.229771,
+      "wallSeconds": 24.60970318701584,
+      "cpuSeconds": 26.067901,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-build-1.log",
@@ -99,8 +100,8 @@
         "node scripts/build.mjs --compile --force"
       ],
       "cwd": "port",
-      "wallSeconds": 2.2181902800002717,
-      "cpuSeconds": 2.181919999999998,
+      "wallSeconds": 12.603652324993163,
+      "cpuSeconds": 10.899715,
       "exitCode": 0,
       "timedOut": false,
       "log": "lilscript-build-1.log",
@@ -109,67 +110,67 @@
       "invocations": [
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js"
           ],
-          "startedAt": 1790222837.8490973,
-          "wallSeconds": 0.608971118927002,
+          "startedAt": 1790520800.8048973,
+          "wallSeconds": 3.6780169010162354,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.raw.js",
-          "sha256": "f1d31f0f6805f5c31c1bff86ad028d8669c0b4d9e4c5ed1c02ccfdd8cfbfe67b"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "0a0cb331e5893323bbb1f9431f59ac0491eed2a145ab306588b7b3658850d5c6"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.closed.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.closed.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.closed.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js"
           ],
-          "startedAt": 1790222838.4948542,
-          "wallSeconds": 0.6144437789916992,
+          "startedAt": 1790520804.5726776,
+          "wallSeconds": 3.5000321865081787,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.closed.js",
-          "sha256": "ae649160d62448b920a3a5237205a6e1428e9818798f6eb5aebee6f2d5580ba7"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/stream.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/stream.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.stream.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js"
           ],
-          "startedAt": 1790222839.1470163,
-          "wallSeconds": 0.6034173965454102,
+          "startedAt": 1790520808.1317112,
+          "wallSeconds": 3.9125776290893555,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.stream.raw.js",
-          "sha256": "258bc1043da4e6e0e8660aa643c9500dc874fb1e99876af5e07712d4005052a1"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "1aebc1cc44a2e71cad772964f4de04972977c974c3104f2590615bcfe8335c7a"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/test/support.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/test/support.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.test.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js"
           ],
-          "startedAt": 1790222839.7876627,
-          "wallSeconds": 0.1473395824432373,
+          "startedAt": 1790520812.1095815,
+          "wallSeconds": 1.1029832363128662,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.test.js",
-          "sha256": "3885f57b8f14ddd5332600dcbcb1f7ac17755439698bc306335cc95cf717a604"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
         }
       ]
     },
@@ -180,8 +181,8 @@
         "node scripts/build.mjs --compile --force"
       ],
       "cwd": "port",
-      "wallSeconds": 2.2179546789993765,
-      "cpuSeconds": 2.171827999999997,
+      "wallSeconds": 12.53967675799504,
+      "cpuSeconds": 10.793242999999995,
       "exitCode": 0,
       "timedOut": false,
       "log": "lilscript-build-2.log",
@@ -190,67 +191,67 @@
       "invocations": [
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js"
           ],
-          "startedAt": 1790222840.0665548,
-          "wallSeconds": 0.6082963943481445,
+          "startedAt": 1790520813.4065711,
+          "wallSeconds": 3.931682586669922,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.raw.js",
-          "sha256": "f1d31f0f6805f5c31c1bff86ad028d8669c0b4d9e4c5ed1c02ccfdd8cfbfe67b"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "0a0cb331e5893323bbb1f9431f59ac0491eed2a145ab306588b7b3658850d5c6"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.closed.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.closed.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.closed.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js"
           ],
-          "startedAt": 1790222840.7115443,
-          "wallSeconds": 0.6062953472137451,
+          "startedAt": 1790520817.4264455,
+          "wallSeconds": 3.081470489501953,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.closed.js",
-          "sha256": "ae649160d62448b920a3a5237205a6e1428e9818798f6eb5aebee6f2d5580ba7"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/stream.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/stream.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.stream.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js"
           ],
-          "startedAt": 1790222841.3551185,
-          "wallSeconds": 0.6015141010284424,
+          "startedAt": 1790520820.5667675,
+          "wallSeconds": 3.995145559310913,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.stream.raw.js",
-          "sha256": "258bc1043da4e6e0e8660aa643c9500dc874fb1e99876af5e07712d4005052a1"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "1aebc1cc44a2e71cad772964f4de04972977c974c3104f2590615bcfe8335c7a"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/test/support.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/test/support.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.test.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js"
           ],
-          "startedAt": 1790222841.9947622,
-          "wallSeconds": 0.1501331329345703,
+          "startedAt": 1790520824.625314,
+          "wallSeconds": 1.1181390285491943,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.test.js",
-          "sha256": "3885f57b8f14ddd5332600dcbcb1f7ac17755439698bc306335cc95cf717a604"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
         }
       ]
     },
@@ -261,8 +262,8 @@
         "build"
       ],
       "cwd": "upstream",
-      "wallSeconds": 12.041248116001952,
-      "cpuSeconds": 19.115607999999998,
+      "wallSeconds": 27.561075081001036,
+      "cpuSeconds": 26.190422999999996,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-build-2.log",
@@ -276,8 +277,8 @@
         "build"
       ],
       "cwd": "upstream",
-      "wallSeconds": 13.059872643003473,
-      "cpuSeconds": 20.703878000000007,
+      "wallSeconds": 24.716104258957785,
+      "cpuSeconds": 25.742584000000008,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-build-3.log",
@@ -291,8 +292,8 @@
         "node scripts/build.mjs --compile --force"
       ],
       "cwd": "port",
-      "wallSeconds": 2.2680967940032133,
-      "cpuSeconds": 2.223318999999993,
+      "wallSeconds": 12.84403699496761,
+      "cpuSeconds": 10.723568,
       "exitCode": 0,
       "timedOut": false,
       "log": "lilscript-build-3.log",
@@ -301,80 +302,80 @@
       "invocations": [
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js"
           ],
-          "startedAt": 1790222867.392223,
-          "wallSeconds": 0.6322658061981201,
+          "startedAt": 1790520878.260309,
+          "wallSeconds": 4.186945915222168,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.raw.js",
-          "sha256": "f1d31f0f6805f5c31c1bff86ad028d8669c0b4d9e4c5ed1c02ccfdd8cfbfe67b"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "0a0cb331e5893323bbb1f9431f59ac0491eed2a145ab306588b7b3658850d5c6"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.closed.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.closed.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.closed.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js"
           ],
-          "startedAt": 1790222868.0624502,
-          "wallSeconds": 0.6184258460998535,
+          "startedAt": 1790520882.500214,
+          "wallSeconds": 3.2445061206817627,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.closed.js",
-          "sha256": "ae649160d62448b920a3a5237205a6e1428e9818798f6eb5aebee6f2d5580ba7"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/stream.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/stream.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.stream.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js"
           ],
-          "startedAt": 1790222868.720421,
-          "wallSeconds": 0.6095802783966064,
+          "startedAt": 1790520885.8016977,
+          "wallSeconds": 3.7812142372131348,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.stream.raw.js",
-          "sha256": "258bc1043da4e6e0e8660aa643c9500dc874fb1e99876af5e07712d4005052a1"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "1aebc1cc44a2e71cad772964f4de04972977c974c3104f2590615bcfe8335c7a"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/test/support.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/test/support.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.test.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js"
           ],
-          "startedAt": 1790222869.3667305,
-          "wallSeconds": 0.15379810333251953,
+          "startedAt": 1790520889.641367,
+          "wallSeconds": 1.257547378540039,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.test.js",
-          "sha256": "3885f57b8f14ddd5332600dcbcb1f7ac17755439698bc306335cc95cf717a604"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
         }
       ]
     },
     "original-esm": {
       "command": [
         "node",
-        "/home/azureuser/lilscript-work/release-m2/micromarklil/source-build/tools/source-esm.mjs",
-        "/home/azureuser/lilscript-work/release-m2/micromarklil/source-build",
+        "/home/azureuser/lilscript-work/release-0927/srcbuild/micromarklil/source-build/tools/source-esm.mjs",
+        "/home/azureuser/lilscript-work/release-0927/srcbuild/micromarklil/source-build",
         "micromarklil"
       ],
       "cwd": "upstream",
-      "wallSeconds": 2.6696788890039898,
-      "cpuSeconds": 4.345263000000001,
+      "wallSeconds": 5.783661211957224,
+      "cpuSeconds": 6.176222999999988,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-esm.log",
@@ -388,13 +389,13 @@
         "node --test test/official/index.js test/public-api.test.mjs test/stream-api.test.mjs"
       ],
       "cwd": "port",
-      "wallSeconds": 2.068230704004236,
-      "cpuSeconds": 2.4843540000000015,
+      "wallSeconds": 3.099524187971838,
+      "cpuSeconds": 2.9669759999999936,
       "exitCode": 0,
       "timedOut": false,
       "log": "lilscript-tests.log",
-      "logSha256": "5d7926a950192a2d6aa6a102ffcf7182334eae2b667dec1e464a3576682195e9",
-      "tail": "w (121.002857ms)\n  ✔ should support carriage return + line feeds in flow (145.186661ms)\n  ✔ should integrate w/ `fs.create{Read,Write}Stream` (4.288455ms)\n  ✔ should be safe by default (16.344726ms)\n  ✔ should be unsafe w/ `allowDangerousHtml` (0.222487ms)\n  ✔ should stream in non-UTF8 (19.80508ms)\n  ▶ #end\n    ✔ should return true for `end` (0.222978ms)\n    ✔ should throw on end after end (0.295543ms)\n    ✔ should end w/o ever receiving data (0.490589ms)\n    ✔ should end (0.517349ms)\n    ✔ should receive final data from `end` (0.378009ms)\n    ✔ should honour encoding (0.437039ms)\n    ✔ should trigger callback and data in the correct order (0.367669ms)\n    ✔ should trigger callback when it’s the only argument (0.235842ms)\n  ✔ #end (3.61831ms)\n  ▶ #pipe\n    ✔ should not throw when piping to a non-writable stream (0.334927ms)\n    ✔ should not `end` stdio streams (0.415889ms)\n    ✔ should pass errors (0.26104ms)\n    ✔ should throw if errors are not listened to (0.194253ms)\n    ✔ should pipe the processed result (0.477565ms)\n  ✔ #pipe (1.989237ms)\n✔ stream (882.238078ms)\n▶ public package exports\n  ✔ exposes the upstream root surface in ESM (2.025205ms)\n  ✔ exposes the stream subpath in ESM (0.225733ms)\n  ✔ exposes both entry points to CommonJS (9.997502ms)\n  ✔ accepts real syntax and HTML extension objects (6.407506ms)\n  ✔ keeps the browser and closed artifacts executable (11.910517ms)\n✔ public package exports (31.987767ms)\n▶ tokenizer boundary semantics\n  ✔ reads each initial point field once (0.397044ms)\n  ✔ accepts an inherited tokenize hook (1.116141ms)\n  ✔ calls a truthy resolver and preserves its error (1.019099ms)\n✔ tokenizer boundary semantics (3.318128ms)\n▶ stream EventEmitter compatibility\n  ✔ uses the upstream runtime dependency in ESM and CJS (4.057202ms)\n  ✔ supports string and symbol names and variadic arguments (0.492844ms)\n  ✔ uses snapshots while emitting and removes latest duplicates (0.430176ms)\n  ✔ implements once wrappers and listener introspection (0.487603ms)\n  ✔ emits newListener and removeListener with Node ordering (0.403246ms)\n  ✔ removes all listeners in LIFO order (0.553478ms)\n  ✔ validates listeners and max listeners like Node (1.401078ms)\n  ✔ preserves unhandled Error identity (0.46447ms)\n  ✔ monitors errors without handling them (0.562414ms)\n  ✔ uses Node non-Error error-event behavior (0.864379ms)\n✔ stream EventEmitter compatibility (12.092139ms)\n▶ stream pipe compatibility\n  ✔ returns and identifies the destination (2.451273ms)\n  ✔ ignores destination backpressure like upstream (2.380871ms)\n  ✔ does not write to a non-writable destination (0.740157ms)\n  ✔ honors end false, stdio, and truthy end exactly (1.824358ms)\n  ✔ cleans both sides on source end or close (0.49134ms)\n  ✔ cleans both sides on destination close (0.268513ms)\n  ✔ preserves source error identity when unheard (0.375624ms)\n  ✔ preserves destination error identity when unheard (0.427732ms)\n  ✔ leaves heard source and destination pipe errors handled (0.703828ms)\n  ✔ supports independent multiple destinations (0.88621ms)\n✔ stream pipe compatibility (11.681969ms)\n▶ stream write and end edge behavior\n  ✔ calls callbacks synchronously with undefined this (0.381094ms)\n  ✔ calls a truthy callback value like upstream (1.322378ms)\n  ✔ permits reentrant writes until end emission completes (0.431068ms)\n✔ stream write and end edge behavior (2.48178ms)\nℹ tests 1963\nℹ suites 0\nℹ pass 1963\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2005.858385\n"
+      "logSha256": "ee30c36b18213e666c00e94d656e4e7f7f5cb66194dc5fa00ba274008655f262",
+      "tail": "906348ms)\n  ✔ should support carriage return + line feeds in flow (165.421989ms)\n  ✔ should integrate w/ `fs.create{Read,Write}Stream` (24.091807ms)\n  ✔ should be safe by default (18.389646ms)\n  ✔ should be unsafe w/ `allowDangerousHtml` (0.45396ms)\n  ✔ should stream in non-UTF8 (47.223124ms)\n  ▶ #end\n    ✔ should return true for `end` (0.406883ms)\n    ✔ should throw on end after end (0.340899ms)\n    ✔ should end w/o ever receiving data (0.626995ms)\n    ✔ should end (2.498441ms)\n    ✔ should receive final data from `end` (1.811604ms)\n    ✔ should honour encoding (0.715891ms)\n    ✔ should trigger callback and data in the correct order (0.696074ms)\n    ✔ should trigger callback when it’s the only argument (0.248937ms)\n  ✔ #end (8.028813ms)\n  ▶ #pipe\n    ✔ should not throw when piping to a non-writable stream (0.561693ms)\n    ✔ should not `end` stdio streams (0.662371ms)\n    ✔ should pass errors (0.351528ms)\n    ✔ should throw if errors are not listened to (0.280947ms)\n    ✔ should pipe the processed result (0.65083ms)\n  ✔ #pipe (4.362624ms)\n✔ stream (1041.767283ms)\n▶ public package exports\n  ✔ exposes the upstream root surface in ESM (2.520453ms)\n  ✔ exposes the stream subpath in ESM (0.246292ms)\n  ✔ exposes both entry points to CommonJS (18.769798ms)\n  ✔ accepts real syntax and HTML extension objects (9.757713ms)\n  ✔ keeps the browser and closed artifacts executable (14.992577ms)\n✔ public package exports (48.136678ms)\n▶ tokenizer boundary semantics\n  ✔ reads each initial point field once (0.454883ms)\n  ✔ accepts an inherited tokenize hook (2.404736ms)\n  ✔ calls a truthy resolver and preserves its error (1.312659ms)\n✔ tokenizer boundary semantics (5.147945ms)\n▶ stream EventEmitter compatibility\n  ✔ uses the upstream runtime dependency in ESM and CJS (11.504325ms)\n  ✔ supports string and symbol names and variadic arguments (1.851139ms)\n  ✔ uses snapshots while emitting and removes latest duplicates (1.790965ms)\n  ✔ implements once wrappers and listener introspection (0.595846ms)\n  ✔ emits newListener and removeListener with Node ordering (0.552285ms)\n  ✔ removes all listeners in LIFO order (1.228962ms)\n  ✔ validates listeners and max listeners like Node (4.970823ms)\n  ✔ preserves unhandled Error identity (2.117597ms)\n  ✔ monitors errors without handling them (0.705612ms)\n  ✔ uses Node non-Error error-event behavior (0.785362ms)\n✔ stream EventEmitter compatibility (32.659873ms)\n▶ stream pipe compatibility\n  ✔ returns and identifies the destination (7.798953ms)\n  ✔ ignores destination backpressure like upstream (7.16894ms)\n  ✔ does not write to a non-writable destination (0.919453ms)\n  ✔ honors end false, stdio, and truthy end exactly (3.188196ms)\n  ✔ cleans both sides on source end or close (0.581399ms)\n  ✔ cleans both sides on destination close (0.363802ms)\n  ✔ preserves source error identity when unheard (1.840549ms)\n  ✔ preserves destination error identity when unheard (1.19046ms)\n  ✔ leaves heard source and destination pipe errors handled (1.750159ms)\n  ✔ supports independent multiple destinations (2.881709ms)\n✔ stream pipe compatibility (29.933584ms)\n▶ stream write and end edge behavior\n  ✔ calls callbacks synchronously with undefined this (0.548788ms)\n  ✔ calls a truthy callback value like upstream (1.078491ms)\n  ✔ permits reentrant writes until end emission completes (4.827433ms)\n✔ stream write and end edge behavior (6.915235ms)\nℹ tests 1963\nℹ suites 0\nℹ pass 1963\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2981.064663\n"
     }
   },
   "nativeBuilds": [
@@ -405,8 +406,8 @@
         "build"
       ],
       "cwd": "upstream",
-      "wallSeconds": 12.042252311002812,
-      "cpuSeconds": 19.229771,
+      "wallSeconds": 24.60970318701584,
+      "cpuSeconds": 26.067901,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-build-1.log",
@@ -420,8 +421,8 @@
         "build"
       ],
       "cwd": "upstream",
-      "wallSeconds": 12.041248116001952,
-      "cpuSeconds": 19.115607999999998,
+      "wallSeconds": 27.561075081001036,
+      "cpuSeconds": 26.190422999999996,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-build-2.log",
@@ -435,8 +436,8 @@
         "build"
       ],
       "cwd": "upstream",
-      "wallSeconds": 13.059872643003473,
-      "cpuSeconds": 20.703878000000007,
+      "wallSeconds": 24.716104258957785,
+      "cpuSeconds": 25.742584000000008,
       "exitCode": 0,
       "timedOut": false,
       "log": "original-build-3.log",
@@ -452,8 +453,8 @@
         "node scripts/build.mjs --compile --force"
       ],
       "cwd": "port",
-      "wallSeconds": 2.2181902800002717,
-      "cpuSeconds": 2.181919999999998,
+      "wallSeconds": 12.603652324993163,
+      "cpuSeconds": 10.899715,
       "exitCode": 0,
       "timedOut": false,
       "log": "lilscript-build-1.log",
@@ -462,67 +463,67 @@
       "invocations": [
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js"
           ],
-          "startedAt": 1790222837.8490973,
-          "wallSeconds": 0.608971118927002,
+          "startedAt": 1790520800.8048973,
+          "wallSeconds": 3.6780169010162354,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.raw.js",
-          "sha256": "f1d31f0f6805f5c31c1bff86ad028d8669c0b4d9e4c5ed1c02ccfdd8cfbfe67b"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "0a0cb331e5893323bbb1f9431f59ac0491eed2a145ab306588b7b3658850d5c6"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.closed.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.closed.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.closed.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js"
           ],
-          "startedAt": 1790222838.4948542,
-          "wallSeconds": 0.6144437789916992,
+          "startedAt": 1790520804.5726776,
+          "wallSeconds": 3.5000321865081787,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.closed.js",
-          "sha256": "ae649160d62448b920a3a5237205a6e1428e9818798f6eb5aebee6f2d5580ba7"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/stream.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/stream.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.stream.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js"
           ],
-          "startedAt": 1790222839.1470163,
-          "wallSeconds": 0.6034173965454102,
+          "startedAt": 1790520808.1317112,
+          "wallSeconds": 3.9125776290893555,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.stream.raw.js",
-          "sha256": "258bc1043da4e6e0e8660aa643c9500dc874fb1e99876af5e07712d4005052a1"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "1aebc1cc44a2e71cad772964f4de04972977c974c3104f2590615bcfe8335c7a"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/test/support.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/test/support.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.test.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js"
           ],
-          "startedAt": 1790222839.7876627,
-          "wallSeconds": 0.1473395824432373,
+          "startedAt": 1790520812.1095815,
+          "wallSeconds": 1.1029832363128662,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.test.js",
-          "sha256": "3885f57b8f14ddd5332600dcbcb1f7ac17755439698bc306335cc95cf717a604"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
         }
       ]
     },
@@ -533,8 +534,8 @@
         "node scripts/build.mjs --compile --force"
       ],
       "cwd": "port",
-      "wallSeconds": 2.2179546789993765,
-      "cpuSeconds": 2.171827999999997,
+      "wallSeconds": 12.53967675799504,
+      "cpuSeconds": 10.793242999999995,
       "exitCode": 0,
       "timedOut": false,
       "log": "lilscript-build-2.log",
@@ -543,67 +544,67 @@
       "invocations": [
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js"
           ],
-          "startedAt": 1790222840.0665548,
-          "wallSeconds": 0.6082963943481445,
+          "startedAt": 1790520813.4065711,
+          "wallSeconds": 3.931682586669922,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.raw.js",
-          "sha256": "f1d31f0f6805f5c31c1bff86ad028d8669c0b4d9e4c5ed1c02ccfdd8cfbfe67b"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "0a0cb331e5893323bbb1f9431f59ac0491eed2a145ab306588b7b3658850d5c6"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.closed.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.closed.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.closed.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js"
           ],
-          "startedAt": 1790222840.7115443,
-          "wallSeconds": 0.6062953472137451,
+          "startedAt": 1790520817.4264455,
+          "wallSeconds": 3.081470489501953,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.closed.js",
-          "sha256": "ae649160d62448b920a3a5237205a6e1428e9818798f6eb5aebee6f2d5580ba7"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/stream.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/stream.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.stream.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js"
           ],
-          "startedAt": 1790222841.3551185,
-          "wallSeconds": 0.6015141010284424,
+          "startedAt": 1790520820.5667675,
+          "wallSeconds": 3.995145559310913,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.stream.raw.js",
-          "sha256": "258bc1043da4e6e0e8660aa643c9500dc874fb1e99876af5e07712d4005052a1"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "1aebc1cc44a2e71cad772964f4de04972977c974c3104f2590615bcfe8335c7a"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/test/support.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/test/support.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.test.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js"
           ],
-          "startedAt": 1790222841.9947622,
-          "wallSeconds": 0.1501331329345703,
+          "startedAt": 1790520824.625314,
+          "wallSeconds": 1.1181390285491943,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.test.js",
-          "sha256": "3885f57b8f14ddd5332600dcbcb1f7ac17755439698bc306335cc95cf717a604"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
         }
       ]
     },
@@ -614,8 +615,8 @@
         "node scripts/build.mjs --compile --force"
       ],
       "cwd": "port",
-      "wallSeconds": 2.2680967940032133,
-      "cpuSeconds": 2.223318999999993,
+      "wallSeconds": 12.84403699496761,
+      "cpuSeconds": 10.723568,
       "exitCode": 0,
       "timedOut": false,
       "log": "lilscript-build-3.log",
@@ -624,67 +625,67 @@
       "invocations": [
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js"
           ],
-          "startedAt": 1790222867.392223,
-          "wallSeconds": 0.6322658061981201,
+          "startedAt": 1790520878.260309,
+          "wallSeconds": 4.186945915222168,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.raw.js",
-          "sha256": "f1d31f0f6805f5c31c1bff86ad028d8669c0b4d9e4c5ed1c02ccfdd8cfbfe67b"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.raw.js",
+          "sha256": "0a0cb331e5893323bbb1f9431f59ac0491eed2a145ab306588b7b3658850d5c6"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/index.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/index.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.closed.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.closed.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.closed.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js"
           ],
-          "startedAt": 1790222868.0624502,
-          "wallSeconds": 0.6184258460998535,
+          "startedAt": 1790520882.500214,
+          "wallSeconds": 3.2445061206817627,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.closed.js",
-          "sha256": "ae649160d62448b920a3a5237205a6e1428e9818798f6eb5aebee6f2d5580ba7"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.closed.js",
+          "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/src/stream.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/src/stream.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.stream.raw.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js"
           ],
-          "startedAt": 1790222868.720421,
-          "wallSeconds": 0.6095802783966064,
+          "startedAt": 1790520885.8016977,
+          "wallSeconds": 3.7812142372131348,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.stream.raw.js",
-          "sha256": "258bc1043da4e6e0e8660aa643c9500dc874fb1e99876af5e07712d4005052a1"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.stream.raw.js",
+          "sha256": "1aebc1cc44a2e71cad772964f4de04972977c974c3104f2590615bcfe8335c7a"
         },
         {
           "args": [
-            "/home/azureuser/micromarklil/test/support.lil",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/test/support.lil",
             "--target",
             "js-module",
             "--config",
-            "/home/azureuser/micromarklil/lilscript.toml",
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/lilscript.toml",
             "-o",
-            "/home/azureuser/micromarklil/dist/micromark.test.js"
+            "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js"
           ],
-          "startedAt": 1790222869.3667305,
-          "wallSeconds": 0.15379810333251953,
+          "startedAt": 1790520889.641367,
+          "wallSeconds": 1.257547378540039,
           "exitCode": 0,
-          "output": "/home/azureuser/micromarklil/dist/micromark.test.js",
-          "sha256": "3885f57b8f14ddd5332600dcbcb1f7ac17755439698bc306335cc95cf717a604"
+          "output": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil/dist/micromark.test.js",
+          "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
         }
       ]
     }
@@ -709,19 +710,19 @@
     "external": [],
     "samples": [
       {
-        "bundleSeconds": 0.032990666,
-        "wallSeconds": 0.716368684
+        "bundleSeconds": 0.107241444,
+        "wallSeconds": 1.736421069
       },
       {
-        "bundleSeconds": 0.02045342400000004,
-        "wallSeconds": 0.5392461630000001
+        "bundleSeconds": 0.06102582099999995,
+        "wallSeconds": 1.0601669100000002
       },
       {
-        "bundleSeconds": 0.020332838000000037,
-        "wallSeconds": 0.4724307389999999
+        "bundleSeconds": 0.07445657500000016,
+        "wallSeconds": 1.034007224
       }
     ],
-    "medianSeconds": 0.5392461630000001,
+    "medianSeconds": 1.0601669100000002,
     "toolchain": {
       "esbuild": "0.28.1",
       "terser": "5.51.2"
@@ -815,90 +816,90 @@
   "lilscriptArtifacts": [
     {
       "path": "dist/micromark.umd.js",
-      "raw": 71143,
-      "gzip9": 26056,
-      "brotli11": 22077,
-      "sha256": "9b3e1fa6174b5614d995eea012cde94de0db6f49449aff42b86ad1076e5e1d2d"
+      "raw": 71066,
+      "gzip9": 26052,
+      "brotli11": 22087,
+      "sha256": "cc2eaf4505dfd6bc9634ae31315091c43c5281f81195b3d8f8f088010c6b53f2"
     },
     {
       "path": "dist/micromark.test.js",
-      "raw": 24450,
-      "gzip9": 12196,
-      "brotli11": 10202,
-      "sha256": "3885f57b8f14ddd5332600dcbcb1f7ac17755439698bc306335cc95cf717a604"
+      "raw": 24444,
+      "gzip9": 12199,
+      "brotli11": 10181,
+      "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
     },
     {
       "path": "dist/micromark.raw.js",
-      "raw": 71058,
-      "gzip9": 25994,
-      "brotli11": 22015,
-      "sha256": "f1d31f0f6805f5c31c1bff86ad028d8669c0b4d9e4c5ed1c02ccfdd8cfbfe67b"
+      "raw": 70981,
+      "gzip9": 25988,
+      "brotli11": 21980,
+      "sha256": "0a0cb331e5893323bbb1f9431f59ac0491eed2a145ab306588b7b3658850d5c6"
     },
     {
       "path": "dist/micromark.stream.raw.js",
-      "raw": 71763,
-      "gzip9": 26263,
-      "brotli11": 22280,
-      "sha256": "258bc1043da4e6e0e8660aa643c9500dc874fb1e99876af5e07712d4005052a1"
+      "raw": 71686,
+      "gzip9": 26259,
+      "brotli11": 22216,
+      "sha256": "1aebc1cc44a2e71cad772964f4de04972977c974c3104f2590615bcfe8335c7a"
     },
     {
       "path": "dist/micromark.stream.cjs",
-      "raw": 71908,
-      "gzip9": 26363,
-      "brotli11": 22364,
-      "sha256": "dca6e32d999ce1b54e264c12d25381c2fc4f5f9daf7447bab66d0574c3567287"
+      "raw": 71831,
+      "gzip9": 26359,
+      "brotli11": 22305,
+      "sha256": "20674057ae8bd2292eb132d4229fe204cee6cd3b86a2bcc2e76276b91c6338b3"
     },
     {
       "path": "dist/micromark.cjs",
-      "raw": 71160,
-      "gzip9": 26069,
-      "brotli11": 22034,
-      "sha256": "4ead49d791a29c28c4fd68041aad194042c930a00584e77d32eda9e829d09456"
+      "raw": 71083,
+      "gzip9": 26061,
+      "brotli11": 22044,
+      "sha256": "829bb635318feb6cb3b762af1592ed3230aa048051e79ff613fc74814240b2bb"
     },
     {
       "path": "dist/micromark.stream.js",
-      "raw": 71885,
-      "gzip9": 26345,
-      "brotli11": 22321,
-      "sha256": "1c65691c3b456b8a54941114db7ba6c757b99edb035c5d1ea9b65d5a88f22257"
+      "raw": 71808,
+      "gzip9": 26341,
+      "brotli11": 22292,
+      "sha256": "7086273d77ec33b6684d5ca61c3fc16af6980c0e684ad3a49e9ae40ffbcc6f22"
     },
     {
       "path": "dist/micromark.esm.js",
-      "raw": 71138,
-      "gzip9": 26054,
-      "brotli11": 22066,
-      "sha256": "c53497e6dc3f7d1c99b1586c8bc43ca98abd66c5df9a558447f66a5d2eccd855"
+      "raw": 71061,
+      "gzip9": 26047,
+      "brotli11": 22033,
+      "sha256": "77a09eb63355e186c847b73fff7dc23cb6463856284c9080d5260c8f79476234"
     },
     {
       "path": "dist/micromark.closed.js",
-      "raw": 73603,
-      "gzip9": 26155,
-      "brotli11": 22094,
-      "sha256": "ae649160d62448b920a3a5237205a6e1428e9818798f6eb5aebee6f2d5580ba7"
+      "raw": 73505,
+      "gzip9": 26142,
+      "brotli11": 22059,
+      "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
     }
   ],
   "nativeBuildsSummary": {
     "samples": 3,
     "successful": 3,
-    "medianSeconds": 12.042252311002812,
-    "minimumSeconds": 12.041248116001952,
-    "maximumSeconds": 13.059872643003473
+    "medianSeconds": 24.716104258957785,
+    "minimumSeconds": 24.60970318701584,
+    "maximumSeconds": 27.561075081001036
   },
   "lilscriptBuildsSummary": {
     "samples": 3,
     "successful": 3,
-    "medianSeconds": 2.2181902800002717,
-    "minimumSeconds": 2.2179546789993765,
-    "maximumSeconds": 2.2680967940032133
+    "medianSeconds": 12.603652324993163,
+    "minimumSeconds": 12.53967675799504,
+    "maximumSeconds": 12.84403699496761
   },
   "status": "complete",
-  "finishedAt": "2026-09-24T04:07:55Z",
+  "finishedAt": "2026-09-27T14:55:01Z",
   "sourceBuild": {
     "original": {
       "complete": true,
-      "medianSeconds": 12.042252311002812,
-      "minimumSeconds": 12.041248116001952,
-      "maximumSeconds": 13.059872643003473,
+      "medianSeconds": 24.716104258957785,
+      "minimumSeconds": 24.60970318701584,
+      "maximumSeconds": 27.561075081001036,
       "samples": [
         {
           "command": [
@@ -906,8 +907,8 @@
             "run",
             "build"
           ],
-          "wallSeconds": 12.042252311002812,
-          "cpuSeconds": 19.229771,
+          "wallSeconds": 24.60970318701584,
+          "cpuSeconds": 26.067901,
           "exitCode": 0,
           "timedOut": false,
           "log": "original-build-1.log",
@@ -919,8 +920,8 @@
             "run",
             "build"
           ],
-          "wallSeconds": 12.041248116001952,
-          "cpuSeconds": 19.115607999999998,
+          "wallSeconds": 27.561075081001036,
+          "cpuSeconds": 26.190422999999996,
           "exitCode": 0,
           "timedOut": false,
           "log": "original-build-2.log",
@@ -932,8 +933,8 @@
             "run",
             "build"
           ],
-          "wallSeconds": 13.059872643003473,
-          "cpuSeconds": 20.703878000000007,
+          "wallSeconds": 24.716104258957785,
+          "cpuSeconds": 25.742584000000008,
           "exitCode": 0,
           "timedOut": false,
           "log": "original-build-3.log",
@@ -943,9 +944,9 @@
     },
     "lilscript": {
       "complete": true,
-      "medianSeconds": 2.2181902800002717,
-      "minimumSeconds": 2.2179546789993765,
-      "maximumSeconds": 2.2680967940032133,
+      "medianSeconds": 12.603652324993163,
+      "minimumSeconds": 12.53967675799504,
+      "maximumSeconds": 12.84403699496761,
       "samples": [
         {
           "command": [
@@ -953,8 +954,8 @@
             "-c",
             "node scripts/build.mjs --compile --force"
           ],
-          "wallSeconds": 2.2181902800002717,
-          "cpuSeconds": 2.181919999999998,
+          "wallSeconds": 12.603652324993163,
+          "cpuSeconds": 10.899715,
           "exitCode": 0,
           "timedOut": false,
           "log": "lilscript-build-1.log",
@@ -966,8 +967,8 @@
             "-c",
             "node scripts/build.mjs --compile --force"
           ],
-          "wallSeconds": 2.2179546789993765,
-          "cpuSeconds": 2.171827999999997,
+          "wallSeconds": 12.53967675799504,
+          "cpuSeconds": 10.793242999999995,
           "exitCode": 0,
           "timedOut": false,
           "log": "lilscript-build-2.log",
@@ -979,8 +980,8 @@
             "-c",
             "node scripts/build.mjs --compile --force"
           ],
-          "wallSeconds": 2.2680967940032133,
-          "cpuSeconds": 2.223318999999993,
+          "wallSeconds": 12.84403699496761,
+          "cpuSeconds": 10.723568,
           "exitCode": 0,
           "timedOut": false,
           "log": "lilscript-build-3.log",
