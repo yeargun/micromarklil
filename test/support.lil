@@ -1,6 +1,7 @@
 import { SpliceBuffer as SpliceBufferClass } from "../src/splice-buffer.lil";
 import { constants as constantTable } from "../src/symbol/constants.lil";
 import { splice as spliceList } from "../src/util-chunked.lil";
+import { editMapAdd, editMapAddBefore, editMapConsume } from "../src/util-edit-map.lil";
 import { decodeString as decodeStringValue } from "../src/util-decode-string.lil";
 import { htmlRawNames as htmlRawNameList } from "../src/util-html-tag-name.lil";
 
@@ -9,3 +10,29 @@ export JsValue constants = constantTable;
 export JsValue decodeString = decodeStringValue;
 export JsValue htmlRawNames = htmlRawNameList;
 export JsValue splice = spliceList;
+
+extern JsValue Map;
+extern JsValue Object;
+
+// micromark-util-edit-map's `EditMap` class over the edit-map functions the parser uses, so
+// micromark's own edit-map tests run against them.
+export JsValue EditMap = JS.method0((JsValue self) => {
+  JS.set(self, "index", JS.construct(Map));
+  JS.set(self, "map", JS.array());
+  return JS.undefined();
+});
+
+JS.call(JS.get(Object, "assign"), Object, JS.get(EditMap, "prototype"), JS.object(
+  "add", JS.method3((JsValue self, JsValue at, JsValue remove, JsValue add) => {
+    editMapAdd(self, JS.number(at), JS.number(remove), add);
+    return JS.undefined();
+  }),
+  "addBefore", JS.method3((JsValue self, JsValue at, JsValue remove, JsValue add) => {
+    editMapAddBefore(self, JS.number(at), JS.number(remove), add);
+    return JS.undefined();
+  }),
+  "consume", JS.method1((JsValue self, JsValue events) => {
+    editMapConsume(self, events);
+    return JS.undefined();
+  })
+));

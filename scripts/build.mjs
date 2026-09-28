@@ -16,7 +16,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const lilscriptRoot = process.env.LILSCRIPT_ROOT ?? resolve(root, "..", "lilscript")
 const dist = resolve(root, "dist")
 const file = "micromark"
-const banner = "/*! @itslil/micromark 4.0.3 | LilScript reimplementation of micromark | MIT */\n"
+const { version } = JSON.parse(readFileSync(resolve(root, "package.json"), "utf8"))
+const banner = `/*! @itslil/micromark ${version} | LilScript reimplementation of micromark | MIT */\n`
 const publicApi = ["compile", "micromark", "parse", "postprocess", "preprocess"]
 
 function compilerPath() {
