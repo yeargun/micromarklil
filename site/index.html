@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="@itslil/micromark is micromark@4.0.2 rewritten in LilScript. Size is versus the official runtime graph minified by Terser and esbuild." />
+    <meta name="description" content="@itslil/micromark is micromark@4.0.3 rewritten in LilScript. Size is versus the official runtime graph minified by Terser and esbuild." />
     <meta name="theme-color" content="#c9a227" />
-    <title>itslil/micromark — micromark@4.0.2 through LilScript</title>
+    <title>itslil/micromark — micromark@4.0.3 through LilScript</title>
     
     <link rel="stylesheet" href="./styles.css" />
     <script type="module" src="./app.js"></script>
@@ -29,9 +29,9 @@
     <main id="top">
       <section class="hero shell">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="live-dot"></span> micromark@4.0.2 · LilScript port · @itslil/micromark</p>
+          <p class="eyebrow"><span class="live-dot"></span> micromark@4.0.3 · LilScript port · @itslil/micromark</p>
           <h1>Markdown,<br /><em>compiled</em></h1>
-          <p class="lede">Official <code>micromark@4.0.2</code> algorithms rewritten in LilScript. Runtime checks: 1,963/1,963 pass, the official suite&rsquo;s 1,927 among them. Not affiliated with upstream. Official rows are the published <code>micromark@4</code> runtime graph, for Node and for browsers, then Terser and esbuild.</p>
+          <p class="lede">Official <code>micromark@4.0.3</code> algorithms rewritten in LilScript. Runtime checks: 1,980/1,980 pass, the official suite&rsquo;s 1,944 among them. Not affiliated with upstream. Official rows are the published <code>micromark@4</code> runtime graph, for Node and for browsers, then Terser and esbuild.</p>
           <div class="install-row">
             <code>npm install @itslil/micromark</code>
             <button class="copy" data-copy="npm install @itslil/micromark" type="button">copy</button>
@@ -54,7 +54,7 @@
             <div><strong id="hero-spec">—</strong><span>runtime checks</span></div>
           </div>
           <p class="score-note">
-            The bar is one esbuild bundle of <code>micromark@4.0.2</code> plus the packages it needs in Node, then Terser; like this file, it decodes named character references from an entity table.
+            The bar is one esbuild bundle of <code>micromark@4.0.3</code> plus the packages it needs in Node, then Terser; like this file, it decodes named character references from an entity table.
             The npm file is the compiler's own output with a license banner; no minifier runs after it.
             <span id="hero-browser"></span>
           </p>
@@ -96,7 +96,7 @@
             <h2>Live<br />lab.</h2>
           </div>
           <p>
-            Left is the editor. Right is @itslil/micromark HTML, or the official micromark@4.0.2 graph when that lane is on.
+            Left is the editor. Right is @itslil/micromark HTML, or the official micromark@4.0.3 graph when that lane is on.
           </p>
         </div>
         <div class="playground">
@@ -107,7 +107,7 @@
             </label>
             <label>
               <input type="radio" name="engine" value="official" />
-              official micromark@4.0.2
+              official micromark@4.0.3
             </label>
             <button type="button" id="race">race 10×</button>
             <span id="race-out"></span>
@@ -130,7 +130,7 @@
               <h2>Raw, gzip,<br />and Brotli.</h2>
             </div>
             <p>
-              Official micromark@4.0.2 bundled with its runtime graph for Node and for browsers, then Terser (mangle on/off) and esbuild minify. The browser graph decodes named character references through the DOM, so it ships no entity table.
+              Official micromark@4.0.3 bundled with its runtime graph for Node and for browsers, then Terser (mangle on/off) and esbuild minify. The browser graph decodes named character references through the DOM, so it ships no entity table.
               The LilScript npm file is what the compiler wrote, with a license banner and nothing run over it. Closed LilScript is the same source under <code>lilscript.closed.toml</code>.
             </p>
           </div>
@@ -202,7 +202,7 @@
         <div class="perf-cards" id="compiler-cards"></div>
         <div class="table-wrap light">
           <table>
-            <thead><tr><th>Delivered file</th><th>Loaded by</th><th>Written by</th><th>Raw</th><th>gzip-9</th><th>Brotli-11</th><th>Brotli vs previous release</th></tr></thead>
+            <thead><tr><th>Delivered file</th><th>Loaded by</th><th>Written by</th><th>Raw</th><th>gzip-9</th><th>Brotli-11</th><th>Brotli vs the bar</th></tr></thead>
             <tbody id="delivered-body"></tbody>
           </table>
         </div>
@@ -219,7 +219,7 @@
     </main>
     <footer class="shell">
       <span>@itslil/micromark · MIT</span>
-      <span>official micromark@4.0.2 algorithms rewritten in LilScript — runtime checks 1,963/1,963 — not affiliated with upstream</span>
+      <span>official micromark@4.0.3 algorithms rewritten in LilScript — runtime checks 1,980/1,980 — not affiliated with upstream</span>
       <a href="https://github.com/yeargun/micromarklil">source ↗</a>
     </footer>
   </body>

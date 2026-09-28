@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "name": "micromarklil",
-  "measuredAt": "2026-09-27T14:55:01Z",
+  "measuredAt": "2026-09-28T12:56:00Z",
   "status": "published",
   "buildPassed": true,
   "summary": "Rebuilt by the one LilScript compiler; every delivered file is compiler-written (a license banner and module wrappers are the only bytes the build adds).",
-  "sourceCommit": "606f04307f83aecdfd9856031ed91fd94fb70ee9",
-  "previousPublicCommit": "5fca66d31cb9a533858a794e825e24b08d6f1349",
+  "sourceCommit": "48545bfbf7920b07ddbd8b5f4e6b64ae693f7336",
+  "previousPublicCommit": "c89a6af",
   "compiler": {
     "commit": "249686599dc3bf1b6bf70dc9a030081b755bbb24",
     "sha256": "47048e41164027e92d3bf1d1840d8d83e04c60532c031ceb3346222e194b3041",
@@ -24,199 +24,199 @@
     "node": "v24.11.1",
     "rayonThreads": 8,
     "loadAtStart": [
-      14.81103515625,
-      7.7353515625,
-      6.32421875
+      2.55322265625,
+      2.1025390625,
+      2.4462890625
     ],
     "loadAtEnd": [
-      21.73388671875,
-      13.54833984375,
-      8.716796875
+      2.9404296875,
+      2.28271484375,
+      2.48046875
     ]
   },
   "upstream": {
     "name": "micromarklil",
     "package": "micromark",
-    "pinned": "4.0.2",
+    "pinned": "4.0.3",
     "source": "https://www.npmjs.com/package/micromark"
   },
-  "comparisonScope": "micromark@4.0.2 public ESM runtime graph; dependency installation excluded; this is a comparison bundle build, not the upstream vendor release pipeline Sizes use canonical zlib 1.3.1 gzip-9 and Google Brotli 1.1.0 quality 11.",
+  "comparisonScope": "micromark@4.0.3 public ESM runtime graph; dependency installation excluded; this is a comparison bundle build, not the upstream vendor release pipeline Sizes use canonical zlib 1.3.1 gzip-9 and Google Brotli 1.1.0 quality 11.",
   "sizes": {
     "current": {
       "path": "dist/micromark.esm.js",
-      "raw": 71061,
-      "gzip9": 26047,
-      "brotli11": 22033,
-      "sha256": "77a09eb63355e186c847b73fff7dc23cb6463856284c9080d5260c8f79476234"
+      "raw": 71492,
+      "gzip9": 26347,
+      "brotli11": 22328,
+      "sha256": "8285b7d5a2893d8ee132b6030c63324600656ddd7fa752746f62e6a0c8109bf7"
     },
     "upstream": {
       "path": "original.esm.js",
-      "raw": 52581,
-      "gzip9": 14469,
-      "brotli11": 12945,
-      "sha256": "1c7541fdc1ebeab8d25a3c0ae3d39904c1db8ca1d7c4d94293c88ba257d96d23"
+      "raw": 53035,
+      "gzip9": 14784,
+      "brotli11": 13239,
+      "sha256": "c54d18f39b6556540e264fb44038eb80957b350d7c8dc94d589bde0d0913a499"
     }
   },
   "officialArtifacts": [
     {
       "path": "original.esm.js",
-      "raw": 52581,
-      "gzip9": 14469,
-      "brotli11": 12945,
-      "sha256": "1c7541fdc1ebeab8d25a3c0ae3d39904c1db8ca1d7c4d94293c88ba257d96d23"
+      "raw": 53035,
+      "gzip9": 14784,
+      "brotli11": 13239,
+      "sha256": "c54d18f39b6556540e264fb44038eb80957b350d7c8dc94d589bde0d0913a499"
     },
     {
       "path": "original.unminified.js",
-      "raw": 133415,
-      "gzip9": 23919,
-      "brotli11": 20360,
-      "sha256": "1241f2301c2139e311fde85d1bb8738af523141352dc3a8b21632d64c9df5d5e"
+      "raw": 136217,
+      "gzip9": 24639,
+      "brotli11": 20954,
+      "sha256": "8837fc4a384f067da530a5d29ab78eff7c331b3cdd38f52c7449af0bdc8d54c4"
     },
     {
       "path": "original.terser-nomangle.js",
-      "raw": 86952,
-      "gzip9": 17841,
-      "brotli11": 15910,
-      "sha256": "fd7f412247ebadc55a726e63fc49397435cef5046aa081abd5438db795da17fd"
+      "raw": 87875,
+      "gzip9": 18270,
+      "brotli11": 16314,
+      "sha256": "6128a622909e70e51d51e629d8df0f2ead43abc712186f541cb93fe3983d3801"
     },
     {
       "path": "original.esbuild.js",
-      "raw": 53815,
-      "gzip9": 15495,
-      "brotli11": 13851,
-      "sha256": "4c8ec11ab0f2c7f48bc22d73a98f9a72c6de954b993e7591547d4f65d82a7dd2"
+      "raw": 54263,
+      "gzip9": 15854,
+      "brotli11": 14146,
+      "sha256": "a3b970027da55999c79ac98eeef9e1e7a5d81fb3f0ac7e4f20fda9d53bd65e53"
     }
   ],
   "candidateArtifacts": [
     {
       "path": "dist/micromark.umd.js",
-      "raw": 71066,
-      "gzip9": 26052,
-      "brotli11": 22087,
-      "sha256": "cc2eaf4505dfd6bc9634ae31315091c43c5281f81195b3d8f8f088010c6b53f2"
+      "raw": 71497,
+      "gzip9": 26351,
+      "brotli11": 22331,
+      "sha256": "3b12620f19ea413a3be7d538346e7157ded3f64b138f252e9cffc6a04519c422"
     },
     {
       "path": "dist/micromark.test.js",
-      "raw": 24444,
-      "gzip9": 12199,
-      "brotli11": 10181,
-      "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
+      "raw": 25126,
+      "gzip9": 12499,
+      "brotli11": 10446,
+      "sha256": "1b834a11322624fdf28a94f5ee4233986688690a4d1b6a6a5f1331d462b7f9fe"
     },
     {
       "path": "dist/micromark.raw.js",
-      "raw": 70981,
-      "gzip9": 25988,
-      "brotli11": 21980,
-      "sha256": "0a0cb331e5893323bbb1f9431f59ac0491eed2a145ab306588b7b3658850d5c6"
+      "raw": 71412,
+      "gzip9": 26289,
+      "brotli11": 22245,
+      "sha256": "0fb974f3f0da115422ada2710a241243a22e22e8cbfdb622285187a32a44e0ea"
     },
     {
       "path": "dist/micromark.stream.raw.js",
-      "raw": 71686,
-      "gzip9": 26259,
-      "brotli11": 22216,
-      "sha256": "1aebc1cc44a2e71cad772964f4de04972977c974c3104f2590615bcfe8335c7a"
+      "raw": 72096,
+      "gzip9": 26535,
+      "brotli11": 22496,
+      "sha256": "f24796eeddac05215206d0e546d63e696731c640addc07ae1e121d41ba854d11"
     },
     {
       "path": "dist/micromark.stream.cjs",
-      "raw": 71831,
-      "gzip9": 26359,
-      "brotli11": 22305,
-      "sha256": "20674057ae8bd2292eb132d4229fe204cee6cd3b86a2bcc2e76276b91c6338b3"
+      "raw": 72241,
+      "gzip9": 26634,
+      "brotli11": 22600,
+      "sha256": "49b362d0ed730fef612c73ce5bfaae41a678f1e1259f86048f42fcc4a4e88635"
     },
     {
       "path": "dist/micromark.cjs",
-      "raw": 71083,
-      "gzip9": 26061,
-      "brotli11": 22044,
-      "sha256": "829bb635318feb6cb3b762af1592ed3230aa048051e79ff613fc74814240b2bb"
+      "raw": 71514,
+      "gzip9": 26363,
+      "brotli11": 22369,
+      "sha256": "2e33d5605464b89ecacd04705f9076d5ec2c3345413b4c38b93f846988f50c9c"
     },
     {
       "path": "dist/micromark.stream.js",
-      "raw": 71808,
-      "gzip9": 26341,
-      "brotli11": 22292,
-      "sha256": "7086273d77ec33b6684d5ca61c3fc16af6980c0e684ad3a49e9ae40ffbcc6f22"
+      "raw": 72218,
+      "gzip9": 26615,
+      "brotli11": 22634,
+      "sha256": "47f9b23f14f4882482e7de2053dd895016c3ecc4a2748b7ee674f34d1016df51"
     },
     {
       "path": "dist/micromark.esm.js",
-      "raw": 71061,
-      "gzip9": 26047,
-      "brotli11": 22033,
-      "sha256": "77a09eb63355e186c847b73fff7dc23cb6463856284c9080d5260c8f79476234"
+      "raw": 71492,
+      "gzip9": 26347,
+      "brotli11": 22328,
+      "sha256": "8285b7d5a2893d8ee132b6030c63324600656ddd7fa752746f62e6a0c8109bf7"
     },
     {
       "path": "dist/micromark.closed.js",
-      "raw": 73505,
-      "gzip9": 26142,
-      "brotli11": 22059,
-      "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
+      "raw": 73954,
+      "gzip9": 26461,
+      "brotli11": 22387,
+      "sha256": "c0de36a7b969bf9e07f4a0b30174f69c8decd01d29aab4c230acc27735033055"
     }
   ],
   "timing": {
-    "primaryCompilerSeconds": 3.931682586669922,
+    "primaryCompilerSeconds": 2.381941318511963,
     "primaryScope": "One compiler process for the shipped ESM (src/index.lil, lilscript.toml)",
-    "packageSeconds": 12.603652324993163,
+    "packageSeconds": 7.529576849992736,
     "packageScope": "node scripts/build.mjs --compile --force; 4 compiler invocations plus package wrapping",
-    "originalSeconds": 24.716104258957785,
+    "originalSeconds": 12.591927148998366,
     "originalScope": "npm run build"
   },
   "behavior": {
     "command": "node --test test/official/index.js test/public-api.test.mjs test/stream-api.test.mjs",
-    "summary": "Runtime checks: 1,963/1,963 pass.",
+    "summary": "Runtime checks: 1,980/1,980 pass.",
     "exitCode": 0,
-    "logSha256": "ee30c36b18213e666c00e94d656e4e7f7f5cb66194dc5fa00ba274008655f262"
+    "logSha256": "d2310796636cb95a15ce333c6c61f0fd70675bab1598eb7a96d524aa9b52f16a"
   },
   "primaryArtifact": "dist/micromark.esm.js",
   "codecSha256": "85329d361ef3339d4ff7b7ca1f00065d561340eb4fc98a2799af327134a3a3f0",
   "publicationArtifacts": [
     {
       "path": "dist/micromark.cjs",
-      "sha256": "829bb635318feb6cb3b762af1592ed3230aa048051e79ff613fc74814240b2bb"
+      "sha256": "2e33d5605464b89ecacd04705f9076d5ec2c3345413b4c38b93f846988f50c9c"
     },
     {
       "path": "dist/micromark.closed.js",
-      "sha256": "935605c620ccc42ad03d49b555c14f7c24e64765469e5475382de7abb82482d1"
+      "sha256": "c0de36a7b969bf9e07f4a0b30174f69c8decd01d29aab4c230acc27735033055"
     },
     {
       "path": "dist/micromark.esm.js",
-      "sha256": "77a09eb63355e186c847b73fff7dc23cb6463856284c9080d5260c8f79476234"
+      "sha256": "8285b7d5a2893d8ee132b6030c63324600656ddd7fa752746f62e6a0c8109bf7"
     },
     {
       "path": "dist/micromark.stream.cjs",
-      "sha256": "20674057ae8bd2292eb132d4229fe204cee6cd3b86a2bcc2e76276b91c6338b3"
+      "sha256": "49b362d0ed730fef612c73ce5bfaae41a678f1e1259f86048f42fcc4a4e88635"
     },
     {
       "path": "dist/micromark.stream.js",
-      "sha256": "7086273d77ec33b6684d5ca61c3fc16af6980c0e684ad3a49e9ae40ffbcc6f22"
+      "sha256": "47f9b23f14f4882482e7de2053dd895016c3ecc4a2748b7ee674f34d1016df51"
     },
     {
       "path": "dist/micromark.umd.js",
-      "sha256": "cc2eaf4505dfd6bc9634ae31315091c43c5281f81195b3d8f8f088010c6b53f2"
+      "sha256": "3b12620f19ea413a3be7d538346e7157ded3f64b138f252e9cffc6a04519c422"
     },
     {
       "path": "dist/micromark.test.js",
-      "sha256": "72a628518d8313c98599c163d77bee55ac21c9b9d13f61c69114e6c3e46ffbdc"
+      "sha256": "1b834a11322624fdf28a94f5ee4233986688690a4d1b6a6a5f1331d462b7f9fe"
     }
   ],
   "publicationPolicy": "Publish the compiler-written distribution",
-  "publicationBase": "5fca66d31cb9a533858a794e825e24b08d6f1349",
-  "publicationSourceFingerprint": "6f9f38b84cb3b214bd3436474c8ebdc8477dbb98a987f438b9c0d39aae4494bd",
+  "publicationBase": "c89a6af",
+  "publicationSourceFingerprint": "d9360572b1c7914fba5310e8712b64c8ffb738ddd64e90ee6cf627751a3da651",
   "comparisonArtifacts": [
     {
       "path": "site/esm-comparison/original.js",
-      "sha256": "1c7541fdc1ebeab8d25a3c0ae3d39904c1db8ca1d7c4d94293c88ba257d96d23"
+      "sha256": "c54d18f39b6556540e264fb44038eb80957b350d7c8dc94d589bde0d0913a499"
     },
     {
       "path": "site/esm-comparison/lilscript.js",
-      "sha256": "77a09eb63355e186c847b73fff7dc23cb6463856284c9080d5260c8f79476234"
+      "sha256": "8285b7d5a2893d8ee132b6030c63324600656ddd7fa752746f62e6a0c8109bf7"
     },
     {
       "path": "site/source-build.json",
-      "sha256": "785777d092723f93636a5b09239f3c2be21b8bd343753e5a7ba1d4d4c82848ed"
+      "sha256": "ed4679b9f0845f43d82fa971933bdce482cd5e8d674d80caf4dc48f8471eb9d2"
     },
     {
       "path": "site/comparison.json",
-      "sha256": "b61ffcb3b4462a1e762755e26aa01f270005a5b2771d742bcdc215c7983e8ee6"
+      "sha256": "ea62401277c564bd889cb3aa2fa60cbdb0c784bb4fc85fb70bcbf8853e19e8d7"
     }
   ],
   "sourceBuildReceipt": "comparison/source-build/result.json",
@@ -226,16 +226,16 @@
       "sha256": "47048e41164027e92d3bf1d1840d8d83e04c60532c031ceb3346222e194b3041"
     },
     "source": {
-      "commit": "606f04307f83aecdfd9856031ed91fd94fb70ee9",
-      "snapshot": "/home/azureuser/lilscript-work/release-0927/ports/micromarklil"
+      "commit": "48545bfbf7920b07ddbd8b5f4e6b64ae693f7336",
+      "snapshot": "/home/azureuser/lilscript-work/release-0928/micromarklil"
     },
     "upstream": {
       "repository": "https://github.com/micromark/micromark.git",
-      "commit": "3fae15528f69dfaf2a8865a7f7d92bfb4abd7bc9",
+      "commit": "4aec52013e73e8b33d07dc6a55de7a2ff9fcf64e",
       "package": "micromark",
-      "version": "4.0.2",
+      "version": "4.0.3",
       "directory": "packages/micromark"
     },
-    "compatibility": "Runtime checks: 1,963/1,963 pass."
+    "compatibility": "Runtime checks: 1,980/1,980 pass."
   }
 }
