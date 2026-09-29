@@ -71,6 +71,9 @@ export JsValue compile(JsValue options) {
   JsValue[] mediaStack = [];
   bool[] tightStack = [];
   JsValue data = JS.object("definitions", definitions, "tightStack", tightStack);
+  // Outside every list the stack is empty and a paragraph is not tight
+  // (upstream reads past its end, R11: an index is in range).
+  func()->bool tight = () => tightStack.length > 0 && tightStack[tightStack.length - 1];
   JsValue lineEndingStyle = settings["defaultLineEnding"];
 
   JsValue setData = JS.method2((JsValue _s, JsValue key, JsValue value) => {
@@ -117,7 +120,9 @@ export JsValue compile(JsValue options) {
 
   JsValue lineEndingIfNeeded = JS.method0((JsValue _s) => {
     JsValue[] buf = lastOf(buffers);
-    JsValue slice = buf[buf.length - 1];
+    // Upstream reads past the end of an empty buffer (R11: an index is in
+    // range); nothing is there to end a line after.
+    JsValue slice = if (buf.length > 0) { buf[buf.length - 1] } else { JS.undefined() };
     if (slice.truthy()) {
       int previous = textOf(slice).charCodeAt(textOf(slice).length - 1);
       if (previous != 10 && previous != 13) {
@@ -232,7 +237,7 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onenterparagraph = JS.method0((JsValue _s) => {
-    if (!lastOf(tightStack)) {
+    if (!tight()) {
       JS.call(lineEndingIfNeeded, JS.undefined());
       JS.call(tag, JS.undefined(), "<p>");
     }
@@ -241,7 +246,7 @@ export JsValue compile(JsValue options) {
   });
 
   JsValue onexitparagraph = JS.method0((JsValue _s) => {
-    if (lastOf(tightStack)) {
+    if (tight()) {
       data["slurpAllLineEndings"] = true;
     } else {
       JS.call(tag, JS.undefined(), "</p>");
