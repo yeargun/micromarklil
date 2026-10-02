@@ -1,0 +1,2 @@
+import {micromark} from "./index.lil";
+export {micromark as default};

@@ -1,4 +1,4 @@
-import { TokenizerToken, copyPoint, isEof } from "../host.lil";
+import { Token, copyPoint, isEof } from "../host.lil";
 
 extern JsValue Object;
 
@@ -8,7 +8,7 @@ JsValue resolveAllLineSuffixes = JS.method2((JsValue _self, JsValue events, JsVa
       (eventIndex == events.length || JS.strictEqual(JS.get(events[eventIndex][1], "type"), "lineEnding")) &&
       JS.strictEqual(JS.get(events[eventIndex - 1.0][1], "type"), "data")
     ) {
-      TokenizerToken data = JS.assume(events[eventIndex - 1.0][1]);
+      Token data = JS.assume(events[eventIndex - 1.0][1]);
       JsValue chunks = JS.invoke(context, "sliceStream", data);
       float index = chunks.length;
       float bufferIndex = -1.0;
