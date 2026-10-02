@@ -34,3 +34,8 @@ throughput sample in `site/results.json`, which the site renders next to the Ter
 
 The LilScript compiler lives next door at `../lilscript`; set `LILSCRIPT_COMPILER` and
 `LILSCRIPT_CODEC` to build with a pinned binary.
+
+
+## Comparison with the original
+
+See [COMPARISON.md](COMPARISON.md) for current size and build-time comparisons against minified upstream.
