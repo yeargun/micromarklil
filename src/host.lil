@@ -16,7 +16,7 @@ export JsValue codeEof = null;
 
 // Typed views of the tokenizer's plain point and token objects: field reads and writes stay direct member
 // accesses with no conversion.
-export extern class TokenizerPoint {
+export extern class Point {
   float _bufferIndex;
   float _index;
   float line;
@@ -24,9 +24,9 @@ export extern class TokenizerPoint {
   float offset;
 }
 
-export extern class TokenizerToken {
-  TokenizerPoint start;
-  TokenizerPoint end;
+export extern class Token {
+  Point start;
+  Point end;
 }
 
 export JsValue undef() {

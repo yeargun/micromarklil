@@ -1,199 +1,160 @@
 {
-  "compiler": {
-    "baseRevision": "f7d29bd9",
-    "binarySha256": "8ff44fabb92c949e68240ce6541038fd52e2f3c04d1a9ac470031e4238541c3a",
-    "hasLocalSourceChanges": true
-  },
-  "machine": {
-    "cpu": "AMD EPYC 7763 64-Core Processor",
-    "logicalCpus": 8,
-    "memoryGiB": 15.6,
-    "os": "Linux-7.0.0-1014-azure-x86_64-with-glibc2.39",
-    "node": "v20.19.0"
-  },
-  "lilscript": [
+  "version": 3,
+  "codec": "brotli",
+  "outputs": [
     {
-      "library": "micromarklil",
-      "objective": "raw",
-      "command": [
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/bin/lilscript",
-        "--config",
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/configs/micromarklil-raw.toml",
-        "--target",
-        "js-module",
-        "--mode",
-        "production",
-        "--jobs",
-        "1",
-        "--out-dir",
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/artifacts/micromarklil/raw",
-        "--explain",
-        "json",
-        "--cache",
-        "off",
-        "--logical-work",
-        "8000000000"
+      "mode": "single",
+      "format": "esm",
+      "entries": [
+        {
+          "name": "micromark",
+          "file": "micromark.closed.js",
+          "dynamic": false,
+          "closure": [
+            "micromark.closed.js"
+          ],
+          "row": 23591,
+          "raw_row": 78158
+        }
       ],
-      "wallSeconds": 70.33382455199899,
-      "returncode": 0,
-      "compilerSha256": "8ff44fabb92c949e68240ce6541038fd52e2f3c04d1a9ac470031e4238541c3a",
-      "configSha256": "ff261ac5084fada5463c2e57538ee5a05ffb54201ebbd52eedfe6f840196b4c8",
-      "measuredAt": "2026-10-03T13:46:40.490461+00:00",
-      "outputSha256": "063ec6abcd2bd8559350d13e12af2ff26aae923d23b5c05f6c3b4c01ac64b96d",
-      "raw": 72238
-    },
-    {
-      "library": "micromarklil",
-      "objective": "gzip",
-      "command": [
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/bin/lilscript",
-        "--config",
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/configs/micromarklil-gzip.toml",
-        "--target",
-        "js-module",
-        "--mode",
-        "production",
-        "--jobs",
-        "1",
-        "--out-dir",
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/artifacts/micromarklil/gzip",
-        "--explain",
-        "json",
-        "--cache",
-        "off",
-        "--logical-work",
-        "8000000000"
+      "files": [
+        {
+          "file": "micromark.closed.js",
+          "role": "entry",
+          "source_map_for": null,
+          "label": [
+            "micromark"
+          ],
+          "modules": [
+            "index.lil",
+            "compile.lil",
+            "host.lil",
+            "util-chunked.lil",
+            "util-combine-extensions.lil",
+            "decode-named.lil",
+            "character-entities.lil",
+            "util-decode-numeric-character-reference.lil",
+            "util-encode.lil",
+            "util-normalize-identifier.lil",
+            "symbol/values.lil",
+            "util-sanitize-uri.lil",
+            "util-character.lil",
+            "parse.lil",
+            "create-tokenizer.lil",
+            "util-resolve-all.lil",
+            "initialize/content.lil",
+            "factory-space.lil",
+            "initialize/document.lil",
+            "util-edit-map.lil",
+            "initialize/flow.lil",
+            "core/blank-line.lil",
+            "symbol/types.lil",
+            "core/content.lil",
+            "util-subtokenize.lil",
+            "splice-buffer.lil",
+            "symbol/constants.lil",
+            "initialize/text.lil",
+            "constructs.lil",
+            "core/attention.lil",
+            "util-classify-character.lil",
+            "symbol/codes.lil",
+            "core/autolink.lil",
+            "core/block-quote.lil",
+            "core/character-escape.lil",
+            "core/character-reference.lil",
+            "core/code-fenced.lil",
+            "core/partial-non-lazy-continuation.lil",
+            "core/code-indented.lil",
+            "core/code-text.lil",
+            "core/definition.lil",
+            "factory-destination.lil",
+            "factory-label.lil",
+            "factory-title.lil",
+            "factory-whitespace.lil",
+            "core/hard-break-escape.lil",
+            "core/heading-atx.lil",
+            "core/html-flow.lil",
+            "util-html-tag-name.lil",
+            "core/html-text.lil",
+            "core/label-end.lil",
+            "core/label-start-image.lil",
+            "core/label-start-link.lil",
+            "core/line-ending.lil",
+            "core/list.lil",
+            "core/thematic-break.lil",
+            "core/setext-underline.lil",
+            "postprocess.lil",
+            "preprocess.lil"
+          ],
+          "anchored": true,
+          "imports": [],
+          "dynamic_imports": [],
+          "bytes": 78158,
+          "codec_bytes": 23591,
+          "sha256": "c487fe326a444c5a0f7bb25b595ba95a118b7d40a83f3d33b258325af321a429"
+        }
       ],
-      "wallSeconds": 80.27126713600592,
-      "returncode": 0,
-      "compilerSha256": "8ff44fabb92c949e68240ce6541038fd52e2f3c04d1a9ac470031e4238541c3a",
-      "configSha256": "661783f5dbec84e6bfa121cf49f5ca90c47625c9ff198cf0062b3c325da20067",
-      "measuredAt": "2026-10-03T13:48:00.773471+00:00",
-      "outputSha256": "8c6dc1a46c42716f72e51b4b3869779cf6c48b101a40eddec5104ba91ddb62e4",
-      "raw": 74315
-    },
-    {
-      "library": "micromarklil",
-      "objective": "brotli",
-      "command": [
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/bin/lilscript",
-        "--config",
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/configs/micromarklil-brotli.toml",
-        "--target",
-        "js-module",
-        "--mode",
-        "production",
-        "--jobs",
-        "1",
-        "--out-dir",
-        "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/artifacts/micromarklil/brotli",
-        "--explain",
-        "json",
-        "--cache",
-        "off",
-        "--logical-work",
-        "8000000000"
+      "side_effects": [
+        "micromark.closed.js"
       ],
-      "wallSeconds": 225.0941664349957,
-      "returncode": 0,
-      "compilerSha256": "8ff44fabb92c949e68240ce6541038fd52e2f3c04d1a9ac470031e4238541c3a",
-      "configSha256": "a4ca75f85f9a1251c65dc17e483f0ce825a23a653d2dadb57a42594aec1ca93b",
-      "measuredAt": "2026-10-03T13:51:45.878403+00:00",
-      "outputSha256": "7b4f3f344feec961fad293c8d118c83866ec79d13c07b48419a19b2318eb19f0",
-      "raw": 76293
+      "codec_total": 23591,
+      "rows_total": 23591,
+      "setters": 0,
+      "output": "primary",
+      "codec": "brotli",
+      "codec_settings": {
+        "brotli": {
+          "quality": 11,
+          "window": 22,
+          "mode": "generic"
+        },
+        "gzip": {
+          "level": 9,
+          "window": 15
+        }
+      },
+      "policy_fingerprint": [
+        132,
+        227,
+        103,
+        237,
+        187,
+        161,
+        116,
+        101,
+        7,
+        220,
+        20,
+        13,
+        22,
+        53,
+        68,
+        93,
+        133,
+        174,
+        228,
+        69,
+        155,
+        255,
+        143,
+        109,
+        61,
+        163,
+        202,
+        189,
+        160,
+        81,
+        81,
+        101
+      ]
     }
   ],
-  "upstream": {
-    "name": "micromarklil",
-    "package": "micromark",
-    "version": "4.0.3",
-    "resolveDir": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/react-markdownlil",
-    "output": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream/micromarklil",
-    "entry": "export {compile,micromark,parse,postprocess,preprocess} from \"micromark\";",
-    "external": [],
-    "sharedExports": [
-      "compile",
-      "micromark",
-      "parse",
-      "postprocess",
-      "preprocess"
-    ],
-    "excludedExports": [],
-    "additionalExports": [],
-    "resolution": {
-      "platform": "neutral",
-      "conditions": [
-        "production"
-      ],
-      "mainFields": [
-        "module",
-        "main"
-      ],
-      "target": "es2020",
-      "defines": {
-        "process.env.NODE_ENV": "production"
-      },
-      "css": "excluded; measured JavaScript only"
-    },
-    "minifiers": [
-      {
-        "tool": "Terser",
-        "version": "5.51.2",
-        "esbuild": "0.28.1",
-        "artifact": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream/micromarklil/terser.mjs",
-        "sha256": "d52333a9148d3224f69548231024f274634f1a4ac25ca18669063c924625d4b7",
-        "raw": 81809,
-        "imports": [],
-        "wallSeconds": 1.275336618,
-        "command": [
-          "/home/azureuser/.nvm/versions/node/v20.19.0/bin/node",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream.mjs",
-          "child",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream/micromarklil/job.json",
-          "Terser"
-        ]
-      },
-      {
-        "tool": "esbuild",
-        "version": "0.28.1",
-        "esbuild": "0.28.1",
-        "artifact": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream/micromarklil/esbuild.mjs",
-        "sha256": "2411d12883b6fb85589c84c0bc3cc74f287271b78144dd1f3583fb6038691101",
-        "raw": 90049,
-        "imports": [],
-        "wallSeconds": 0.08591934599999967,
-        "command": [
-          "/home/azureuser/.nvm/versions/node/v20.19.0/bin/node",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream.mjs",
-          "child",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream/micromarklil/job.json",
-          "esbuild"
-        ]
-      },
-      {
-        "tool": "Oxc",
-        "version": "via Vite 8.2.1",
-        "esbuild": "0.28.1",
-        "artifact": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream/micromarklil/oxc.mjs",
-        "sha256": "52d60662d73105240e87c4277fc166346d97c170e3f49d1de9106d8f6ed4539c",
-        "raw": 81881,
-        "imports": [],
-        "wallSeconds": 0.19821016599999985,
-        "command": [
-          "/home/azureuser/.nvm/versions/node/v20.19.0/bin/node",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream.mjs",
-          "child",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/upstream/micromarklil/job.json",
-          "Oxc"
-        ]
-      }
-    ]
-  },
-  "sourceInputs": {
+  "source_sha256": "9505509079d51205c534418b018c82bc0a9e8bb4176a6d49d3de5c1513e30a9f",
+  "inputs": {
     "root": 0,
     "entries": [
       {
-        "name": "index",
+        "name": "micromark",
         "module": 0
       }
     ],
@@ -858,53 +819,5 @@
     ],
     "host_modules": [],
     "host_reserved": []
-  },
-  "validation": {
-    "checks": 2082,
-    "runs": [
-      {
-        "objective": "raw",
-        "suite": "differential",
-        "checks": 694,
-        "command": [
-          "node",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/differential.mjs",
-          "validation/raw",
-          "micromarklil"
-        ],
-        "artifact": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/validation/raw/micromarklil/dist/index.mjs",
-        "ok": true
-      },
-      {
-        "objective": "gzip",
-        "suite": "differential",
-        "checks": 694,
-        "command": [
-          "node",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/differential.mjs",
-          "validation/gzip",
-          "micromarklil"
-        ],
-        "artifact": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/validation/gzip/micromarklil/dist/index.mjs",
-        "ok": true
-      },
-      {
-        "objective": "brotli",
-        "suite": "differential",
-        "checks": 694,
-        "command": [
-          "node",
-          "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/differential.mjs",
-          "validation/brotli",
-          "micromarklil"
-        ],
-        "artifact": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/validation/brotli/micromarklil/dist/index.mjs",
-        "ok": true
-      }
-    ],
-    "ok": true,
-    "scope": "Current independent main-entry builds; package-format tests are recorded separately."
-  },
-  "workLimit": 8000000000,
-  "timingScope": "One sequential fresh-output build per objective/minifier. Upstream timing is ESM bundling and minification, not original-repository source compilation."
+  }
 }

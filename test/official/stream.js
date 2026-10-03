@@ -196,10 +196,9 @@ test('stream', async function (t) {
     })
 
     await t.test('should throw on end after end', function () {
-      const tr = stream()
-      tr.end()
-
       assert.throws(function () {
+        const tr = stream()
+        tr.end()
         tr.end()
       }, /^Error: Did not expect `write` after `end`$/)
     })
@@ -304,13 +303,13 @@ test('stream', async function (t) {
     await t.test(
       'should not throw when piping to a non-writable stream',
       async function () {
-        // Not writable.
-        const tr = stream()
-        // @ts-expect-error Runtime.
-        tr.pipe(new Readable())
-
-        // Should not throw.
-        tr.end('foo')
+        assert.doesNotThrow(function () {
+          // Not writable.
+          const tr = stream()
+          // @ts-expect-error Runtime.
+          tr.pipe(new Readable())
+          tr.end('foo')
+        })
       }
     )
 
@@ -328,12 +327,13 @@ test('stream', async function (t) {
         called = true
       })
 
-      assert.ok(called)
+      assert(called)
 
       tr.end('charlie')
 
-      // Should not throw.
-      s.write('delta')
+      assert.doesNotThrow(function () {
+        s.write('delta')
+      })
     })
 
     await t.test('should pass errors', async function () {
@@ -346,7 +346,7 @@ test('stream', async function (t) {
 
       tr.pipe(new PassThrough())
       tr.emit('error', new Error('Whoops!'))
-      assert.ok(called)
+      assert(called)
     })
 
     await t.test(

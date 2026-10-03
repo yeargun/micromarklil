@@ -1,3 +1,4 @@
+import extern {EventEmitter} from "node:events";
 import { compile } from "./compile.lil";
 import { parse } from "./parse.lil";
 import { postprocess } from "./postprocess.lil";

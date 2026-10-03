@@ -1,23 +1,76 @@
-# reusable ESM — host-visible names stay
+# Compiler-owned delivery; no JavaScript post-minifier or export rewriting.
+[policy]
+version = 3
+
+[policy.tactics]
+# Permit one-time constant-table decoding for smaller downloads.
+# Runtime reads must not acquire recurring reconstruction work.
+startup-reconstruction = "on"
+recurring-reconstruction = "off"
+string-array-packing = "off"
 [javascript]
+# Plain-data reads must not run getters; disable for effectful accessor integrations.
 assume_pure_property_reads = true
-# The tokenizer's state functions (and the lambdas of the builders around
-# it) are called by micromark's engine and by extensions; nothing constructs
-# them or reads their prototype, as nothing does upstream's.
 assume_unconstructed_callbacks = true
 priority = "size-first"
-# 8.90: level 13 -> 15, measured -70 Brotli on this port's own
-# artifact. Swept across the fleet the level is nearly inert (-160 over 22,
-# and katexlil and react-markdownlil do not move at all), so it lands per
-# port where it pays rather than as a default.
-optimization_level = 15
-
-cost_model = "brotli"
+# Assumes unpatched platform builtins; disable when consumers replace them.
 assume_pristine_builtins = true
-strip_console = true
-candidate_search = "always"
+# Remove debugLog instrumentation; ordinary print and host console effects remain.
+strip_debug = true
 
+# Preserved effort setting. 13 favors size; 14/15 allow more expensive marginal searches.
+[effort]
+level = 15
+
+# Optimize the delivered files for this codec, independently of raw/gzip objectives.
+[objective]
+codecs = "brotli"
 [mangle]
 identifiers = true
 properties = true
 pool_strings = true
+
+[delivery]
+mode = "single"
+directory = "."
+select = ["micromark"]
+entry_names = "micromark.esm.js"
+[delivery.entries]
+micromark = "src/index.lil"
+stream = "src/stream.lil"
+browser = "src/browser.lil"
+test = "test/support.lil"
+[[delivery.also]]
+name = "cjs"
+format = "cjs"
+entries = ["micromark"]
+es_module_marker = "never"
+entry_names = "micromark.cjs"
+[[delivery.also]]
+name = "browser"
+format = "iife"
+entries = ["browser"]
+exports = "default"
+global = "micromark"
+global_binding = "property"
+entry_names = "micromark.umd.js"
+[[delivery.also]]
+name = "stream"
+entries = ["stream"]
+entry_names = "micromark.stream.js"
+[[delivery.also]]
+name = "stream-cjs"
+format = "cjs"
+entries = ["stream"]
+es_module_marker = "never"
+entry_names = "micromark.stream.cjs"
+[[delivery.also]]
+name = "test"
+entries = ["test"]
+entry_names = "micromark.test.js"
+
+[policy.resources]
+logical_work = 2000000000
+
+[execution]
+jobs = 1

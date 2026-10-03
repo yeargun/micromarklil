@@ -1,0 +1,5 @@
+
+> @itslil/micromark@4.0.4 check:pack
+> node scripts/check-pack.mjs
+
+npm pack: 74 files, 217266 bytes packed, 700052 bytes unpacked

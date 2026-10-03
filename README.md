@@ -39,3 +39,5 @@ The LilScript compiler lives next door at `../lilscript`; set `LILSCRIPT_COMPILE
 ## Comparison with the original
 
 See [COMPARISON.md](COMPARISON.md) for current size and build-time comparisons against minified upstream.
+
+[Download the checked repository package](https://yeargun.github.io/micromarklil/downloads/package.tgz) · [Package files, hashes and validation](https://yeargun.github.io/micromarklil/package-build.json). npm publication is independent.

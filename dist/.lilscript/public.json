@@ -1,0 +1,1614 @@
+{
+  "version": 5,
+  "source_sha256": "da268dcaf0033d01ed97cf42495a0dfea93ce7ecc0e97bfcd04fa20c49327f1c",
+  "inputs": {
+    "root": 0,
+    "entries": [
+      {
+        "name": "browser",
+        "module": 0
+      },
+      {
+        "name": "micromark",
+        "module": 1
+      },
+      {
+        "name": "stream",
+        "module": 60
+      },
+      {
+        "name": "test",
+        "module": 61
+      }
+    ],
+    "modules": [
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/browser.lil",
+        "bytes": 70,
+        "sha256": "63b1f274b333396760d5ef8c3a67a9658ce3e12398ec0748dd0463a0867f716c",
+        "dependencies": [
+          1
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/index.lil",
+        "bytes": 740,
+        "sha256": "b33ca0c5e4334865d3371d7ffd183fdca6c90a0843a1131c132e9f0d00eea9d4",
+        "dependencies": [
+          2,
+          14,
+          58,
+          59
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/compile.lil",
+        "bytes": 24872,
+        "sha256": "09d4140172666c3c19b3ecdd9c5ec43da9994afb1fd646fa2771ffb1bf0d804a",
+        "dependencies": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/host.lil",
+        "bytes": 9548,
+        "sha256": "57f0f2a41416eaeb2f221ac1e3fb3dcec10fadcd4e8f17d65d96cfe853a2ec02",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-chunked.lil",
+        "bytes": 1226,
+        "sha256": "da747a8e78fa84b0a467616f68d83384737e53ad1b016e83f9fb803d2edf8e54",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-combine-extensions.lil",
+        "bytes": 1615,
+        "sha256": "45dda94d1f191795642dac1e553985170a046717ad685685a9c61453a1768cfd",
+        "dependencies": [
+          3,
+          4
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/decode-named.lil",
+        "bytes": 262,
+        "sha256": "e4150b19e19a214e7ccfb5d6762bdce62fde30b8cc907642d911f9ea87b9e6e8",
+        "dependencies": [
+          7,
+          3
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/character-entities.lil",
+        "bytes": 37271,
+        "sha256": "c8b6618cbfd0fdf86d5c36b8a4ed1e4ee141a25088251142a20fe599fca210b3",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-decode-numeric-character-reference.lil",
+        "bytes": 563,
+        "sha256": "03d27ae0446af7f4aa870de13c4c41b65bf53f7a12731c8ee96694f34f95f4fc",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-encode.lil",
+        "bytes": 377,
+        "sha256": "bd36b109fa77f0e53ea5872fe320acd59f0d8a8cb367b74cb600da7c005710db",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-normalize-identifier.lil",
+        "bytes": 348,
+        "sha256": "9c605bcd8454ea59378864ba8abfb67315008fbdea73f96e9fb09e76594fe20e",
+        "dependencies": [
+          11
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/symbol/values.lil",
+        "bytes": 3599,
+        "sha256": "1aabedd9c760c573fd1ea24d07ae9d35d207bbe61a0ecc62985f0953fc73c3e9",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-sanitize-uri.lil",
+        "bytes": 2091,
+        "sha256": "da6043576a04ddf90feaba7cac240090be8800197982ff6182ad35d33875d5d1",
+        "dependencies": [
+          13,
+          9
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-character.lil",
+        "bytes": 1611,
+        "sha256": "634af98913dfb47ab2fcdf6fd17e2b4733bc26608f78609e110ce0d33bdf4a15",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/parse.lil",
+        "bytes": 1180,
+        "sha256": "b036c2932912ef350c629c126601292bda49caab2a0152d77988dcb979481d83",
+        "dependencies": [
+          5,
+          15,
+          17,
+          19,
+          21,
+          28,
+          29
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/create-tokenizer.lil",
+        "bytes": 11602,
+        "sha256": "1d3867146b85b266e73041f8732e06e3462da180869c31107254ff9121844838",
+        "dependencies": [
+          3,
+          13,
+          4,
+          16
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-resolve-all.lil",
+        "bytes": 432,
+        "sha256": "d7df6ed1af3b6b922a3f3150f0fc8f94cf4f38852f32819513c56a5a0c546a74",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/initialize/content.lil",
+        "bytes": 1869,
+        "sha256": "3f4959b21c63be2570bbc74960af330e4b6a9646fbb348cef55300baabff2d45",
+        "dependencies": [
+          3,
+          18,
+          13
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/factory-space.lil",
+        "bytes": 1871,
+        "sha256": "10e2f534df5fd967981552355489c5540dd7f66f05da8e18b1aae8f0f009c6c3",
+        "dependencies": [
+          13
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/initialize/document.lil",
+        "bytes": 8489,
+        "sha256": "131e9ea079af0550bb72bfe044e8d4f1865f8145223fd2a140ac876fd512a6ed",
+        "dependencies": [
+          3,
+          18,
+          13,
+          20
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-edit-map.lil",
+        "bytes": 2243,
+        "sha256": "e3c8260f5d93c40adf0423ae85ae6f24508aba764eafb850b509eb83301bf16b",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/initialize/flow.lil",
+        "bytes": 1333,
+        "sha256": "4ed3a38963b8557e3d1cf818ad7ba0f9bcd3f90c2268f91962891ec3fb14f1e7",
+        "dependencies": [
+          3,
+          18,
+          22,
+          24
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/blank-line.lil",
+        "bytes": 855,
+        "sha256": "115d2dcacdf715b02efce52caac3960d5b855939a68dc0a20817491e8b1194b0",
+        "dependencies": [
+          18,
+          13,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/symbol/types.lil",
+        "bytes": 10985,
+        "sha256": "6ae172165319ad71396ca532ec544326d82d9625f8ee46090d02a587e40c1aa8",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/content.lil",
+        "bytes": 3353,
+        "sha256": "05cc704bd51c0eaf8b9740bd243bbd92842e77a0c6d0372834c76d42ca6a7620",
+        "dependencies": [
+          18,
+          13,
+          25,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-subtokenize.lil",
+        "bytes": 6388,
+        "sha256": "2b22576838b22844e1b6d793a4ee542deb73a396ae594b53ce1d9550ff0fe69a",
+        "dependencies": [
+          3,
+          4,
+          26
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/splice-buffer.lil",
+        "bytes": 4341,
+        "sha256": "9fcce40f739a2119a7bb0b44ad7ec6c69344173854feedef3e528d168102f512",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/symbol/constants.lil",
+        "bytes": 2986,
+        "sha256": "c89476d798ffe1eb1f9843219c41cd1d19849707ceb9fc18d5583b5ae2470188",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/initialize/text.lil",
+        "bytes": 5448,
+        "sha256": "7c8c3a049cf8dad9477ada4ee1a2273b7e3c794ed48cee89c2d3247fd39e77ce",
+        "dependencies": [
+          3,
+          20
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/constructs.lil",
+        "bytes": 2829,
+        "sha256": "74cb525c1651cc300f78f4770c648d3593c4e2dc3f4a45351e459b29be14d84a",
+        "dependencies": [
+          30,
+          33,
+          34,
+          35,
+          36,
+          37,
+          39,
+          40,
+          41,
+          46,
+          47,
+          48,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          57,
+          56,
+          28
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/attention.lil",
+        "bytes": 6792,
+        "sha256": "353412e5f9a0e04a7161d290f0119d723c9519f5fbe7336351f1a46ba6ef1acc",
+        "dependencies": [
+          4,
+          31,
+          16,
+          32,
+          27,
+          23,
+          3
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-classify-character.lil",
+        "bytes": 574,
+        "sha256": "80373b35201103ddfd5b5a942d97e1ab492fee40858c395d9e9113d2255d4477",
+        "dependencies": [
+          13,
+          27
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/symbol/codes.lil",
+        "bytes": 6185,
+        "sha256": "762a3e62e1500ba78d71f8218fcb2e7e357ea3795d21bb5e81b8d4287f513c19",
+        "dependencies": [
+          3
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/autolink.lil",
+        "bytes": 4541,
+        "sha256": "97e7eb8b4b33f23df8600b7d811b5cfbbb8df23bfc01dfa25fb528a085d55703",
+        "dependencies": [
+          13,
+          32,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/block-quote.lil",
+        "bytes": 2637,
+        "sha256": "eae45318d2972f4be0fd616cb243d59dd366cb61209b13796d651cfc8297ab49",
+        "dependencies": [
+          18,
+          13,
+          32,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/character-escape.lil",
+        "bytes": 1021,
+        "sha256": "20193c0809adfe18e77d04a7a782ad437d912f3de997a402930af8e46031c6ab",
+        "dependencies": [
+          13,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/character-reference.lil",
+        "bytes": 3258,
+        "sha256": "b355201b60833cf854ca7328b4cd1a9d405ae491b4d1b5a70178313c8c16c71a",
+        "dependencies": [
+          6,
+          13,
+          32,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/code-fenced.lil",
+        "bytes": 8592,
+        "sha256": "fbf73e900a6ec1c4e65bd5ad337cf9e265cc09ed58a109a6d5af3681ba04dc3f",
+        "dependencies": [
+          18,
+          13,
+          32,
+          27,
+          38,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/partial-non-lazy-continuation.lil",
+        "bytes": 938,
+        "sha256": "5af2c36e199564378933b8c17cdd4216891c1b88b0359e0a2a244419745bd721",
+        "dependencies": [
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/code-indented.lil",
+        "bytes": 2691,
+        "sha256": "0c425be55062ae56586da36fadf63199832686073abadb34d5dcb3eaba4113c3",
+        "dependencies": [
+          18,
+          13,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/code-text.lil",
+        "bytes": 4856,
+        "sha256": "d35e0cdd7e33ae98579152b3114a826ff43fe69b3802b9e9db7c58fae8ee4388",
+        "dependencies": [
+          13,
+          32,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/definition.lil",
+        "bytes": 4776,
+        "sha256": "38becb049d8509a9239480090acf683d90d24ad4ef4e8b35f14e92c326788011",
+        "dependencies": [
+          42,
+          43,
+          18,
+          44,
+          45,
+          13,
+          10,
+          32,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/factory-destination.lil",
+        "bytes": 4413,
+        "sha256": "5be6c3c02bacd604c1501b85b6785602ed8b447a85679f85e6ee7351964bb161",
+        "dependencies": [
+          13,
+          32,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/factory-label.lil",
+        "bytes": 2994,
+        "sha256": "6376115906bbfbce66d13f0a50ff3b921922135b18b6e66d290eb0b54221f21d",
+        "dependencies": [
+          13,
+          32,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/factory-title.lil",
+        "bytes": 2913,
+        "sha256": "f22c5e3e9919b86b7f2e0cc8b38f6cc1182e88917c9f3fcb61cbdba56404a07c",
+        "dependencies": [
+          18,
+          13,
+          32,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/factory-whitespace.lil",
+        "bytes": 841,
+        "sha256": "e63b322526936f7e746978a4a3e6d56b315dcd01bde6732cf9d94bfb93845d36",
+        "dependencies": [
+          18,
+          13,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/hard-break-escape.lil",
+        "bytes": 763,
+        "sha256": "92b8a9e28270f61184e6572a8e0640c33f7fbd163c24dde1255d7211e7ca0b2a",
+        "dependencies": [
+          13,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/heading-atx.lil",
+        "bytes": 4166,
+        "sha256": "9d2fd673aab15d904d2b876aa66e7c92ac30c14f8b838ea34b58d4af0f9d269c",
+        "dependencies": [
+          18,
+          13,
+          4,
+          32,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/html-flow.lil",
+        "bytes": 15826,
+        "sha256": "c281af2ed8e0cbf2acdaac9f6f2be7e5ef5da63d07c9acc309f96511516d3587",
+        "dependencies": [
+          13,
+          49,
+          32,
+          32,
+          27,
+          23,
+          22,
+          38
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-html-tag-name.lil",
+        "bytes": 475,
+        "sha256": "db2a6d54b5cbdbc8273a776f7b609fb2ed9b90f87242c1d26801ef11771b0380",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/html-text.lil",
+        "bytes": 12529,
+        "sha256": "1e386a681a07b86327fc72dd7735683e86367f0a183a817976a302c0b3da26fa",
+        "dependencies": [
+          18,
+          13,
+          32,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/label-end.lil",
+        "bytes": 11909,
+        "sha256": "458a5430025df6d45ea1d75e645d6d1aeda9b985118f30d34336fc5e5f4fcc1f",
+        "dependencies": [
+          42,
+          43,
+          44,
+          45,
+          13,
+          4,
+          10,
+          16,
+          32,
+          27,
+          23,
+          3
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/label-start-image.lil",
+        "bytes": 1588,
+        "sha256": "93c9f78c05ccb6f61784e976eda38b88151e28f7ecb4e94e6b40cb4855a19f58",
+        "dependencies": [
+          32,
+          23,
+          51
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/label-start-link.lil",
+        "bytes": 1204,
+        "sha256": "c44bd16f9b0c8c5e447b80c86e6957fcbd1ea118e591532ee9890971c48093b0",
+        "dependencies": [
+          32,
+          23,
+          51
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/line-ending.lil",
+        "bytes": 577,
+        "sha256": "a448ed6a6485a776f3e67941bebef001cdbe486f23bdfd4664842178973d39be",
+        "dependencies": [
+          18,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/list.lil",
+        "bytes": 8247,
+        "sha256": "3a8e976a8a6ccdc8330f26561caa457040ecf0c2d86773551abc505180ef4119",
+        "dependencies": [
+          18,
+          13,
+          32,
+          27,
+          23,
+          22,
+          56
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/thematic-break.lil",
+        "bytes": 1755,
+        "sha256": "5776bda5a2850218bd3c4c9fdc796d46c8979b2deac17c7e19376c6816a54313",
+        "dependencies": [
+          18,
+          13,
+          27,
+          23
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/core/setext-underline.lil",
+        "bytes": 4044,
+        "sha256": "d0de9d01945e3ef6e84aa15a45fdb5f93d3be2301fe8865c0c950d49358029a7",
+        "dependencies": [
+          18,
+          13,
+          23,
+          3,
+          20
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/postprocess.lil",
+        "bytes": 156,
+        "sha256": "0ea578b00bed09960e8f9c2d06f962b9e626fec4a528beaba4be30f2c5c50b31",
+        "dependencies": [
+          25
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/preprocess.lil",
+        "bytes": 2259,
+        "sha256": "ce28b92f70b3bd54428324b0f6695ca162aa5df1d2e0f431fde1f8ef4638e9b8",
+        "dependencies": [],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/stream.lil",
+        "bytes": 4331,
+        "sha256": "a2ce9095d1c1dc1647a95c449f95bda3f2a193b95bc76b70abc4487d963acd1c",
+        "dependencies": [
+          2,
+          14,
+          58,
+          59
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/test/support.lil",
+        "bytes": 604,
+        "sha256": "86f17d7c0babb477ba3379947649baa0ba1e6f6130f433c5507fa2b98d9a4b9b",
+        "dependencies": [
+          26,
+          27,
+          4,
+          62,
+          49
+        ],
+        "dynamic_dependencies": []
+      },
+      {
+        "path": "/home/azureuser/lilscript-rebuild-reports/2026-10-03-site-refresh/ports/micromarklil/src/util-decode-string.lil",
+        "bytes": 966,
+        "sha256": "8c6f5d3861540910506049207a9416e7d4e62266edaab709727838dffa9dd340",
+        "dependencies": [
+          6,
+          8
+        ],
+        "dynamic_dependencies": []
+      }
+    ],
+    "host_modules": [],
+    "host_reserved": []
+  },
+  "outputs": [
+    {
+      "mode": "single",
+      "format": "esm",
+      "entries": [
+        {
+          "name": "browser",
+          "file": "micromark.esm.js",
+          "dynamic": false,
+          "closure": [
+            "micromark.esm.js"
+          ],
+          "row": 22144,
+          "raw_row": 66457
+        }
+      ],
+      "files": [
+        {
+          "file": "micromark.esm.js",
+          "role": "entry",
+          "source_map_for": null,
+          "label": [
+            "browser"
+          ],
+          "modules": [
+            "browser.lil",
+            "index.lil",
+            "compile.lil",
+            "host.lil",
+            "util-chunked.lil",
+            "util-combine-extensions.lil",
+            "decode-named.lil",
+            "character-entities.lil",
+            "util-decode-numeric-character-reference.lil",
+            "util-encode.lil",
+            "util-normalize-identifier.lil",
+            "symbol/values.lil",
+            "util-sanitize-uri.lil",
+            "util-character.lil",
+            "parse.lil",
+            "create-tokenizer.lil",
+            "util-resolve-all.lil",
+            "initialize/content.lil",
+            "factory-space.lil",
+            "initialize/document.lil",
+            "util-edit-map.lil",
+            "initialize/flow.lil",
+            "core/blank-line.lil",
+            "symbol/types.lil",
+            "core/content.lil",
+            "util-subtokenize.lil",
+            "splice-buffer.lil",
+            "symbol/constants.lil",
+            "initialize/text.lil",
+            "constructs.lil",
+            "core/attention.lil",
+            "util-classify-character.lil",
+            "symbol/codes.lil",
+            "core/autolink.lil",
+            "core/block-quote.lil",
+            "core/character-escape.lil",
+            "core/character-reference.lil",
+            "core/code-fenced.lil",
+            "core/partial-non-lazy-continuation.lil",
+            "core/code-indented.lil",
+            "core/code-text.lil",
+            "core/definition.lil",
+            "factory-destination.lil",
+            "factory-label.lil",
+            "factory-title.lil",
+            "factory-whitespace.lil",
+            "core/hard-break-escape.lil",
+            "core/heading-atx.lil",
+            "core/html-flow.lil",
+            "util-html-tag-name.lil",
+            "core/html-text.lil",
+            "core/label-end.lil",
+            "core/label-start-image.lil",
+            "core/label-start-link.lil",
+            "core/line-ending.lil",
+            "core/list.lil",
+            "core/thematic-break.lil",
+            "core/setext-underline.lil",
+            "postprocess.lil",
+            "preprocess.lil",
+            "stream.lil",
+            "../test/support.lil",
+            "util-decode-string.lil"
+          ],
+          "anchored": true,
+          "imports": [],
+          "dynamic_imports": [],
+          "bytes": 66457,
+          "codec_bytes": 22144,
+          "sha256": "aef348ab5db52a42c43d6330bed037cb1a3ac12ecff0329ac5532e7e024a48b9"
+        }
+      ],
+      "side_effects": [
+        "micromark.esm.js"
+      ],
+      "codec_total": 22144,
+      "rows_total": 22144,
+      "setters": 0,
+      "output": "primary",
+      "codec": "brotli",
+      "codec_settings": {
+        "brotli": {
+          "quality": 11,
+          "window": 22,
+          "mode": "generic"
+        },
+        "gzip": {
+          "level": 9,
+          "window": 15
+        }
+      },
+      "policy_fingerprint": [
+        22,
+        135,
+        224,
+        211,
+        79,
+        21,
+        161,
+        112,
+        165,
+        85,
+        1,
+        73,
+        116,
+        26,
+        246,
+        0,
+        193,
+        225,
+        209,
+        83,
+        188,
+        10,
+        239,
+        112,
+        59,
+        204,
+        73,
+        237,
+        6,
+        107,
+        98,
+        249
+      ]
+    },
+    {
+      "mode": "single",
+      "format": "iife",
+      "entries": [
+        {
+          "name": "browser",
+          "file": "micromark.umd.js",
+          "dynamic": false,
+          "closure": [
+            "micromark.umd.js"
+          ],
+          "row": 22219,
+          "raw_row": 66840
+        }
+      ],
+      "files": [
+        {
+          "file": "micromark.umd.js",
+          "role": "entry",
+          "source_map_for": null,
+          "label": [
+            "browser"
+          ],
+          "modules": [
+            "index.lil",
+            "compile.lil",
+            "host.lil",
+            "util-chunked.lil",
+            "util-combine-extensions.lil",
+            "decode-named.lil",
+            "character-entities.lil",
+            "util-decode-numeric-character-reference.lil",
+            "util-encode.lil",
+            "util-normalize-identifier.lil",
+            "symbol/values.lil",
+            "util-sanitize-uri.lil",
+            "util-character.lil",
+            "parse.lil",
+            "create-tokenizer.lil",
+            "util-resolve-all.lil",
+            "initialize/content.lil",
+            "factory-space.lil",
+            "initialize/document.lil",
+            "util-edit-map.lil",
+            "initialize/flow.lil",
+            "core/blank-line.lil",
+            "symbol/types.lil",
+            "core/content.lil",
+            "util-subtokenize.lil",
+            "splice-buffer.lil",
+            "symbol/constants.lil",
+            "initialize/text.lil",
+            "constructs.lil",
+            "core/attention.lil",
+            "util-classify-character.lil",
+            "core/autolink.lil",
+            "core/block-quote.lil",
+            "core/character-escape.lil",
+            "core/character-reference.lil",
+            "core/code-fenced.lil",
+            "core/partial-non-lazy-continuation.lil",
+            "core/code-indented.lil",
+            "core/code-text.lil",
+            "core/definition.lil",
+            "factory-destination.lil",
+            "factory-label.lil",
+            "factory-title.lil",
+            "factory-whitespace.lil",
+            "core/hard-break-escape.lil",
+            "core/heading-atx.lil",
+            "core/html-flow.lil",
+            "util-html-tag-name.lil",
+            "core/html-text.lil",
+            "core/label-end.lil",
+            "core/label-start-image.lil",
+            "core/label-start-link.lil",
+            "core/line-ending.lil",
+            "core/list.lil",
+            "core/thematic-break.lil",
+            "core/setext-underline.lil",
+            "postprocess.lil",
+            "preprocess.lil"
+          ],
+          "anchored": true,
+          "imports": [],
+          "dynamic_imports": [],
+          "bytes": 66840,
+          "codec_bytes": 22219,
+          "sha256": "a22a44a307a49058783f2e3323ccffa52574eb94099486cf0ca3b51ce8a44528"
+        }
+      ],
+      "side_effects": [
+        "micromark.umd.js"
+      ],
+      "codec_total": 22219,
+      "rows_total": 22219,
+      "setters": 0,
+      "output": "browser",
+      "codec": "brotli",
+      "codec_settings": {
+        "brotli": {
+          "quality": 11,
+          "window": 22,
+          "mode": "generic"
+        },
+        "gzip": {
+          "level": 9,
+          "window": 15
+        }
+      },
+      "policy_fingerprint": [
+        25,
+        229,
+        135,
+        190,
+        31,
+        38,
+        50,
+        233,
+        95,
+        57,
+        29,
+        227,
+        156,
+        219,
+        199,
+        176,
+        165,
+        180,
+        178,
+        212,
+        13,
+        68,
+        66,
+        224,
+        50,
+        41,
+        163,
+        230,
+        96,
+        229,
+        217,
+        7
+      ]
+    },
+    {
+      "mode": "single",
+      "format": "cjs",
+      "entries": [
+        {
+          "name": "micromark",
+          "file": "micromark.cjs",
+          "dynamic": false,
+          "closure": [
+            "micromark.cjs"
+          ],
+          "row": 22227,
+          "raw_row": 66629
+        }
+      ],
+      "files": [
+        {
+          "file": "micromark.cjs",
+          "role": "entry",
+          "source_map_for": null,
+          "label": [
+            "micromark"
+          ],
+          "modules": [
+            "index.lil",
+            "compile.lil",
+            "host.lil",
+            "util-chunked.lil",
+            "util-combine-extensions.lil",
+            "decode-named.lil",
+            "character-entities.lil",
+            "util-decode-numeric-character-reference.lil",
+            "util-encode.lil",
+            "util-normalize-identifier.lil",
+            "symbol/values.lil",
+            "util-sanitize-uri.lil",
+            "util-character.lil",
+            "parse.lil",
+            "create-tokenizer.lil",
+            "util-resolve-all.lil",
+            "initialize/content.lil",
+            "factory-space.lil",
+            "initialize/document.lil",
+            "util-edit-map.lil",
+            "initialize/flow.lil",
+            "core/blank-line.lil",
+            "symbol/types.lil",
+            "core/content.lil",
+            "util-subtokenize.lil",
+            "splice-buffer.lil",
+            "symbol/constants.lil",
+            "initialize/text.lil",
+            "constructs.lil",
+            "core/attention.lil",
+            "util-classify-character.lil",
+            "core/autolink.lil",
+            "core/block-quote.lil",
+            "core/character-escape.lil",
+            "core/character-reference.lil",
+            "core/code-fenced.lil",
+            "core/partial-non-lazy-continuation.lil",
+            "core/code-indented.lil",
+            "core/code-text.lil",
+            "core/definition.lil",
+            "factory-destination.lil",
+            "factory-label.lil",
+            "factory-title.lil",
+            "factory-whitespace.lil",
+            "core/hard-break-escape.lil",
+            "core/heading-atx.lil",
+            "core/html-flow.lil",
+            "util-html-tag-name.lil",
+            "core/html-text.lil",
+            "core/label-end.lil",
+            "core/label-start-image.lil",
+            "core/label-start-link.lil",
+            "core/line-ending.lil",
+            "core/list.lil",
+            "core/thematic-break.lil",
+            "core/setext-underline.lil",
+            "postprocess.lil",
+            "preprocess.lil"
+          ],
+          "anchored": true,
+          "imports": [],
+          "dynamic_imports": [],
+          "bytes": 66629,
+          "codec_bytes": 22227,
+          "sha256": "ef525dec71ed4ca5cba0e5f7a650fc3212f2b92a82ad5de48cdc21e27b76dbd4"
+        }
+      ],
+      "side_effects": [
+        "micromark.cjs"
+      ],
+      "codec_total": 22227,
+      "rows_total": 22227,
+      "setters": 0,
+      "output": "cjs",
+      "codec": "brotli",
+      "codec_settings": {
+        "brotli": {
+          "quality": 11,
+          "window": 22,
+          "mode": "generic"
+        },
+        "gzip": {
+          "level": 9,
+          "window": 15
+        }
+      },
+      "policy_fingerprint": [
+        168,
+        119,
+        60,
+        30,
+        19,
+        73,
+        202,
+        252,
+        214,
+        129,
+        225,
+        241,
+        32,
+        159,
+        233,
+        219,
+        196,
+        96,
+        140,
+        176,
+        114,
+        134,
+        87,
+        212,
+        78,
+        20,
+        160,
+        86,
+        145,
+        66,
+        19,
+        218
+      ]
+    },
+    {
+      "mode": "single",
+      "format": "esm",
+      "entries": [
+        {
+          "name": "stream",
+          "file": "micromark.stream.js",
+          "dynamic": false,
+          "closure": [
+            "micromark.stream.js"
+          ],
+          "row": 22427,
+          "raw_row": 67629
+        }
+      ],
+      "files": [
+        {
+          "file": "micromark.stream.js",
+          "role": "entry",
+          "source_map_for": null,
+          "label": [
+            "stream"
+          ],
+          "modules": [
+            "compile.lil",
+            "host.lil",
+            "util-chunked.lil",
+            "util-combine-extensions.lil",
+            "decode-named.lil",
+            "character-entities.lil",
+            "util-decode-numeric-character-reference.lil",
+            "util-encode.lil",
+            "util-normalize-identifier.lil",
+            "symbol/values.lil",
+            "util-sanitize-uri.lil",
+            "util-character.lil",
+            "parse.lil",
+            "create-tokenizer.lil",
+            "util-resolve-all.lil",
+            "initialize/content.lil",
+            "factory-space.lil",
+            "initialize/document.lil",
+            "util-edit-map.lil",
+            "initialize/flow.lil",
+            "core/blank-line.lil",
+            "symbol/types.lil",
+            "core/content.lil",
+            "util-subtokenize.lil",
+            "splice-buffer.lil",
+            "symbol/constants.lil",
+            "initialize/text.lil",
+            "constructs.lil",
+            "core/attention.lil",
+            "util-classify-character.lil",
+            "core/autolink.lil",
+            "core/block-quote.lil",
+            "core/character-escape.lil",
+            "core/character-reference.lil",
+            "core/code-fenced.lil",
+            "core/partial-non-lazy-continuation.lil",
+            "core/code-indented.lil",
+            "core/code-text.lil",
+            "core/definition.lil",
+            "factory-destination.lil",
+            "factory-label.lil",
+            "factory-title.lil",
+            "factory-whitespace.lil",
+            "core/hard-break-escape.lil",
+            "core/heading-atx.lil",
+            "core/html-flow.lil",
+            "util-html-tag-name.lil",
+            "core/html-text.lil",
+            "core/label-end.lil",
+            "core/label-start-image.lil",
+            "core/label-start-link.lil",
+            "core/line-ending.lil",
+            "core/list.lil",
+            "core/thematic-break.lil",
+            "core/setext-underline.lil",
+            "postprocess.lil",
+            "preprocess.lil",
+            "stream.lil",
+            "module-63"
+          ],
+          "anchored": true,
+          "imports": [],
+          "dynamic_imports": [],
+          "bytes": 67629,
+          "codec_bytes": 22427,
+          "sha256": "997d16ca980e647fe198ae0d4b89127aafed3b9e7644c42a7280c58c8605da8e"
+        }
+      ],
+      "side_effects": [
+        "micromark.stream.js"
+      ],
+      "codec_total": 22427,
+      "rows_total": 22427,
+      "setters": 0,
+      "output": "stream",
+      "codec": "brotli",
+      "codec_settings": {
+        "brotli": {
+          "quality": 11,
+          "window": 22,
+          "mode": "generic"
+        },
+        "gzip": {
+          "level": 9,
+          "window": 15
+        }
+      },
+      "policy_fingerprint": [
+        119,
+        88,
+        186,
+        254,
+        177,
+        144,
+        92,
+        136,
+        156,
+        132,
+        50,
+        57,
+        175,
+        4,
+        196,
+        69,
+        205,
+        218,
+        122,
+        164,
+        59,
+        175,
+        153,
+        144,
+        216,
+        166,
+        214,
+        146,
+        165,
+        101,
+        151,
+        116
+      ]
+    },
+    {
+      "mode": "single",
+      "format": "cjs",
+      "entries": [
+        {
+          "name": "stream",
+          "file": "micromark.stream.cjs",
+          "dynamic": false,
+          "closure": [
+            "micromark.stream.cjs"
+          ],
+          "row": 22498,
+          "raw_row": 67638
+        }
+      ],
+      "files": [
+        {
+          "file": "micromark.stream.cjs",
+          "role": "entry",
+          "source_map_for": null,
+          "label": [
+            "stream"
+          ],
+          "modules": [
+            "compile.lil",
+            "host.lil",
+            "util-chunked.lil",
+            "util-combine-extensions.lil",
+            "decode-named.lil",
+            "character-entities.lil",
+            "util-decode-numeric-character-reference.lil",
+            "util-encode.lil",
+            "util-normalize-identifier.lil",
+            "symbol/values.lil",
+            "util-sanitize-uri.lil",
+            "util-character.lil",
+            "parse.lil",
+            "create-tokenizer.lil",
+            "util-resolve-all.lil",
+            "initialize/content.lil",
+            "factory-space.lil",
+            "initialize/document.lil",
+            "util-edit-map.lil",
+            "initialize/flow.lil",
+            "core/blank-line.lil",
+            "symbol/types.lil",
+            "core/content.lil",
+            "util-subtokenize.lil",
+            "splice-buffer.lil",
+            "symbol/constants.lil",
+            "initialize/text.lil",
+            "constructs.lil",
+            "core/attention.lil",
+            "util-classify-character.lil",
+            "core/autolink.lil",
+            "core/block-quote.lil",
+            "core/character-escape.lil",
+            "core/character-reference.lil",
+            "core/code-fenced.lil",
+            "core/partial-non-lazy-continuation.lil",
+            "core/code-indented.lil",
+            "core/code-text.lil",
+            "core/definition.lil",
+            "factory-destination.lil",
+            "factory-label.lil",
+            "factory-title.lil",
+            "factory-whitespace.lil",
+            "core/hard-break-escape.lil",
+            "core/heading-atx.lil",
+            "core/html-flow.lil",
+            "util-html-tag-name.lil",
+            "core/html-text.lil",
+            "core/label-end.lil",
+            "core/label-start-image.lil",
+            "core/label-start-link.lil",
+            "core/line-ending.lil",
+            "core/list.lil",
+            "core/thematic-break.lil",
+            "core/setext-underline.lil",
+            "postprocess.lil",
+            "preprocess.lil",
+            "stream.lil",
+            "module-63"
+          ],
+          "anchored": true,
+          "imports": [],
+          "dynamic_imports": [],
+          "bytes": 67638,
+          "codec_bytes": 22498,
+          "sha256": "0a5dfbcb2af2b2c0b31270e281b5780ee30abc117f94c913bc2c66854b907424"
+        }
+      ],
+      "side_effects": [
+        "micromark.stream.cjs"
+      ],
+      "codec_total": 22498,
+      "rows_total": 22498,
+      "setters": 0,
+      "output": "stream-cjs",
+      "codec": "brotli",
+      "codec_settings": {
+        "brotli": {
+          "quality": 11,
+          "window": 22,
+          "mode": "generic"
+        },
+        "gzip": {
+          "level": 9,
+          "window": 15
+        }
+      },
+      "policy_fingerprint": [
+        235,
+        199,
+        75,
+        126,
+        97,
+        9,
+        112,
+        219,
+        154,
+        153,
+        179,
+        55,
+        64,
+        36,
+        254,
+        117,
+        61,
+        215,
+        180,
+        23,
+        198,
+        156,
+        186,
+        76,
+        242,
+        251,
+        13,
+        2,
+        30,
+        251,
+        126,
+        45
+      ]
+    },
+    {
+      "mode": "single",
+      "format": "esm",
+      "entries": [
+        {
+          "name": "browser",
+          "file": "micromark.test.js",
+          "dynamic": false,
+          "closure": [
+            "micromark.test.js"
+          ],
+          "row": 10119,
+          "raw_row": 24235
+        }
+      ],
+      "files": [
+        {
+          "file": "micromark.test.js",
+          "role": "entry",
+          "source_map_for": null,
+          "label": [
+            "browser"
+          ],
+          "modules": [
+            "browser.lil",
+            "index.lil",
+            "compile.lil",
+            "host.lil",
+            "util-chunked.lil",
+            "util-combine-extensions.lil",
+            "decode-named.lil",
+            "character-entities.lil",
+            "util-decode-numeric-character-reference.lil",
+            "util-encode.lil",
+            "util-normalize-identifier.lil",
+            "symbol/values.lil",
+            "util-sanitize-uri.lil",
+            "util-character.lil",
+            "parse.lil",
+            "create-tokenizer.lil",
+            "util-resolve-all.lil",
+            "initialize/content.lil",
+            "factory-space.lil",
+            "initialize/document.lil",
+            "util-edit-map.lil",
+            "initialize/flow.lil",
+            "core/blank-line.lil",
+            "symbol/types.lil",
+            "core/content.lil",
+            "util-subtokenize.lil",
+            "splice-buffer.lil",
+            "symbol/constants.lil",
+            "initialize/text.lil",
+            "constructs.lil",
+            "core/attention.lil",
+            "util-classify-character.lil",
+            "symbol/codes.lil",
+            "core/autolink.lil",
+            "core/block-quote.lil",
+            "core/character-escape.lil",
+            "core/character-reference.lil",
+            "core/code-fenced.lil",
+            "core/partial-non-lazy-continuation.lil",
+            "core/code-indented.lil",
+            "core/code-text.lil",
+            "core/definition.lil",
+            "factory-destination.lil",
+            "factory-label.lil",
+            "factory-title.lil",
+            "factory-whitespace.lil",
+            "core/hard-break-escape.lil",
+            "core/heading-atx.lil",
+            "core/html-flow.lil",
+            "util-html-tag-name.lil",
+            "core/html-text.lil",
+            "core/label-end.lil",
+            "core/label-start-image.lil",
+            "core/label-start-link.lil",
+            "core/line-ending.lil",
+            "core/list.lil",
+            "core/thematic-break.lil",
+            "core/setext-underline.lil",
+            "postprocess.lil",
+            "preprocess.lil",
+            "stream.lil",
+            "../test/support.lil",
+            "util-decode-string.lil"
+          ],
+          "anchored": true,
+          "imports": [],
+          "dynamic_imports": [],
+          "bytes": 24235,
+          "codec_bytes": 10119,
+          "sha256": "820c9d39648361c78277364c79f0aa651002b379293c223079f960716036cfa7"
+        }
+      ],
+      "side_effects": [
+        "micromark.test.js"
+      ],
+      "codec_total": 10119,
+      "rows_total": 10119,
+      "setters": 0,
+      "output": "test",
+      "codec": "brotli",
+      "codec_settings": {
+        "brotli": {
+          "quality": 11,
+          "window": 22,
+          "mode": "generic"
+        },
+        "gzip": {
+          "level": 9,
+          "window": 15
+        }
+      },
+      "policy_fingerprint": [
+        177,
+        12,
+        20,
+        34,
+        119,
+        241,
+        188,
+        160,
+        20,
+        98,
+        246,
+        25,
+        37,
+        111,
+        136,
+        43,
+        185,
+        193,
+        253,
+        68,
+        221,
+        16,
+        146,
+        175,
+        178,
+        251,
+        209,
+        144,
+        120,
+        15,
+        148,
+        195
+      ]
+    }
+  ]
+}

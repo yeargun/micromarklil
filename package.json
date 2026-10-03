@@ -58,7 +58,17 @@
     "NOTICE.md",
     "README.md"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "./dist/micromark.cjs",
+    "./dist/micromark.closed.js",
+    "./dist/micromark.esm.js",
+    "./dist/micromark.raw.js",
+    "./dist/micromark.stream.cjs",
+    "./dist/micromark.stream.js",
+    "./dist/micromark.stream.raw.js",
+    "./dist/micromark.test.js",
+    "./dist/micromark.umd.js"
+  ],
   "engines": {
     "node": ">=18"
   },

@@ -1,4 +1,4 @@
-import { TokenizerPoint, TokenizerToken, asList, copyPoint, isEof, undef } from "./host.lil";
+import { Point, Token, asList, copyPoint, isEof, undef } from "./host.lil";
 import { markdownLineEnding } from "./util-character.lil";
 import { pushAll, splice } from "./util-chunked.lil";
 import { resolveAll } from "./util-resolve-all.lil";
@@ -7,7 +7,7 @@ extern JsValue Object;
 extern JsValue Array;
 extern JsValue String;
 
-JsValue sliceChunks(JsValue chunks, TokenizerToken token) {
+JsValue sliceChunks(JsValue chunks, Token token) {
   float startIndex = token.start._index;
   float startBufferIndex = token.start._bufferIndex;
   float endIndex = token.end._index;
@@ -63,7 +63,7 @@ JsValue serializeChunks(JsValue chunks, JsValue expandTabs) {
 }
 
 export JsValue createTokenizer(JsValue parser, JsValue initialize, JsValue from) {
-  TokenizerPoint point = JS.assume(JS.object(
+  Point point = JS.assume(JS.object(
     "_bufferIndex", -1,
     "_index", 0,
     "line", JS.or(JS.and(from, JS.get(from, "line")), 1),

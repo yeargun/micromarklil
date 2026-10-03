@@ -1,5 +1,4 @@
 import './chunked-splice.js'
 import './decode-string.js'
-import './edit-map.js'
 import './slice-chunks.js'
 import './splice-buffer.js'
